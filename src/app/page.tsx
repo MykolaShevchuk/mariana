@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import ProjectCard from './components/ProjectCard';
+import Tag from './components/Tag';
 
 export default function Home() {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -12,7 +13,7 @@ export default function Home() {
 	return (
 		<div className='min-h-screen bg-white'>
 			{/* Navigation */}
-			<nav className='w-full bg-white/80 backdrop-blur-md z-50'>
+			<nav className='w-full bg-gray-50/80 backdrop-blur-md z-50'>
 				<div className='max-w-6xl mx-auto px-6 py-4'>
 					<div className='flex items-center justify-end'>
 						{/* Desktop Navigation */}
@@ -23,8 +24,8 @@ export default function Home() {
 							<a href='#about' className='text-gray-600 hover:text-gray-900 transition-colors'>
 								About
 							</a>
-							<a href='#process' className='text-gray-600 hover:text-gray-900 transition-colors'>
-								Process
+							<a href='#experience' className='text-gray-600 hover:text-gray-900 transition-colors'>
+								Experience
 							</a>
 							<a href='#contact' className='text-gray-600 hover:text-gray-900 transition-colors'>
 								Contact
@@ -79,11 +80,11 @@ export default function Home() {
 								About
 							</a>
 							<a
-								href='#process'
+								href='#experience'
 								className='block text-gray-600 hover:text-gray-900 transition-colors'
 								onClick={() => setIsMobileMenuOpen(false)}
 							>
-								Process
+								Experience
 							</a>
 							<a
 								href='#contact'
@@ -98,28 +99,30 @@ export default function Home() {
 			</nav>
 
 			{/* Hero Section */}
-			<section className='pt-12 pb-20 px-6 min-h-screen flex items-center'>
-				<div className='max-w-7xl mx-auto'>
-					<h1 className='text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 mb-8 leading-none tracking-tight'>
-						<span className='block'>Mariana Shevchuk</span>
-						<span className='block text-blue-600'>Product Designer</span>
-					</h1>
-					<p className='text-xl md:text-2xl text-gray-600 mb-16 max-w-3xl leading-relaxed font-light'>
-						I am a UK-based Product Designer with over {yearsOfExperience}+ years of experience in mobile and web, specialising in creating user-centred, consistent, and impactful experiences.
-					</p>
-					<div className='flex flex-col sm:flex-row gap-6'>
-						<a
-							href='#work'
-							className='bg-blue-600 text-white px-10 py-5 rounded-lg hover:bg-blue-700 transition-colors font-medium text-lg'
-						>
-							View My Work
-						</a>
-						<a
-							href='#contact'
-							className='border border-gray-300 text-gray-700 px-10 py-5 rounded-lg hover:bg-gray-50 transition-colors font-medium text-lg'
-						>
-							Get In Touch
-						</a>
+			<section className='pt-12 pb-20 px-6 min-h-screen flex items-center border-b border-gray-200 bg-gray-50'>
+				<div className='max-w-6xl mx-auto'>
+					<div className='text-left'>
+						<h1 className='text-5xl md:text-7xl lg:text-8xl font-medium text-gray-900 mb-8 leading-none tracking-tight' style={{ fontFamily: 'var(--font-lora)' }}>
+							<span className='block'>Mariana Shevchuk</span>
+							<span className='block text-blue-600'>Product Designer</span>
+						</h1>
+						<p className='text-xl md:text-2xl text-gray-600 mb-16 max-w-3xl leading-relaxed font-light'>
+							I am a UK-based Product Designer with over {yearsOfExperience}+ years of experience in mobile and web, specialising in creating user-centred, consistent, and impactful experiences.
+						</p>
+						<div className='flex flex-col sm:flex-row gap-6'>
+							<a
+								href='#work'
+								className='bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-medium text-base'
+							>
+								View My Work
+							</a>
+							<a
+								href='#contact'
+								className='border border-gray-300 text-gray-700 px-8 py-4 rounded-lg hover:bg-gray-50 transition-colors font-medium text-base'
+							>
+								Get In Touch
+							</a>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -174,55 +177,123 @@ export default function Home() {
 
 			{/* About Section */}
 			<section id='about' className='py-20 px-6'>
-				<div className='max-w-4xl mx-auto'>
-					<div className='grid md:grid-cols-2 gap-16 items-center'>
-						<div>
-							<h2 className='text-4xl font-light text-gray-900 mb-6'>About Me</h2>
-							<p className='text-lg text-gray-600 mb-6 leading-relaxed'>
-								With over {yearsOfExperience} years of experience in product design, I&apos;ve had the privilege of working with startups
-								and established companies to create products that users love.
+				<div className='max-w-6xl mx-auto'>
+					<div className='flex flex-col md:flex-row gap-16'>
+						<div className='md:w-1/2'>
+							<div>
+								<h2 className='text-4xl font-light text-gray-900 mb-6'>About Me</h2>
+															<p className='text-lg text-gray-600 mb-6 leading-relaxed'>
+								Product Designer with {yearsOfExperience}+ years&apos; experience creating user-centred digital products across mobile and web. Highly skilled in Figma and an advocate for design systems, having developed one from the ground up using design tokens.
 							</p>
 							<p className='text-lg text-gray-600 mb-6 leading-relaxed'>
-								My approach combines deep user research, strategic thinking, and beautiful execution. I believe that
-								great design happens at the intersection of user needs, business goals, and technical constraints.
+								Collaborative and outcome-focused, with a track record of improving key user journeys and driving measurable impact through close partnership with stakeholders and cross-functional teams. Value the role of research and user insights in informing design decisions.
 							</p>
 							<p className='text-lg text-gray-600 leading-relaxed'>
-								When I&apos;m not designing, you&apos;ll find me exploring new technologies, mentoring junior designers,
-								or hiking in the mountains.
+								Committed to continuous learning, completing at least one professional course each year to expand expertise.
 							</p>
+							</div>
 						</div>
-						<div className='space-y-6'>
+						<div className='md:w-1/2 space-y-6'>
 							<div className='bg-gray-50 p-6 rounded-xl'>
 								<h3 className='text-xl font-medium text-gray-900 mb-3'>Skills</h3>
-								<div className='flex flex-wrap gap-2'>
-									<span className='px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full'>Figma</span>
-									<span className='px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full'>Sketch</span>
-									<span className='px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full'>
-										Adobe Creative Suite
-									</span>
-									<span className='px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full'>Prototyping</span>
-									<span className='px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full'>User Research</span>
-									<span className='px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full'>Design Systems</span>
+								<div className='space-y-8'>
+									<div>
+										<h4 className='font-medium text-gray-800 mb-2'>Design & UX</h4>
+										<div className='flex flex-wrap gap-2'>
+											<Tag>UI Design</Tag>
+											<Tag>UX Design</Tag>
+											<Tag>Interaction Design</Tag>
+											<Tag>Visual Design</Tag>
+											<Tag>Prototyping</Tag>
+											<Tag>Wireframing</Tag>
+										</div>
+									</div>
+									
+									<div>
+										<h4 className='font-medium text-gray-800 mb-2'>Design Systems</h4>
+										<div className='flex flex-wrap gap-2'>
+											<Tag>Design Systems</Tag>
+											<Tag>Component Libraries</Tag>
+											<Tag>Design Tokens</Tag>
+										</div>
+									</div>
+									
+									<div>
+										<h4 className='font-medium text-gray-800 mb-2'>Research & Validation</h4>
+										<div className='flex flex-wrap gap-2'>
+											<Tag>User Research</Tag>
+											<Tag>Usability Testing</Tag>
+											<Tag>Competitor Analysis</Tag>
+											<Tag>A/B Testing</Tag>
+										</div>
+									</div>
+									
+									<div>
+										<h4 className='font-medium text-gray-800 mb-2'>Tools</h4>
+										<div className='flex flex-wrap gap-2'>
+											<Tag>Figma (Advanced)</Tag>
+											<Tag>FigmaJam</Tag>
+											<Tag>Miro</Tag>
+											<Tag>Lovable AI</Tag>
+										</div>
+									</div>
 								</div>
 							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
-							<div className='bg-gray-50 p-6 rounded-xl'>
-								<h3 className='text-xl font-medium text-gray-900 mb-3'>Experience</h3>
-								<div className='space-y-3'>
-									<div>
-										<div className='font-medium text-gray-900'>Senior Product Designer</div>
-										<div className='text-gray-600'>TechCorp • 2021-Present</div>
-									</div>
-									<div>
-										<div className='font-medium text-gray-900'>Product Designer</div>
-										<div className='text-gray-600'>StartupXYZ • 2019-2021</div>
-									</div>
-									<div>
-										<div className='font-medium text-gray-900'>UX Designer</div>
-										<div className='text-gray-600'>DesignAgency • 2017-2019</div>
-									</div>
-								</div>
+			{/* Experience Section */}
+			<section id='experience' className='py-20 bg-gray-50 w-full'>
+				<div className='max-w-6xl mx-auto px-6'>
+					<div className='text-center mb-16'>
+						<h2 className='text-4xl font-light text-gray-900 mb-4'>Professional Experience</h2>
+					</div>
+
+					<div className='grid md:grid-cols-2 gap-8'>
+						<div className='bg-white p-8 rounded-xl shadow-sm border border-gray-100'>
+							<div className='mb-4'>
+								<h3 className='text-xl font-medium text-gray-900 mb-2'>Customer Experience Design Lead</h3>
+								<p className='text-blue-600 font-medium'>Gumtree, London</p>
+								<p className='text-gray-600 text-sm'>July 2025 - Present</p>
 							</div>
+							<p className='text-gray-600 leading-relaxed'>
+								Leading design strategy and creating concepts using Lovable AI and Figma. Ensuring design consistency across all user journeys as a design system guardian, leading UI refreshes, and co-leading strategic workshops with stakeholders.
+							</p>
+						</div>
+
+						<div className='bg-white p-8 rounded-xl shadow-sm border border-gray-100'>
+							<div className='mb-4'>
+								<h3 className='text-xl font-medium text-gray-900 mb-2'>Product Designer</h3>
+								<p className='text-green-600 font-medium'>Gumtree, London</p>
+								<p className='text-gray-600 text-sm'>Sep 2022 - July 2025</p>
+							</div>
+							<p className='text-gray-600 leading-relaxed'>
+								Redesigned mobile and web experiences for Listings journey and Services initiative. Established design system with design tokens, delivered +31.4% uplift in new listings, +9% replies, and received &quot;Make an impact&quot; award.
+							</p>
+						</div>
+
+						<div className='bg-white p-8 rounded-xl shadow-sm border border-gray-100'>
+							<div className='mb-4'>
+								<h3 className='text-xl font-medium text-gray-900 mb-2'>UI/UX Designer</h3>
+								<p className='text-purple-600 font-medium'>LaSoft, Lviv, Ukraine</p>
+								<p className='text-gray-600 text-sm'>Mar 2016 - Sep 2022</p>
+							</div>
+							<p className='text-gray-600 leading-relaxed'>
+								Delivered MVPs and digital products for international clients across consulting, real estate, telecoms, e-commerce, and creative arts. Defined user flows, designed end-to-end experiences, and created comprehensive design documentation.
+							</p>
+						</div>
+
+						<div className='bg-white p-8 rounded-xl shadow-sm border border-gray-100'>
+							<div className='mb-4'>
+								<h3 className='text-xl font-medium text-gray-900 mb-2'>Graphic Designer</h3>
+								<p className='text-orange-600 font-medium'>LaSoft, Lviv, Ukraine</p>
+								<p className='text-gray-600 text-sm'>Mar 2015 - Oct 2015</p>
+							</div>
+							<p className='text-gray-600 leading-relaxed'>
+								Specialized in image vectorization and producing precise, print-ready vector artwork using Adobe Illustrator/Photoshop for international clients, contributing to team growth and workflow improvements.
+							</p>
 						</div>
 					</div>
 				</div>
