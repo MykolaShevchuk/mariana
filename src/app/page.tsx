@@ -166,15 +166,7 @@ export default function Home() {
 							imageAlt='Varia Real Estate Platform showing homepage search interface and property details page with 360° virtual tour capabilities'
 						/>
 
-						<ProjectCard
-							title='E-commerce'
-							subtitle='Platform Redesign'
-							year='2017'
-							description='Designed a comprehensive e-commerce experience that increased conversion rates by 35% and improved mobile usability scores.'
-							skills={['User Research', 'Information Architecture', 'Visual Design']}
-							imageSrc='/outsale.png'
-							imageAlt='E-commerce Platform UI showing modern shopping interface'
-						/>
+
 
 
 					</div>
