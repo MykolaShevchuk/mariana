@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface ProjectCardProps {
   title: string;
   subtitle: string;
@@ -42,10 +44,12 @@ export default function ProjectCard({
             </div>
           </div>
           <div className="lg:w-3/5 h-[700px] flex items-center justify-center relative overflow-hidden">
-            <img
+            <Image
               src={imageSrc}
               alt={imageAlt}
-              className="object-contain w-full h-full"
+              fill
+              className="object-contain"
+              priority={priority}
             />
           </div>
         </div>
