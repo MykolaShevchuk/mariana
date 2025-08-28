@@ -1675,6 +1675,14 @@ body {
     padding-left: 0px;
   }
 
+  .lg\:pl-12 {
+    padding-left: 3rem;
+  }
+
+  .lg\:pl-6 {
+    padding-left: 1.5rem;
+  }
+
   .lg\:text-9xl {
     font-size: 8rem;
     line-height: 1;

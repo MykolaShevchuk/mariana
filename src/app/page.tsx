@@ -138,11 +138,22 @@ export default function Home() {
 						<ProjectCard
 							title='Outsail'
 							subtitle='Vendor Selection Platform'
+							year='2020'
 							description='Designed a comprehensive interface for companies to evaluate and select software vendors. The platform streamlines the selection process with clear workflows, demo preparation tools, and team collaboration features.'
 							skills={['Design Analysis', 'UI Guidelines', 'Visual Design', 'Prototyping', 'Stakeholder Communication']}
 							imageSrc='/outsale.png'
 							imageAlt='Outsail UI - Vendor Selection Platform showing Home dashboard and My Scorecard interface'
 							priority={true}
+						/>
+
+						<ProjectCard
+							title='Varia'
+							subtitle='Real Estate Platform'
+							year='2018'
+							description='Designed a comprehensive real estate platform that untangles the ropes in today&apos;s realtor-centric world by using innovative technology to show properties and bring new user experience. The platform brings transparency into the real estate world and creates more informed decisions for customers while saving time in the process.'
+							skills={['Wireframing', 'UI Guidelines', 'Visual Design', 'Prototyping', 'Communication with stakeholders']}
+							imageSrc='/varia.png'
+							imageAlt='Varia Real Estate Platform showing homepage search interface and property details page with 360° virtual tour capabilities'
 						/>
 
 						<ProjectCard
@@ -154,23 +165,7 @@ export default function Home() {
 							imageAlt='E-commerce Platform UI showing modern shopping interface'
 						/>
 
-						<ProjectCard
-							title='Design System'
-							subtitle='Component Library'
-							description='Built a comprehensive design system that improved design consistency by 80% and reduced development time by 30%.'
-							skills={['Design Systems', 'Component Library', 'Documentation']}
-							imageSrc='/outsale.png'
-							imageAlt='Design System showing component library and guidelines'
-						/>
 
-						<ProjectCard
-							title='Healthcare'
-							subtitle='Dashboard Design'
-							description='Designed an intuitive dashboard for healthcare professionals, improving data accessibility and reducing decision-making time.'
-							skills={['Data Visualization', 'Accessibility', 'User Testing']}
-							imageSrc='/outsale.png'
-							imageAlt='Healthcare Dashboard showing data visualization interface'
-						/>
 					</div>
 				</div>
 			</section>
