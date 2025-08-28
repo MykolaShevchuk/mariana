@@ -80,30 +80,35 @@ export default function Home() {
           </div>
           
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Project 1 */}
+            {/* Project 1 - Outsail */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover-lift">
-              <div className="h-64 bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-                <div className="text-center text-gray-600">
-                  <div className="text-4xl mb-2">📱</div>
-                  <div className="text-sm">Project Screenshot</div>
-                </div>
+              <div className="h-80 bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center relative overflow-hidden">
+                <Image
+                  src="/outsale.png"
+                  alt="Outsail UI - Vendor Selection Platform showing Home dashboard and My Scorecard interface"
+                  fill
+                  className="object-contain"
+                  priority
+                />
               </div>
               <div className="p-8">
-                <h3 className="text-2xl font-medium text-gray-900 mb-3">FinTech Mobile App</h3>
+                <h3 className="text-2xl font-medium text-gray-900 mb-3">Outsail - Vendor Selection Platform</h3>
                 <p className="text-gray-600 mb-4">
-                  Redesigned the user experience for a financial technology platform, improving user engagement by 40% and reducing task completion time by 60%.
+                  Designed a comprehensive interface for companies to evaluate and select software vendors. The platform streamlines the selection process with clear workflows, demo preparation tools, and team collaboration features.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">UX Research</span>
-                  <span className="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">UI Design</span>
-                  <span className="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">Prototyping</span>
+                  <span className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Design Analysis</span>
+                  <span className="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">UI Guidelines</span>
+                  <span className="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">Visual Design</span>
+                  <span className="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">Prototyping</span>
+                  <span className="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full">Stakeholder Communication</span>
                 </div>
               </div>
             </div>
 
             {/* Project 2 */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover-lift">
-              <div className="h-64 bg-gradient-to-br from-green-100 to-blue-100 flex items-center justify-center">
+              <div className="h-80 bg-gradient-to-br from-green-100 to-blue-100 flex items-center justify-center">
                 <div className="text-center text-gray-600">
                   <div className="text-4xl mb-2">💻</div>
                   <div className="text-sm">Project Screenshot</div>
@@ -124,7 +129,7 @@ export default function Home() {
 
             {/* Project 3 */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover-lift">
-              <div className="h-64 bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center">
+              <div className="h-80 bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center">
                 <div className="text-center text-gray-600">
                   <div className="text-4xl mb-2">🎨</div>
                   <div className="text-sm">Project Screenshot</div>
@@ -145,7 +150,7 @@ export default function Home() {
 
             {/* Project 4 */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover-lift">
-              <div className="h-64 bg-gradient-to-br from-orange-100 to-red-100 flex items-center justify-center">
+              <div className="h-80 bg-gradient-to-br from-orange-100 to-red-100 flex items-center justify-center">
                 <div className="text-center text-gray-600">
                   <div className="text-4xl mb-2">🏥</div>
                   <div className="text-sm">Project Screenshot</div>

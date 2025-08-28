@@ -578,6 +578,10 @@ body {
   position: fixed;
 }
 
+.relative {
+  position: relative;
+}
+
 .top-0 {
   top: 0px;
 }
@@ -653,6 +657,10 @@ body {
 
 .h-64 {
   height: 16rem;
+}
+
+.h-80 {
+  height: 20rem;
 }
 
 .max-h-0 {
@@ -917,6 +925,16 @@ body {
 
 .to-red-100 {
   --tw-gradient-to: #fee2e2 var(--tw-gradient-to-position);
+}
+
+.object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .p-2 {
