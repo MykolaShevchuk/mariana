@@ -250,7 +250,7 @@ export default function Home() {
 						<div className='bg-white p-8 rounded-xl shadow-sm border border-gray-100'>
 							<div className='mb-4'>
 								<h3 className='text-xl font-medium text-gray-900 mb-2'>Customer Experience Design Lead</h3>
-								<p className='text-blue-600 font-medium'>Gumtree, London</p>
+								<p className='text-gray-900 font-medium'>Gumtree, London</p>
 								<p className='text-gray-600 text-sm'>July 2025 - Present</p>
 							</div>
 							<p className='text-gray-600 leading-relaxed'>
@@ -261,7 +261,7 @@ export default function Home() {
 						<div className='bg-white p-8 rounded-xl shadow-sm border border-gray-100'>
 							<div className='mb-4'>
 								<h3 className='text-xl font-medium text-gray-900 mb-2'>Product Designer</h3>
-								<p className='text-green-600 font-medium'>Gumtree, London</p>
+								<p className='text-gray-900 font-medium'>Gumtree, London</p>
 								<p className='text-gray-600 text-sm'>Sep 2022 - July 2025</p>
 							</div>
 							<p className='text-gray-600 leading-relaxed'>
@@ -272,7 +272,7 @@ export default function Home() {
 						<div className='bg-white p-8 rounded-xl shadow-sm border border-gray-100'>
 							<div className='mb-4'>
 								<h3 className='text-xl font-medium text-gray-900 mb-2'>UI/UX Designer</h3>
-								<p className='text-purple-600 font-medium'>LaSoft, Lviv, Ukraine</p>
+								<p className='text-gray-900 font-medium'>LaSoft, Lviv, Ukraine</p>
 								<p className='text-gray-600 text-sm'>Mar 2016 - Sep 2022</p>
 							</div>
 							<p className='text-gray-600 leading-relaxed'>
@@ -283,7 +283,7 @@ export default function Home() {
 						<div className='bg-white p-8 rounded-xl shadow-sm border border-gray-100'>
 							<div className='mb-4'>
 								<h3 className='text-xl font-medium text-gray-900 mb-2'>Graphic Designer</h3>
-								<p className='text-orange-600 font-medium'>LaSoft, Lviv, Ukraine</p>
+								<p className='text-gray-900 font-medium'>LaSoft, Lviv, Ukraine</p>
 								<p className='text-gray-600 text-sm'>Mar 2015 - Oct 2015</p>
 							</div>
 							<p className='text-gray-600 leading-relaxed'>
