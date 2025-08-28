@@ -297,38 +297,24 @@ export default function Home() {
 			{/* Contact Section */}
 			<section id='contact' className='py-20 px-6'>
 				<div className='max-w-4xl mx-auto text-center'>
-					<h2 className='text-4xl font-light text-gray-900 mb-6'>Let&apos;s Work Together</h2>
-					<p className='text-xl text-gray-600 mb-12 max-w-2xl mx-auto'>
-						I&apos;m always interested in new opportunities and exciting projects. Whether you have a question or just
-						want to say hi, I&apos;d love to hear from you.
+					<h2 className='text-4xl font-bold text-gray-900 mb-6'>Let&apos;s Connect</h2>
+					<p className='text-xl text-gray-900 mb-8 max-w-2xl mx-auto'>
+						Feel free to reach out for collaborations or just a friendly hello 😊
 					</p>
 
-					<div className='grid md:grid-cols-2 gap-8 mb-12'>
-						<div className='text-center'>
-							<div className='w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4'>
-								<span className='text-xl text-blue-600'>📧</span>
-							</div>
-							<h3 className='text-lg font-medium text-gray-900 mb-2'>Email</h3>
-							<a href='mailto:marjanka.j@gmail.com' className='text-blue-600 hover:text-blue-700 transition-colors'>marjanka.j@gmail.com</a>
-						</div>
-
-						<div className='text-center'>
-							<div className='w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4'>
-								<span className='text-xl text-green-600'>💼</span>
-							</div>
-							<h3 className='text-lg font-medium text-gray-900 mb-2'>LinkedIn</h3>
-							<a href='https://linkedin.com/in/mariana-shevchuk' target='_blank' rel='noopener noreferrer' className='text-green-600 hover:text-green-700 transition-colors'>linkedin.com/in/mariana-shevchuk</a>
-						</div>
-
-
+					<div className='mb-12'>
+						<a href='mailto:marjanka.j@gmail.com' className='text-pink-500 text-xl font-medium hover:text-pink-600 transition-colors'>
+							marjanka.j@gmail.com
+						</a>
 					</div>
 
-					<a
-						href='mailto:marjanka.j@gmail.com'
-						className='inline-block bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-medium'
-					>
-						Send Message
-					</a>
+					<div className='flex justify-center space-x-8'>
+						<a href='https://linkedin.com/in/mariana-shevchuk' target='_blank' rel='noopener noreferrer' className='text-gray-900 hover:text-gray-600 transition-colors'>
+							<svg className='w-8 h-8' fill='currentColor' viewBox='0 0 24 24'>
+								<path d='M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z'/>
+							</svg>
+						</a>
+					</div>
 				</div>
 			</section>
 
