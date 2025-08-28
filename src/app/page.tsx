@@ -303,7 +303,7 @@ export default function Home() {
 						want to say hi, I&apos;d love to hear from you.
 					</p>
 
-					<div className='grid md:grid-cols-3 gap-8 mb-12'>
+					<div className='grid md:grid-cols-2 gap-8 mb-12'>
 						<div className='text-center'>
 							<div className='w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4'>
 								<span className='text-xl text-blue-600'>📧</span>
@@ -320,13 +320,7 @@ export default function Home() {
 							<a href='https://linkedin.com/in/mariana-shevchuk' target='_blank' rel='noopener noreferrer' className='text-green-600 hover:text-green-700 transition-colors'>linkedin.com/in/mariana-shevchuk</a>
 						</div>
 
-						<div className='text-center'>
-							<div className='w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4'>
-								<span className='text-xl text-purple-600'>🐦</span>
-							</div>
-							<h3 className='text-lg font-medium text-gray-900 mb-2'>Twitter</h3>
-							<p className='text-gray-600'>@marianashevchuk</p>
-						</div>
+
 					</div>
 
 					<a
