@@ -157,6 +157,16 @@ export default function Home() {
 						/>
 
 						<ProjectCard
+							title='Ann Verner'
+							subtitle='Artist Portfolio'
+							year='2023'
+							description='Designed a unique and inspirational portfolio website for Ann Verner, a collage artist based in Ukraine. The project focused on showcasing her conceptual art work inspired by French artists, creating an engaging digital experience that highlights her distinctive collage style and artistic vision.'
+							skills={['UI Guidelines', 'Visual Design', 'Prototyping', 'Communication with stakeholders']}
+							imageSrc='/ann-verner.png'
+							imageAlt='Ann Verner Artist Portfolio showing Ukrainian collage artist website with navigation in Ukrainian and English, featuring conceptual art pieces from 2019'
+						/>
+
+						<ProjectCard
 							title='E-commerce'
 							subtitle='Platform Redesign'
 							description='Designed a comprehensive e-commerce experience that increased conversion rates by 35% and improved mobile usability scores.'
