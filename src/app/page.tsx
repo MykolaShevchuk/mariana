@@ -99,7 +99,7 @@ export default function Home() {
 			</nav>
 
 			{/* Hero Section */}
-			<section className='pt-12 pb-20 px-6 min-h-screen flex items-center border-b border-gray-200 bg-gray-50'>
+			<section className='pt-12 pb-20 px-6 min-h-screen flex items-center bg-gray-50'>
 				<div className='max-w-6xl mx-auto'>
 					<div className='text-left'>
 						<h1 className='text-5xl md:text-7xl lg:text-8xl font-medium text-gray-900 mb-8 leading-none tracking-tight' style={{ fontFamily: 'var(--font-lora)' }}>
