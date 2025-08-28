@@ -309,7 +309,7 @@ export default function Home() {
 								<span className='text-xl text-blue-600'>📧</span>
 							</div>
 							<h3 className='text-lg font-medium text-gray-900 mb-2'>Email</h3>
-							<p className='text-gray-600'>hello@marianashevchuk.com</p>
+							<a href='mailto:marjanka.j@gmail.com' className='text-blue-600 hover:text-blue-700 transition-colors'>marjanka.j@gmail.com</a>
 						</div>
 
 						<div className='text-center'>
@@ -317,7 +317,7 @@ export default function Home() {
 								<span className='text-xl text-green-600'>💼</span>
 							</div>
 							<h3 className='text-lg font-medium text-gray-900 mb-2'>LinkedIn</h3>
-							<p className='text-gray-600'>linkedin.com/in/marianashevchuk</p>
+							<a href='https://linkedin.com/in/mariana-shevchuk' target='_blank' rel='noopener noreferrer' className='text-green-600 hover:text-green-700 transition-colors'>linkedin.com/in/mariana-shevchuk</a>
 						</div>
 
 						<div className='text-center'>
@@ -330,7 +330,7 @@ export default function Home() {
 					</div>
 
 					<a
-						href='mailto:hello@marianashevchuk.com'
+						href='mailto:marjanka.j@gmail.com'
 						className='inline-block bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-medium'
 					>
 						Send Message
