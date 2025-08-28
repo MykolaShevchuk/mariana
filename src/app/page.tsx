@@ -130,9 +130,6 @@ export default function Home() {
 			{/* Work Section */}
 			<section id='work' className='py-20 px-6 bg-white'>
 				<div className='max-w-6xl mx-auto'>
-					<div className='mb-16'>
-						<h2 className='text-4xl font-light text-gray-900 mb-4'>Selected Work</h2>
-					</div>
 
 					<div className='space-y-16'>
 						<ProjectCard
