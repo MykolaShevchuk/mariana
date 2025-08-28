@@ -131,7 +131,18 @@ export default function Home() {
 			<section id='work' className='py-20 px-6 bg-white'>
 				<div className='max-w-6xl mx-auto'>
 
-					<div className='space-y-16'>
+					<div className='space-y-8'>
+						<ProjectCard
+							title='Gumtree'
+							subtitle='Services'
+							year='2025'
+							description='Redesigned the Services experience across multiple journeys as part of a strategic initiative to improve engagement and outcomes for service providers. The project delivered consistent growth compared to the previous version, achieving a 9% increase in replies and a 15% uplift in service leads. Worked closely with stakeholders and cross-functional teams to align on requirements, ensure design consistency, and implement improvements that enhanced both usability and business performance.'
+							skills={['Design Strategy', 'UX Design', 'Design Systems', 'Stakeholder Management', 'Cross-functional Collaboration', 'Performance Metrics']}
+							imageSrc='/gumtree-services.png'
+							imageAlt='Gumtree Services redesign showing improved user experience and engagement metrics'
+							priority={true}
+						/>
+
 						<ProjectCard
 							title='Outsail'
 							subtitle='Vendor Selection Platform'
