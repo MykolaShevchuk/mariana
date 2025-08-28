@@ -147,16 +147,6 @@ export default function Home() {
 						/>
 
 						<ProjectCard
-							title='Varia'
-							subtitle='Real Estate Platform'
-							year='2018'
-							description='Designed a comprehensive real estate platform that untangles the ropes in today&apos;s realtor-centric world by using innovative technology to show properties and bring new user experience. The platform brings transparency into the real estate world and creates more informed decisions for customers while saving time in the process.'
-							skills={['Wireframing', 'UI Guidelines', 'Visual Design', 'Prototyping', 'Communication with stakeholders']}
-							imageSrc='/varia.png'
-							imageAlt='Varia Real Estate Platform showing homepage search interface and property details page with 360° virtual tour capabilities'
-						/>
-
-						<ProjectCard
 							title='Ann Verner'
 							subtitle='Artist Portfolio'
 							year='2019'
@@ -167,8 +157,19 @@ export default function Home() {
 						/>
 
 						<ProjectCard
+							title='Varia'
+							subtitle='Real Estate Platform'
+							year='2018'
+							description='Designed a comprehensive real estate platform that untangles the ropes in today&apos;s realtor-centric world by using innovative technology to show properties and bring new user experience. The platform brings transparency into the real estate world and creates more informed decisions for customers while saving time in the process.'
+							skills={['Wireframing', 'UI Guidelines', 'Visual Design', 'Prototyping', 'Communication with stakeholders']}
+							imageSrc='/varia.png'
+							imageAlt='Varia Real Estate Platform showing homepage search interface and property details page with 360° virtual tour capabilities'
+						/>
+
+						<ProjectCard
 							title='E-commerce'
 							subtitle='Platform Redesign'
+							year='2017'
 							description='Designed a comprehensive e-commerce experience that increased conversion rates by 35% and improved mobile usability scores.'
 							skills={['User Research', 'Information Architecture', 'Visual Design']}
 							imageSrc='/outsale.png'
