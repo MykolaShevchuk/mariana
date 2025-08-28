@@ -324,7 +324,7 @@ export default function Home() {
       <footer className="py-12 px-6 border-t border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-gray-600">
-            © 2024 Mariana Shevchuk. Designed and built with care.
+            © {new Date().getFullYear()} Mariana Shevchuk. Designed and built with care.
           </p>
         </div>
       </footer>
