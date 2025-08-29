@@ -34,10 +34,10 @@ export default function AboutSection() {
 								<div>
 									<h4 className='font-medium text-gray-800 mb-2'>Design & UX</h4>
 									<div className='flex flex-wrap gap-2'>
-										<Tag className='bg-white/50'>UI Design</Tag>
-										<Tag className='bg-white/50'>UX Design</Tag>
-										<Tag className='bg-white/50'>Interaction Design</Tag>
-										<Tag className='bg-white/50'>Visual Design</Tag>
+										<Tag className='bg-white/50'>UI design</Tag>
+										<Tag className='bg-white/50'>UX design</Tag>
+										<Tag className='bg-white/50'>Interaction design</Tag>
+										<Tag className='bg-white/50'>Visual design</Tag>
 										<Tag className='bg-white/50'>Prototyping</Tag>
 										<Tag className='bg-white/50'>Wireframing</Tag>
 									</div>
@@ -46,26 +46,26 @@ export default function AboutSection() {
 								<div>
 									<h4 className='font-medium text-gray-800 mb-2'>Design Systems</h4>
 									<div className='flex flex-wrap gap-2'>
-										<Tag className='bg-white/50'>Design Systems</Tag>
-										<Tag className='bg-white/50'>Component Libraries</Tag>
-										<Tag className='bg-white/50'>Design Tokens</Tag>
+										<Tag className='bg-white/50'>Design systems</Tag>
+										<Tag className='bg-white/50'>Component libraries</Tag>
+										<Tag className='bg-white/50'>Design tokens</Tag>
 									</div>
 								</div>
 
 								<div>
 									<h4 className='font-medium text-gray-800 mb-2'>Research & Validation</h4>
 									<div className='flex flex-wrap gap-2'>
-										<Tag className='bg-white/50'>User Research</Tag>
-										<Tag className='bg-white/50'>Usability Testing</Tag>
-										<Tag className='bg-white/50'>Competitor Analysis</Tag>
-										<Tag className='bg-white/50'>A/B Testing</Tag>
+										<Tag className='bg-white/50'>User research</Tag>
+										<Tag className='bg-white/50'>Usability testing</Tag>
+										<Tag className='bg-white/50'>Competitor analysis</Tag>
+										<Tag className='bg-white/50'>A/B testing</Tag>
 									</div>
 								</div>
 
 								<div>
 									<h4 className='font-medium text-gray-800 mb-2'>Tools</h4>
 									<div className='flex flex-wrap gap-2'>
-										<Tag className='bg-white/50'>Figma (Advanced)</Tag>
+										<Tag className='bg-white/50'>Figma</Tag>
 										<Tag className='bg-white/50'>FigmaJam</Tag>
 										<Tag className='bg-white/50'>Miro</Tag>
 										<Tag className='bg-white/50'>Lovable AI</Tag>
