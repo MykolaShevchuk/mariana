@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Tag from "./Tag";
 
 interface ProjectCardProps {
   title: string;
@@ -28,7 +29,7 @@ export default function ProjectCard({
       <div className="w-full">
         <div className="flex flex-col lg:flex-row">
           <div className="w-full lg:w-2/5 px-6 pt-6 pb-0 sm:px-8 sm:pt-8 sm:pb-0 lg:px-12 lg:pt-12 lg:pb-0 lg:pl-6 flex flex-col justify-center">
-            <h3 className="text-5xl sm:text-5xl lg:text-7xl font-bold text-gray-900 mb-3 whitespace-nowrap">{title}</h3>
+            <h3 className="text-5xl sm:text-5xl lg:text-7xl font-bold text-gray-900 mb-3 whitespace-nowrap relative -left-2">{title}</h3>
             <h4 className="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-2 font-medium">{subtitle}</h4>
             {year && <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">{year}</p>}
             <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-4 sm:mb-6 leading-relaxed">
@@ -36,12 +37,9 @@ export default function ProjectCard({
             </p>
             <div className="flex flex-wrap gap-2">
               {skills.map((skill, index) => (
-                <span 
-                  key={index}
-                  className="px-2 py-1 sm:px-3 bg-blue-100 text-blue-800 text-xs sm:text-sm rounded-full"
-                >
+                <Tag key={index}>
                   {skill}
-                </span>
+                </Tag>
               ))}
             </div>
           </div>
