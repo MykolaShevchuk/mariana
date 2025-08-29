@@ -66,7 +66,7 @@ export default function AboutSection() {
 									<h4 className='font-medium text-gray-800 mb-2'>Tools</h4>
 									<div className='flex flex-wrap gap-2'>
 										<Tag className='bg-white/50'>Figma</Tag>
-										<Tag className='bg-white/50'>FigmaJam</Tag>
+										<Tag className='bg-white/50'>FigJam</Tag>
 										<Tag className='bg-white/50'>Miro</Tag>
 										<Tag className='bg-white/50'>Lovable AI</Tag>
 									</div>
