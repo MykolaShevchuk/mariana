@@ -3,7 +3,7 @@ export default function HeroSection() {
 	const yearsOfExperience = new Date().getFullYear() - 2017;
 
 	return (
-		<section className='pt-12 pb-20 px-6  min-h-[calc(100vh-72px)] flex items-center bg-gray-50'>
+		<section className='pt-12 pb-20 px-6 min-h-[calc(100vh-72px)] md:min-h-screen flex items-center bg-gray-50'>
 			<div className='max-w-6xl mx-auto'>
 				<div className='text-left'>
 					<h1
