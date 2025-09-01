@@ -11,7 +11,7 @@ export default function HeroSection() {
 						style={{ fontFamily: 'var(--font-lora)' }}
 					>
 						<span className='block text-[64px] mb-3 sm:mb-0 sm:text-5xl md:text-6xl lg:text-7xl'>
-							Mariana Shevchuk TEST
+							Mariana Shevchuk
 						</span>
 						<span className='block text-blue-600'>Product Designer</span>
 					</h1>

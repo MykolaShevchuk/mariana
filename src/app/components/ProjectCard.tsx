@@ -58,6 +58,7 @@ export default function ProjectCard({
                 src={imageSrcMobile}
                 alt={imageAlt}
                 fill
+                sizes="100vw"
                 className="object-contain md:hidden"
                 priority={priority}
               />
@@ -66,6 +67,7 @@ export default function ProjectCard({
               src={imageSrc}
               alt={imageAlt}
               fill
+              sizes="(max-width: 768px) 100vw, 60vw"
               className={`object-contain ${imageSrcMobile ? 'hidden md:block' : 'block'}`}
               priority={priority}
             />
