@@ -39,8 +39,7 @@ export default function ProjectCard({
             </p>
             {note && (
               <div className="mb-6 sm:mb-6">
-                <span className="inline-flex items-center gap-2 text-xs sm:text-sm lg:text-base font-medium text-gray-700 bg-gray-100 border border-gray-200 rounded-full px-3 py-1">
-                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-gray-400" />
+                <span className="text-sm sm:text-base lg:text-lg text-gray-600 border-b border-dashed border-gray-400">
                   {note}
                 </span>
               </div>
