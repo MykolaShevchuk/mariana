@@ -26,18 +26,18 @@ A beautiful, minimalistic portfolio website showcasing the work and expertise of
 - **Styling**: Tailwind CSS v4
 - **Language**: TypeScript
 - **Fonts**: Inter (Google Fonts)
-- **Package Manager**: Yarn
+- **Package Manager**: pnpm
 
 ## 🛠️ Getting Started
 
 1. **Install dependencies**:
    ```bash
-   yarn install
+   pnpm install
    ```
 
 2. **Run development server**:
    ```bash
-   yarn dev
+   pnpm dev
    ```
 
 3. **Open your browser** and navigate to `http://localhost:3000`
