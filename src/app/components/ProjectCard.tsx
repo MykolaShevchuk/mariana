@@ -6,6 +6,7 @@ interface ProjectCardProps {
   subtitle: string;
   year?: string;
   description: string;
+  note?: string;
   skills: string[];
   imageSrc: string;
   imageSrcMobile?: string;
@@ -18,6 +19,7 @@ export default function ProjectCard({
   subtitle,
   year,
   description,
+  note,
   skills,
   imageSrc,
   imageSrcMobile,
@@ -32,9 +34,17 @@ export default function ProjectCard({
             <h3 className="text-5xl sm:text-5xl lg:text-7xl font-bold text-gray-900 mb-3 whitespace-nowrap relative -left-2">{title}</h3>
             <h4 className="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-2 font-medium">{subtitle}</h4>
             {year && <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">{year}</p>}
-            <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-4 sm:mb-6 leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-4 sm:mb-4 leading-relaxed">
               {description}
             </p>
+            {note && (
+              <div className="mb-6 sm:mb-6">
+                <span className="inline-flex items-center gap-2 text-xs sm:text-sm lg:text-base font-medium text-gray-700 bg-gray-100 border border-gray-200 rounded-full px-3 py-1">
+                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-gray-400" />
+                  {note}
+                </span>
+              </div>
+            )}
             <div className="flex flex-wrap gap-2">
               {skills.map((skill, index) => (
                 <Tag key={index}>
