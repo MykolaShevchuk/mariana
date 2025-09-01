@@ -5,23 +5,23 @@ export default function AboutSection() {
 	const yearsOfExperience = new Date().getFullYear() - 2017;
 
 	return (
-		<section id='about' className='py-20 px-0 md:px-6'>
+		<section id='about' className='py-12 px-0 md:px-6'>
 			<div className='max-w-6xl mx-auto'>
 				<div className='flex flex-col md:flex-row gap-16'>
 					<div className='md:w-1/2 px-6 md:px-0'>
 						<div>
-							<h2 className='text-2xl sm:text-3xl md:text-4xl font-light text-gray-900 mb-6'>About Me</h2>
-							<p className='text-sm sm:text-base md:text-lg text-gray-600 mb-6 leading-relaxed'>
+							<h2 className='text-xl sm:text-2xl md:text-3xl font-light text-gray-900 mb-6'>About Me</h2>
+							<p className='text-sm sm:text-base lg:text-base text-gray-600 mb-6 leading-relaxed'>
 								Product Designer with {yearsOfExperience}+ years&apos; experience creating user-centred digital
 								products across mobile and web. Highly skilled in Figma and an advocate for design systems, having
 								developed one from the ground up using design tokens.
 							</p>
-							<p className='text-sm sm:text-base md:text-lg text-gray-600 mb-6 leading-relaxed'>
+							<p className='text-sm sm:text-base lg:text-base text-gray-600 mb-6 leading-relaxed'>
 								Collaborative and outcome-focused, with a track record of improving key user journeys and driving
 								measurable impact through close partnership with stakeholders and cross-functional teams. Value the
 								role of research and user insights in informing design decisions.
 							</p>
-							<p className='text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed'>
+							<p className='text-sm sm:text-base lg:text-base text-gray-600 leading-relaxed'>
 								Committed to continuous learning, completing at least one professional course each year to expand
 								expertise.
 							</p>

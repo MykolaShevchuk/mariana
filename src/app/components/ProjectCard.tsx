@@ -34,12 +34,12 @@ export default function ProjectCard({
             <h3 className="text-5xl sm:text-5xl lg:text-7xl font-bold text-gray-900 mb-3 whitespace-nowrap relative -left-2">{title}</h3>
             <h4 className="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-2 font-medium">{subtitle}</h4>
             {year && <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">{year}</p>}
-            <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-4 sm:mb-4 leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-base text-gray-600 mb-4 sm:mb-4 leading-relaxed">
               {description}
             </p>
             {note && (
               <div className="mb-6 sm:mb-6">
-                <span className="text-sm sm:text-base lg:text-lg text-gray-600 border-b border-dashed border-gray-400">
+                <span className="text-sm sm:text-base lg:text-base text-gray-600 border-b border-dashed border-gray-400">
                   {note}
                 </span>
               </div>
