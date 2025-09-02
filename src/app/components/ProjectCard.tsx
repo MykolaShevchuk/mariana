@@ -56,7 +56,7 @@ export default function ProjectCard({
               </div>
             </div>
           </div>
-          <div className=" flex items-center justify-center -ml-[150px] -mr-[150px]">
+          <div className=" flex items-center justify-center -ml-[100px] -mr-[100px] lg:-ml-[150px] lg:-mr-[150px]">
             {imageSrcMobile && (
               <Image
                 src={imageSrcMobile}
