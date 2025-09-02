@@ -22,8 +22,8 @@ export default function WorkSection() {
 							'Stakeholder management',
 							'Cross-functional collaboration',
 						]}
-						imageSrc='/gumtree-services.png'
-						imageSrcMobile='/gumtree-services-mobile.png'
+						imageSrc='/gumtree-services.jpg'
+						imageSrcMobile='/gumtree-services-mobile.jpg'
 						imageAlt='Gumtree Services redesign showing improved user experience and engagement metrics'
 						priority={true}
 						featured={true}
@@ -42,8 +42,8 @@ export default function WorkSection() {
 							'Stakeholder management',
 							'Cross-functional collaboration',
 						]}
-						imageSrc='/gumtree-app.png'
-						imageSrcMobile='/gumtree-app-mobile.png'
+						imageSrc='/gumtree-app.jpg'
+						imageSrcMobile='/gumtree-app-mobile.jpg'
 						imageAlt='Gumtree App redesign showing improved user experience and engagement metrics'
 						priority={true}
 						featured={true}
