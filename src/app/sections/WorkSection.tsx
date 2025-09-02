@@ -47,7 +47,7 @@ export default function WorkSection() {
 						imageAlt='Gumtree App redesign showing improved user experience and engagement metrics'
 						priority={true}
 						featured={true}
-						additionalImageOffset='-ml-[100px] -mr-[100px]'
+						additionalImageOffset='-ml-[80px] -mr-[80px]'
 					/>
 
 					<ProjectCard
