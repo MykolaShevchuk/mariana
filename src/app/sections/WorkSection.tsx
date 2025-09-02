@@ -8,21 +8,45 @@ export default function WorkSection() {
 					<ProjectCard
 						title='Gumtree'
 						subtitle='Services'
-						year='2025'
+						year='2024'
 						description='Redesigned the Services experience across multiple journeys as part of a strategic initiative to improve engagement and outcomes for service providers. The project delivered consistent growth compared to the previous version, achieving a 9% increase in replies and a 15% uplift in service leads. Worked closely with stakeholders and cross-functional teams to align on requirements, ensure design consistency, and implement improvements that enhanced both usability and business performance.'
-						note='Case study coming soon'
+						note='Case study coming soon...'
 						skills={[
-							'Design strategy',
-							'UX design',
-							'Design systems',
+							'UX Design',
+							'UI Design',
+							'App',
+							'Responsive',
+							'3PA',
+							'Partnerships',
+							'SEO',
 							'Stakeholder management',
 							'Cross-functional collaboration',
-							'Performance metrics',
 						]}
 						imageSrc='/gumtree-services.png'
-						imageSrcMobile='/gumtree-services-mobile.jpg'
+						imageSrcMobile='/gumtree-services-mobile.png'
 						imageAlt='Gumtree Services redesign showing improved user experience and engagement metrics'
 						priority={true}
+						featured={true}
+					/>
+
+					<ProjectCard
+						title='Gumtree'
+						subtitle='App redesign'
+						year='2024'
+						description='As part of the Gumtree app redesign for iOS and Android, I owned the Listings journey, covering listing creation, management and partner integrations. I also introduced a design system with tokens and cross-platform guidelines, ensuring consistency across teams. One of the more complex problems was handling multi-categorisation within technical constraints — where I worked with both native and web-view approaches and validated design decisions through moderated usability testing.'
+						note='Case study coming soon...'
+						skills={[
+							'UX Design',
+							'UI Design',
+							'App',
+							'Stakeholder management',
+							'Cross-functional collaboration',
+						]}
+						imageSrc='/gumtree-app.png'
+						imageSrcMobile='/gumtree-app-mobile.png'
+						imageAlt='Gumtree App redesign showing improved user experience and engagement metrics'
+						priority={true}
+						featured={true}
 					/>
 
 					<ProjectCard
