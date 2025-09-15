@@ -137,9 +137,9 @@ export default function GumtreeServicesPage() {
 					</h2>
 					<div className='pl-0 lg:pl-24'>
 						<p className="text-[#464040] text-[18px] sm:text-[20px] lg:text-[24px] leading-[28px] sm:leading-[32px] lg:leading-[36px] max-w-4xl mb-6 sm:mb-8 font-['Inter']">
-							Services were a small fraction of Gumtree's traffic and listings but represented a significant share of
+							Services were a small fraction of Gumtree&apos;s traffic and listings but represented a significant share of
 							revenue. Despite the market opportunity (£71bn annual household spend on services, with strong demand in
-							home improvements), Gumtree's Services vertical was in decline.
+							home improvements), Gumtree&apos;s Services vertical was in decline.
 						</p>
 
 						{/* Two column bullet points */}
@@ -221,7 +221,7 @@ export default function GumtreeServicesPage() {
 											Low awareness
 										</p>
 										<p className="text-[#464040] text-[16px] leading-[24px] font-['Inter']">
-											Gumtree wasn't top-of-mind for Services; weak SEO and little cross-sell meant users overlooked it
+											Gumtree wasn&apos;t top-of-mind for Services; weak SEO and little cross-sell meant users overlooked it
 											compared to competitors.
 										</p>
 									</div>
@@ -282,7 +282,7 @@ export default function GumtreeServicesPage() {
 											Awareness
 										</p>
 										<p className='text-[#464040] text-[14px] sm:text-[15px] md:text-[16px] leading-[20px] sm:leading-[22px] md:leading-[24px]'>
-											Strengthen Gumtree's association with Services and drive cross-sell from other verticals.
+											Strengthen Gumtree&apos;s association with Services and drive cross-sell from other verticals.
 										</p>
 									</div>
 								</div>
@@ -370,7 +370,7 @@ export default function GumtreeServicesPage() {
 					<div className='pl-0 lg:pl-24 max-w-3xl'>
 						<p className='text-[#464040] text-[18px] sm:text-[20px] lg:text-[24px] leading-[28px] sm:leading-[32px] lg:leading-[36px] mb-6 sm:mb-8'>
 							We introduced Seller Skills to highlight provider expertise, improve buyer matching, and strengthen
-							Gumtree's position before integrating with Bark's richer service profiles.
+							Gumtree&apos;s position before integrating with Bark&apos;s richer service profiles.
 						</p>
 
 						{/* Problem */}
@@ -415,8 +415,8 @@ export default function GumtreeServicesPage() {
 										Strategic Context
 									</p>
 									<p className="text-[#464040] text-[16px] leading-[24px] font-['Inter']">
-										Seller Skills were a key step ahead of the strategic partnership with Bark. This ensured Gumtree's
-										listings could match Bark's richer profiles.
+										Seller Skills were a key step ahead of the strategic partnership with Bark. This ensured Gumtree&apos;s
+										listings could match Bark&apos;s richer profiles.
 									</p>
 								</div>
 							</div>
@@ -542,9 +542,9 @@ export default function GumtreeServicesPage() {
 					</div>
 					<div className='pl-0 lg:pl-24'>
 						<p className='text-[#464040] text-[18px] sm:text-[20px] lg:text-[24px] leading-[28px] sm:leading-[32px] lg:leading-[36px] max-w-3xl mb-16 sm:mb-20'>
-							Gumtree's Services pages were inherited from 'For Sale' and did not meet the expectations of service
+							Gumtree&apos;s Services pages were inherited from &apos;For Sale&apos; and did not meet the expectations of service
 							providers or buyers. Competitors offered optimised and structured profiles, while Gumtree did not. With
-							the Bark integration on the horizon we needed to improve Gumtree's UI to ensure consistency, enhance the
+							the Bark integration on the horizon we needed to improve Gumtree&apos;s UI to ensure consistency, enhance the
 							user experience and avoid negative sentiment among sellers.
 						</p>
 
@@ -577,7 +577,7 @@ export default function GumtreeServicesPage() {
 							</h3>
 							<p className='text-[#464040] text-[18px] sm:text-[20px] leading-[28px] sm:leading-[30px] max-w-3xl mb-6 sm:mb-8'>
 								I restructured the Services VIP page to prioritise key details and improve clarity. Changes included
-								highlighting essential information, adding reviews (via the Trust team's Google Reviews integration),
+								highlighting essential information, adding reviews (via the Trust team&apos;s Google Reviews integration),
 								enhancing navigation, and improving the Portfolio section to better showcase provider work.
 							</p>
 
@@ -620,7 +620,7 @@ export default function GumtreeServicesPage() {
 					</div>
 					<div className='pl-0 lg:pl-24'>
 						<p className='text-[#464040] text-[18px] sm:text-[20px] lg:text-[24px] leading-[28px] sm:leading-[32px] lg:leading-[36px] max-w-3xl mb-6 sm:mb-8'>
-							Gumtree's first strategic partnership in the services space connected 10M monthly Gumtree users with 30K+
+							Gumtree&apos;s first strategic partnership in the services space connected 10M monthly Gumtree users with 30K+
 							trusted Bark professionals across more than 1,000 categories.
 						</p>
 						<p className='text-[#464040] text-[18px] sm:text-[20px] lg:text-[24px] leading-[28px] sm:leading-[32px] lg:leading-[36px] max-w-3xl mb-6 sm:mb-8'>
@@ -689,10 +689,10 @@ export default function GumtreeServicesPage() {
 								Search results page. Bark
 							</h3>
 							<p className='text-[#464040] text-[18px] sm:text-[20px] leading-[28px] sm:leading-[30px] max-w-3xl mb-6 sm:mb-8'>
-								The Search Results Page was redesigned to integrate Bark's rich provider profiles seamlessly into
-								Gumtree's interface. The new design prioritizes key information like ratings, skills, and availability
-								while maintaining Gumtree's familiar navigation patterns. Enhanced CTAs for "Request a quote" and
-								"Request a call back" were prominently featured to drive conversions.
+								The Search Results Page was redesigned to integrate Bark&apos;s rich provider profiles seamlessly into
+								Gumtree&apos;s interface. The new design prioritizes key information like ratings, skills, and availability
+								while maintaining Gumtree&apos;s familiar navigation patterns. Enhanced CTAs for &quot;Request a quote&quot; and
+								&quot;Request a call back&quot; were prominently featured to drive conversions.
 							</p>
 
 							{/* SRP image */}
@@ -714,7 +714,7 @@ export default function GumtreeServicesPage() {
 								View item page. Bark
 							</h3>
 							<p className='text-[#464040] text-[18px] sm:text-[20px] leading-[28px] sm:leading-[30px] max-w-3xl mb-6 sm:mb-8'>
-								The View Item Page was restructured to showcase Bark's comprehensive provider profiles with enhanced
+								The View Item Page was restructured to showcase Bark&apos;s comprehensive provider profiles with enhanced
 								trust signals. The redesign prioritized key information like verified skills, detailed ratings, and
 								portfolio examples while maintaining clear navigation and prominent action buttons for quote requests
 								and direct contact.
@@ -755,7 +755,7 @@ export default function GumtreeServicesPage() {
 						Thank you for your time
 					</h2>
 					<p className='text-[#464040] text-[24px] leading-[36px] max-w-3xl mx-auto'>
-						This is only a snapshot of the design work behind the project. I'd love to share more of the process and
+						This is only a snapshot of the design work behind the project. I&apos;d love to share more of the process and
 						discuss any questions you may have.
 					</p>
 				</div>
