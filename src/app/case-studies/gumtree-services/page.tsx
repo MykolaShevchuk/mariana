@@ -744,7 +744,7 @@ export default function GumtreeServicesPage() {
 							</p>
 
 						{/* SRP image */}
-						<div className='sm:bg-gray-50 sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full lg:-ml-24 mb-32 mt-8 sm:mt-32 -mx-4 sm:mx-0'>
+						<div className='sm:bg-gray-50 sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full lg:-ml-24 mb-16 sm:mb-32 mt-8 sm:mt-32 -mx-4 sm:mx-0'>
 							<Image
 								src='/case-studies/gumtree-services/milestone-3-SRP.png'
 								alt='Search Results Page showing Bark integration with enhanced provider cards, ratings, and improved CTAs'
@@ -769,7 +769,7 @@ export default function GumtreeServicesPage() {
 							</p>
 
 					{/* VIP image */}
-					<div className='sm:bg-gray-50 sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full lg:-ml-24 mb-32 mt-8 sm:mt-32 -mx-4 sm:mx-0'>
+					<div className='sm:bg-gray-50 sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full lg:-ml-24 mb-16 sm:mb-32 mt-8 sm:mt-32 -mx-4 sm:mx-0'>
 							<Image
 								src='/case-studies/gumtree-services/milestone-3-VIP.png'
 								alt='View Item Page showing enhanced Bark provider profile with verified skills, ratings, and improved CTAs'
@@ -802,7 +802,7 @@ export default function GumtreeServicesPage() {
 					<h2 className="text-black font-['Lora'] text-[28px] sm:text-[36px] lg:text-[45px] font-semibold leading-tight mb-4 sm:mb-6 lg:mb-8">
 						Thank you for your time
 					</h2>
-					<p className='text-[#464040] text-[24px] leading-[36px] max-w-3xl mx-auto'>
+					<p className='text-[#464040] text-[18px] sm:text-[24px] leading-[28px] sm:leading-[36px] max-w-3xl mx-auto'>
 						This is only a snapshot of the design work behind the project. I&apos;d love to share more of the process and
 						discuss any questions you may have.
 					</p>
