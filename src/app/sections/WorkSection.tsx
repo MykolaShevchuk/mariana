@@ -8,9 +8,9 @@ export default function WorkSection() {
 					<ProjectCard
 						title='Gumtree'
 						subtitle='Services'
-						year='2024'
+						year='2025'
 						description='Redesigned the Services experience across multiple journeys as part of a strategic initiative to improve engagement and outcomes for service providers. The project delivered consistent growth compared to the previous version, achieving a 9% increase in replies and a 15% uplift in service leads. Worked closely with stakeholders and cross-functional teams to align on requirements, ensure design consistency, and implement improvements that enhanced both usability and business performance.'
-						note='Case study coming soon...'
+						link='/case-studies/gumtree-services'
 						skills={[
 							'UX Design',
 							'UI Design',
@@ -34,7 +34,7 @@ export default function WorkSection() {
 						subtitle='App redesign'
 						year='2024'
 						description='As part of the Gumtree app redesign for iOS and Android, I owned the Listings journey, covering listing creation, management and partner integrations. I also introduced a design system with tokens and cross-platform guidelines, ensuring consistency across teams. One of the more complex problems was handling multi-categorisation within technical constraints — where I worked with both native and web-view approaches and validated design decisions through moderated usability testing.'
-						note='Case study coming soon...'
+						// link='/case-studies/gumtree-app'
 						skills={[
 							'UX Design',
 							'UI Design',

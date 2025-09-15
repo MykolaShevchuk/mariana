@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Tag from "./Tag";
 
 interface ProjectCardProps {
@@ -7,6 +8,7 @@ interface ProjectCardProps {
   year?: string;
   description: string;
   note?: string;
+  link?: string;
   skills: string[];
   imageSrc: string;
   imageSrcMobile?: string;
@@ -22,6 +24,7 @@ export default function ProjectCard({
   year,
   description,
   note,
+  link,
   skills,
   imageSrc,
   imageSrcMobile,
@@ -39,11 +42,18 @@ export default function ProjectCard({
               <h3 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-gray-900 mb-2 lg:-left-2 font-serif relative">{title}</h3>
               <h4 className="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-2 font-medium">{subtitle}</h4>
               {year && <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-4">{year}</p>}
-              {note && (
+              {link ? (
+                <Link 
+                  href={link}
+                  className="inline text-base sm:text-lg text-blue-600 hover:text-blue-700 underline transition-colors outline-none focus:outline-none"
+                >
+                  View case study →
+                </Link>
+              ) : note ? (
                 <p className="text-base sm:text-lg text-gray-400">
                   {note}
                 </p>
-              )}
+              ) : null}
             </div>
             <div className="w-full lg:w-3/5 px-6 pt-6 pb-0 sm:px-8 sm:pt-8 sm:pb-0 lg:pl-6 lg:pr-6 lg:pt-12 lg:pb-0 flex flex-col justify-start">
               <p className="text-sm sm:text-base lg:text-base text-gray-600 mb-4 sm:mb-4 leading-relaxed">
@@ -68,6 +78,7 @@ export default function ProjectCard({
                 sizes="100%"
                 className="w-full object-contain md:hidden"
                 priority={priority}
+                quality={80}
               />
             )}
             <Image
@@ -78,6 +89,7 @@ export default function ProjectCard({
               sizes="100%"
               className={`w-full object-contain ${imageSrcMobile ? 'hidden md:block' : 'block'}`}
               priority={priority}
+              quality={80}
             />
           </div>
         </div>
@@ -96,13 +108,19 @@ export default function ProjectCard({
             <p className="text-sm sm:text-base lg:text-base text-gray-600 mb-4 sm:mb-4 leading-relaxed">
               {description}
             </p>
-            {note && (
+            {link ? (
+              <span className="text-sm sm:text-base text-blue-600 hover:text-blue-700 underline transition-colors">
+                <Link href={link} className="outline-none focus:outline-none">
+                  View case study →
+                </Link>
+              </span>
+            ) : note ? (
               <div className="mb-6 sm:mb-6">
                 <span className="text-sm sm:text-base text-gray-600">
                   {note}
                 </span>
               </div>
-            )}
+            ) : null}
             <div className="flex flex-wrap gap-2">
               {skills.map((skill, index) => (
                 <Tag key={index}>
@@ -120,6 +138,7 @@ export default function ProjectCard({
                 sizes="100vw"
                 className="object-contain md:hidden"
                 priority={priority}
+                quality={80}
               />
             )}
             <Image
@@ -129,6 +148,7 @@ export default function ProjectCard({
               sizes="(max-width: 768px) 100vw, 60vw"
               className={`object-contain ${imageSrcMobile ? 'hidden md:block' : 'block'}`}
               priority={priority}
+              quality={80}
             />
           </div>
         </div>
