@@ -533,7 +533,7 @@ export default function GumtreeServicesPage() {
 								alt='Buyer journey flow showing the complete process from service discovery to provider selection'
 								width={1200}
 								height={600}
-								className='w-full h-auto sm:max-w-3xl sm:mx-auto sm:rounded-[18px] min-w-[300px] sm:min-w-auto object-contain -ml-4 sm:ml-0'
+								className='w-full h-auto sm:max-w-3xl sm:mx-auto sm:rounded-[18px] min-w-[300px] sm:min-w-auto object-contain -ml-4 sm:ml-0 lg:mx-auto'
 							/>
 						</div>
 						</div>
@@ -678,13 +678,13 @@ export default function GumtreeServicesPage() {
 							</div>
 
 							{/* Post a job feature image - Desktop */}
-							<div className='hidden lg:block w-screen -mx-[100px] -ml-[200px] overflow-x-hidden'>
+							<div className='hidden lg:block w-screen -mx-[100px] -ml-[225px] overflow-x-hidden'>
 								<Image
 									src='/case-studies/gumtree-services/post-a-job-feature.png'
 									alt='Post a job feature user flow showing the complete journey from job posting to provider selection'
 									width={1200}
 									height={600}
-									className='w-4/5 h-auto object-contain'
+									className='w-[85%] h-auto object-contain'
 									priority
 									quality={80}
 								/>
@@ -718,13 +718,13 @@ export default function GumtreeServicesPage() {
 							</div>
 
 							{/* Request a quote feature image - Desktop */}
-							<div className='hidden lg:block w-screen -mx-[100px] -ml-[200px] overflow-x-hidden'>
+							<div className='hidden lg:block w-screen -mx-[100px] -ml-[225px] overflow-x-hidden'>
 								<Image
 									src='/case-studies/gumtree-services/request-a-quote-feature.png'
 									alt='Request a quote feature user flow showing the complete journey from service selection to quote confirmation'
 									width={1200}
 									height={600}
-									className='w-4/5 h-auto object-contain'
+									className='w-[85%] h-auto object-contain'
 									priority
 									quality={80}
 								/>
