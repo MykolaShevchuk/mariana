@@ -484,31 +484,31 @@ export default function GumtreeServicesPage() {
 							<p className='text-[#464040] text-[16px] leading-[24px] max-w-3xl '>
 								Skills added during listing creation, saved per category, and manageable at account level.
 							</p>
+						</div>
 
-							{/* Seller Journey Image - Mobile */}
-							<div className='w-full overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-thumb-gray-400/50 scrollbar-track-transparent hover:scrollbar-thumb-gray-400/70 scrollbar-thumb-rounded-full lg:hidden'>
-								<div className='-mx-4 sm:-mx-6'>
-									<Image
-										src='/case-studies/gumtree-services/seller-journey.png'
-										alt='Seller journey flow showing the complete process from listing creation to managing skills'
-										width={1200}
-										height={600}
-										className='w-4/5 h-auto min-w-[800px] object-contain mx-auto'
-									/>
-								</div>
-							</div>
-
-							{/* Seller Journey Image - Desktop */}
-							<div className='hidden lg:block w-screen -mx-[100px] -ml-[200px] overflow-x-hidden'>
+						{/* Seller Journey Image - Mobile */}
+						<div className='w-full overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-thumb-gray-400/50 scrollbar-track-transparent hover:scrollbar-thumb-gray-400/70 scrollbar-thumb-rounded-full lg:hidden pl-0 lg:pl-24'>
+							<div className='-mx-4 sm:-mx-6'>
 								<Image
 									src='/case-studies/gumtree-services/seller-journey.png'
 									alt='Seller journey flow showing the complete process from listing creation to managing skills'
 									width={1200}
 									height={600}
-									className='w-4/5 h-auto object-contain'
+									className='w-4/5 h-auto min-w-[800px] object-contain mx-auto'
 								/>
 							</div>
 						</div>
+					</div>
+
+					{/* Seller Journey Image - Desktop */}
+					<div className='hidden lg:block -mx-4 sm:-mx-6 lg:-mx-[200px] overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-thumb-gray-400/50 scrollbar-track-transparent hover:scrollbar-thumb-gray-400/70 scrollbar-thumb-rounded-full'>
+						<Image
+							src='/case-studies/gumtree-services/seller-journey.png'
+							alt='Seller journey flow showing the complete process from listing creation to managing skills'
+							width={1200}
+							height={600}
+							className='w-full h-auto max-w-7xl mx-auto rounded-[12px] sm:rounded-[16px] lg:rounded-[20px] min-w-[1200px] object-contain'
+						/>
 					</div>
 				</section>
 
@@ -533,7 +533,7 @@ export default function GumtreeServicesPage() {
 								alt='Buyer journey flow showing the complete process from service discovery to provider selection'
 								width={1200}
 								height={600}
-								className='w-full h-auto sm:max-w-3xl sm:mx-auto sm:rounded-[18px] min-w-[300px] sm:min-w-auto object-contain -ml-4 sm:ml-0 lg:mx-auto'
+								className='w-full h-auto sm:max-w-3xl sm:pl-6 sm:mx-auto sm:rounded-[18px] min-w-[300px] sm:min-w-auto object-contain'
 							/>
 						</div>
 						</div>
@@ -676,113 +676,120 @@ export default function GumtreeServicesPage() {
 									/>
 								</div>
 							</div>
+						</div>
+					</div>
 
-							{/* Post a job feature image - Desktop */}
-							<div className='hidden lg:block w-screen -mx-[100px] -ml-[225px] overflow-x-hidden'>
-								<Image
-									src='/case-studies/gumtree-services/post-a-job-feature.png'
-									alt='Post a job feature user flow showing the complete journey from job posting to provider selection'
-									width={1200}
-									height={600}
-									className='w-[85%] h-auto object-contain'
-									priority
-									quality={80}
-								/>
+					{/* Post a job feature image - Desktop */}
+					<div className='hidden lg:block -mx-4 sm:-mx-6 lg:-mx-[200px] overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-thumb-gray-400/50 scrollbar-track-transparent hover:scrollbar-thumb-gray-400/70 scrollbar-thumb-rounded-full mb-12 sm:mb-16'>
+						<Image
+							src='/case-studies/gumtree-services/post-a-job-feature.png'
+							alt='Post a job feature user flow showing the complete journey from job posting to provider selection'
+							width={1200}
+							height={600}
+							className='w-full h-auto rounded-[12px] sm:rounded-[16px] lg:rounded-[20px] min-w-[1200px] object-contain'
+							priority
+							quality={80}
+						/>
+					</div>
+
+					<div className='max-w-6xl mx-auto'>
+						<div className='pl-0 lg:pl-24'>
+							{/* Request a quote feature */}
+							<div className='mb-12 sm:mb-16'>
+								<h3 className="text-black font-['Lora'] text-[32px] font-semibold leading-tight mb-4 sm:mb-6">
+									Request a quote feature
+								</h3>
+								<p className='text-[#464040] text-[18px] sm:text-[20px] leading-[28px] sm:leading-[30px] max-w-3xl mb-3 sm:mb-4'>
+									We introduced a new flow that lets buyers send job details directly to service providers. It captures
+									essential information and makes it easier for users to connect with the right professionals, allowing
+									them to message a specific provider directly.
+								</p>
+
+								{/* Request a quote feature image - Mobile */}
+								<div className='w-full overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-thumb-gray-400/50 scrollbar-track-transparent hover:scrollbar-thumb-gray-400/70 scrollbar-thumb-rounded-full lg:hidden'>
+									<div className='-mx-4 sm:-mx-6'>
+										<Image
+											src='/case-studies/gumtree-services/request-a-quote-feature.png'
+											alt='Request a quote feature user flow showing the complete journey from service selection to quote confirmation'
+											width={1200}
+											height={600}
+											className='w-full h-auto min-w-[1000px] object-contain'
+											priority
+											quality={80}
+										/>
+									</div>
+								</div>
 							</div>
 						</div>
+					</div>
 
-						{/* Request a quote feature */}
-						<div className='mb-12 sm:mb-16'>
-							<h3 className="text-black font-['Lora'] text-[32px] font-semibold leading-tight mb-4 sm:mb-6">
-								Request a quote feature
-							</h3>
-							<p className='text-[#464040] text-[18px] sm:text-[20px] leading-[28px] sm:leading-[30px] max-w-3xl mb-3 sm:mb-4'>
-								We introduced a new flow that lets buyers send job details directly to service providers. It captures
-								essential information and makes it easier for users to connect with the right professionals, allowing
-								them to message a specific provider directly.
-							</p>
+					{/* Request a quote feature image - Desktop */}
+					<div className='hidden lg:block -mx-4 sm:-mx-6 lg:-mx-[200px] overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-thumb-gray-400/50 scrollbar-track-transparent hover:scrollbar-thumb-gray-400/70 scrollbar-thumb-rounded-full mb-12 sm:mb-16'>
+						<Image
+							src='/case-studies/gumtree-services/request-a-quote-feature.png'
+							alt='Request a quote feature user flow showing the complete journey from service selection to quote confirmation'
+							width={1200}
+							height={600}
+							className='w-full h-auto rounded-[12px] sm:rounded-[16px] lg:rounded-[20px] min-w-[1200px] object-contain'
+							priority
+							quality={80}
+						/>
+					</div>
 
-							{/* Request a quote feature image - Mobile */}
-							<div className='w-full overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-thumb-gray-400/50 scrollbar-track-transparent hover:scrollbar-thumb-gray-400/70 scrollbar-thumb-rounded-full lg:hidden'>
-								<div className='-mx-4 sm:-mx-6'>
+					<div className='max-w-6xl mx-auto'>
+						<div className='pl-0 lg:pl-24'>
+							{/* SRP */}
+							<div className='mb-12 sm:mb-16'>
+								<h3 className="text-black font-['Lora'] text-[32px] font-semibold leading-tight mb-4 sm:mb-6">
+									Search results page. Bark
+								</h3>
+								<p className='text-[#464040] text-[18px] sm:text-[20px] leading-[28px] sm:leading-[30px] max-w-3xl mb-6 sm:mb-8'>
+									The Search Results Page was redesigned to integrate Bark&apos;s rich provider profiles seamlessly into
+									Gumtree&apos;s interface. The new design prioritizes key information like ratings, skills, and availability
+									while maintaining Gumtree&apos;s familiar navigation patterns. Enhanced CTAs for &quot;Request a quote&quot; and
+									&quot;Request a call back&quot; were prominently featured to drive conversions.
+								</p>
+
+								{/* SRP image */}
+								<div className='sm:bg-gray-50 sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full lg:-ml-24 mb-16 sm:mb-32 mt-8 sm:mt-32 -mx-4 sm:mx-0'>
 									<Image
-										src='/case-studies/gumtree-services/request-a-quote-feature.png'
-										alt='Request a quote feature user flow showing the complete journey from service selection to quote confirmation'
+										src='/case-studies/gumtree-services/milestone-3-SRP.png'
+										alt='Search Results Page showing Bark integration with enhanced provider cards, ratings, and improved CTAs'
 										width={1200}
 										height={600}
-										className='w-full h-auto min-w-[1000px] object-contain'
-										priority
+										className='w-full h-auto sm:max-w-3xl sm:pl-6 sm:mx-auto sm:-my-[128px] min-w-[300px] sm:min-w-auto object-contain'
 										quality={80}
 									/>
 								</div>
 							</div>
 
-							{/* Request a quote feature image - Desktop */}
-							<div className='hidden lg:block w-screen -mx-[100px] -ml-[225px] overflow-x-hidden'>
-								<Image
-									src='/case-studies/gumtree-services/request-a-quote-feature.png'
-									alt='Request a quote feature user flow showing the complete journey from service selection to quote confirmation'
-									width={1200}
-									height={600}
-									className='w-[85%] h-auto object-contain'
-									priority
-									quality={80}
-								/>
+							{/* VIP */}
+							<div className='mt-16 sm:mt-40 mb-8 sm:mb-12'>
+								<h3 className="text-black font-['Lora'] text-[32px] font-semibold leading-tight mb-4 sm:mb-6">
+									View item page. Bark
+								</h3>
+								<p className='text-[#464040] text-[18px] sm:text-[20px] leading-[28px] sm:leading-[30px] max-w-3xl mb-6 sm:mb-8'>
+									The View Item Page was restructured to showcase Bark&apos;s comprehensive provider profiles with enhanced
+									trust signals. The redesign prioritized key information like verified skills, detailed ratings, and
+									portfolio examples while maintaining clear navigation and prominent action buttons for quote requests
+									and direct contact.
+								</p>
+
+								{/* VIP image */}
+								<div className='sm:bg-gray-50 sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full lg:-ml-24 mb-16 sm:mb-32 mt-8 sm:mt-32 -mx-4 sm:mx-0'>
+									<Image
+										src='/case-studies/gumtree-services/milestone-3-VIP.png'
+										alt='View Item Page showing enhanced Bark provider profile with verified skills, ratings, and improved CTAs'
+										width={1200}
+										height={600}
+										className='w-full h-auto sm:max-w-3xl sm:pl-6 sm:mx-auto sm:-my-[128px] min-w-[300px] sm:min-w-auto object-contain'
+										quality={80}
+									/>
+								</div>
 							</div>
-						</div>
-
-						{/* SRP */}
-						<div className='mb-12 sm:mb-16'>
-							<h3 className="text-black font-['Lora'] text-[32px] font-semibold leading-tight mb-4 sm:mb-6">
-								Search results page. Bark
-							</h3>
-							<p className='text-[#464040] text-[18px] sm:text-[20px] leading-[28px] sm:leading-[30px] max-w-3xl mb-6 sm:mb-8'>
-								The Search Results Page was redesigned to integrate Bark&apos;s rich provider profiles seamlessly into
-								Gumtree&apos;s interface. The new design prioritizes key information like ratings, skills, and availability
-								while maintaining Gumtree&apos;s familiar navigation patterns. Enhanced CTAs for &quot;Request a quote&quot; and
-								&quot;Request a call back&quot; were prominently featured to drive conversions.
-							</p>
-
-						{/* SRP image */}
-						<div className='sm:bg-gray-50 sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full lg:-ml-24 mb-16 sm:mb-32 mt-8 sm:mt-32 -mx-4 sm:mx-0'>
-							<Image
-								src='/case-studies/gumtree-services/milestone-3-SRP.png'
-								alt='Search Results Page showing Bark integration with enhanced provider cards, ratings, and improved CTAs'
-								width={1200}
-								height={600}
-								className='w-full h-auto sm:max-w-3xl sm:pl-6 sm:mx-auto sm:-my-[128px] min-w-[300px] sm:min-w-auto object-contain'
-								quality={80}
-							/>
-						</div>
-						</div>
-
-						{/* VIP */}
-						<div className='mt-16 sm:mt-40 mb-8 sm:mb-12'>
-							<h3 className="text-black font-['Lora'] text-[32px] font-semibold leading-tight mb-4 sm:mb-6">
-								View item page. Bark
-							</h3>
-							<p className='text-[#464040] text-[18px] sm:text-[20px] leading-[28px] sm:leading-[30px] max-w-3xl mb-6 sm:mb-8'>
-								The View Item Page was restructured to showcase Bark&apos;s comprehensive provider profiles with enhanced
-								trust signals. The redesign prioritized key information like verified skills, detailed ratings, and
-								portfolio examples while maintaining clear navigation and prominent action buttons for quote requests
-								and direct contact.
-							</p>
-
-					{/* VIP image */}
-					<div className='sm:bg-gray-50 sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full lg:-ml-24 mb-16 sm:mb-32 mt-8 sm:mt-32 -mx-4 sm:mx-0'>
-							<Image
-								src='/case-studies/gumtree-services/milestone-3-VIP.png'
-								alt='View Item Page showing enhanced Bark provider profile with verified skills, ratings, and improved CTAs'
-								width={1200}
-								height={600}
-								className='w-full h-auto sm:max-w-3xl sm:pl-6 sm:mx-auto sm:-my-[128px] min-w-[300px] sm:min-w-auto object-contain'
-								quality={80}
-							/>
-						</div>
 						</div>
 					</div>
 					{/* Outcome */}
-
 					<div className='max-w-6xl mx-auto'>
 						<div className='pl-0 lg:pl-24'>
 							<h3 className="text-black font-['Lora'] text-[24px] sm:text-[28px] lg:text-[32px] font-semibold leading-tight mb-3 sm:mb-4 lg:mb-6">
