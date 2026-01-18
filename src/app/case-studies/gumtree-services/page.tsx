@@ -92,7 +92,7 @@ export default function GumtreeServicesPage() {
 							/>
 							{/* Desktop Image */}
 							<Image
-								src='/gumtree-services.jpg'
+								src='/gumtree-services.png'
 								alt='Gumtree Services redesign showing desktop interfaces with service listings, provider profiles, and user flows'
 								width={1600}
 								height={800}
@@ -108,10 +108,10 @@ export default function GumtreeServicesPage() {
 			{/* Impact Section */}
 			<section className='py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-[rgba(217,217,217,0.1)]'>
 				<div className='max-w-6xl mx-auto'>
-					<h2 className="text-black font-['Lora'] text-[32px] sm:text-[40px] lg:text-[45px] font-semibold leading-tight mb-6 sm:mb-8 lg:mb-12">
+					<h2 className="text-black font-['Lora'] text-[32px] sm:text-[40px] lg:text-[45px] font-semibold leading-tight mb-6 sm:mb-8 lg:mb-12 pl-0 lg:pl-24">
 						Impact
 					</h2>
-					<div className='flex flex-row items-center justify-between max-w-5xl gap-2 sm:gap-8 lg:gap-16'>
+					<div className='flex flex-row items-center justify-between max-w-5xl gap-2 sm:gap-8 lg:gap-16 pl-0 lg:pl-24'>
 						<div className='flex flex-col items-center gap-1 sm:gap-3 lg:gap-5 flex-1'>
 							<div className='text-[#2463eb] text-[24px] sm:text-[48px] lg:text-[64px] font-bold leading-tight'>
 								+ 9%
@@ -143,7 +143,7 @@ export default function GumtreeServicesPage() {
 			{/* Problem Space */}
 			<section className='py-12 sm:py-32 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-6xl mx-auto'>
-					<h2 className="text-black font-['Lora'] text-[32px] sm:text-[40px] lg:text-[45px] font-semibold leading-tight mb-4 sm:mb-6 lg:mb-10">
+					<h2 className="text-black font-['Lora'] text-[32px] sm:text-[40px] lg:text-[45px] font-semibold leading-tight mb-4 sm:mb-6 lg:mb-10 pl-0 lg:pl-24">
 						Problem
 					</h2>
 					<div className='pl-0 lg:pl-24'>
@@ -246,7 +246,7 @@ export default function GumtreeServicesPage() {
 			{/* Goals */}
 			<section className='py-12 sm:py-16 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-6xl mx-auto'>
-					<h2 className="text-black font-['Lora'] text-[32px] sm:text-[40px] lg:text-[45px] font-semibold leading-tight mb-4 sm:mb-6 lg:mb-10">
+					<h2 className="text-black font-['Lora'] text-[32px] sm:text-[40px] lg:text-[45px] font-semibold leading-tight mb-4 sm:mb-6 lg:mb-10 pl-0 lg:pl-24">
 						Goals
 					</h2>
 					<div className='pl-0 lg:pl-24'>
@@ -335,7 +335,7 @@ export default function GumtreeServicesPage() {
 			{/* My Role */}
 			<section className='py-12 sm:py-16 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-6xl mx-auto'>
-					<h2 className="text-black font-['Lora'] text-[32px] sm:text-[40px] lg:text-[45px] font-semibold leading-tight mb-4 sm:mb-6 lg:mb-10">
+					<h2 className="text-black font-['Lora'] text-[32px] sm:text-[40px] lg:text-[45px] font-semibold leading-tight mb-4 sm:mb-6 lg:mb-10 pl-0 lg:pl-24">
 						My role
 					</h2>
 					<div className='pl-0 lg:pl-24 max-w-4xl'>
@@ -370,7 +370,7 @@ export default function GumtreeServicesPage() {
 			{/* Milestone 1 */}
 			<section className='py-12 sm:py-16 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-6xl mx-auto'>
-					<div className='mb-6 sm:mb-8'>
+					<div className='mb-6 sm:mb-8 pl-0 lg:pl-24'>
 						<span className='text-[#2463eb] text-[18px] sm:text-[20px] lg:text-[24px] font-bold uppercase leading-[24px]'>
 							Milestone 1
 						</span>
@@ -554,7 +554,7 @@ export default function GumtreeServicesPage() {
 			{/* Milestone 2 */}
 			<section className='py-12 sm:py-16 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-6xl mx-auto'>
-					<div className='mb-6 sm:mb-8'>
+					<div className='mb-6 sm:mb-8 pl-0 lg:pl-24'>
 						<span className='text-[#2463eb] text-[18px] sm:text-[20px] lg:text-[24px] font-bold uppercase leading-[24px]'>
 							Milestone 2
 						</span>
@@ -632,7 +632,7 @@ export default function GumtreeServicesPage() {
 			{/* Milestone 3 */}
 			<section className='py-12 sm:py-16 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-6xl mx-auto'>
-					<div className='mb-6 sm:mb-8'>
+					<div className='mb-6 sm:mb-8 pl-0 lg:pl-24'>
 						<span className='text-[#2463eb] text-[16px] sm:text-[18px] lg:text-[20px] font-bold uppercase leading-[24px]'>
 							Milestone 3
 						</span>
