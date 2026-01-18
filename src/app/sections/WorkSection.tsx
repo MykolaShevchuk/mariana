@@ -22,7 +22,7 @@ export default function WorkSection() {
 							'Stakeholder management',
 							'Cross-functional collaboration',
 						]}
-						imageSrc='/gumtree-services.jpg'
+						imageSrc='/gumtree-services.png'
 						imageSrcMobile='/gumtree-services-mobile.jpg'
 						imageAlt='Gumtree Services redesign showing improved user experience and engagement metrics'
 						priority={true}
