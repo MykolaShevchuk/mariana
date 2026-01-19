@@ -69,8 +69,7 @@ export default function GumtreeServicesPage() {
 								<p className="text-[#464040] text-[18px] sm:text-[20px] lg:text-[24px] leading-[28px] sm:leading-[32px] lg:leading-[36px] max-w-4xl mb-6 sm:mb-8 font-['Inter']">
 									Redesigned the Services experience across multiple journeys as part of a strategic initiative to
 									improve engagement and outcomes for service providers. The project delivered consistent growth
-									compared to the previous version, achieving a 9% increase in replies and a 15% uplift in service
-									leads. Worked closely with stakeholders and cross-functional teams to align on requirements, ensure
+									compared to the previous version, achieving a 9% increase in replies, a 20% uplift in NPS and drove 60K new listings to the platform. Worked closely with stakeholders and cross-functional teams to align on requirements, ensure
 									design consistency, and implement improvements that enhanced both usability and business performance.
 								</p>
 							</div>
@@ -795,9 +794,20 @@ export default function GumtreeServicesPage() {
 							<h3 className="text-black font-['Lora'] text-[24px] sm:text-[28px] lg:text-[32px] font-semibold leading-tight mb-3 sm:mb-4 lg:mb-6">
 								Outcome
 							</h3>
-							<p className='text-[#464040] text-[16px] leading-[24px] max-w-3xl mb-6 sm:mb-8'>
-								+15% new leads, +30K new listings, partnership revenue growth.
+							<p className='text-[#464040] text-[18px] sm:text-[20px] leading-[28px] sm:leading-[30px] max-w-3xl mb-6 sm:mb-8'>
+								This work enabled the successful launch of the Bark partnership, connecting 10 million Gumtree users with over 30 000 verified professionals. By improving UX and balancing user needs with business and revenue goals, we created a more competitive, future-ready platform for growth and new partnerships.
 							</p>
+							{/* Impact image - aligned with VIP image */}
+							<div className='sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 w-screen sm:w-full lg:-ml-24 mb-16 sm:mb-32 -mx-4 sm:mx-0 overflow-hidden sm:rounded-[20px]'>
+								<Image
+									src='/case-studies/gumtree-services/Impact.png'
+									alt='Outcome metrics showing positive impact and engagement including replies, new listings, NPS, leads, SRP to VIP conversion, and third-party ads performance'
+									width={1200}
+									height={600}
+									className='w-full h-auto object-contain sm:rounded-[20px]'
+									quality={90}
+								/>
+							</div>
 						</div>
 					</div>
 				</div>
