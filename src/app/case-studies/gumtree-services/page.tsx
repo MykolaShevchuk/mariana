@@ -113,7 +113,7 @@ export default function GumtreeServicesPage() {
 					<div className='flex flex-row items-center justify-between max-w-5xl gap-2 sm:gap-8 lg:gap-16 pl-0 lg:pl-24'>
 						<div className='flex flex-col items-center gap-1 sm:gap-3 lg:gap-5 flex-1'>
 							<div className='text-[#2463eb] text-[24px] sm:text-[48px] lg:text-[64px] font-bold leading-tight'>
-								+ 9%
+								↑ 9%
 							</div>
 							<div className='text-[#464040] text-[12px] sm:text-[16px] lg:text-[20px] text-center leading-[16px] sm:leading-[24px]'>
 								Replies
@@ -121,15 +121,15 @@ export default function GumtreeServicesPage() {
 						</div>
 						<div className='flex flex-col items-center gap-1 sm:gap-3 lg:gap-5 flex-1'>
 							<div className='text-[#2463eb] text-[24px] sm:text-[48px] lg:text-[64px] font-bold leading-tight'>
-								+ 15%
+								↑ 20%
 							</div>
 							<div className='text-[#464040] text-[12px] sm:text-[16px] lg:text-[20px] text-center leading-[16px] sm:leading-[24px]'>
-								Leads
+								NPS
 							</div>
 						</div>
 						<div className='flex flex-col items-center gap-1 sm:gap-3 lg:gap-5 flex-1'>
 							<div className='text-[#2463eb] text-[24px] sm:text-[48px] lg:text-[64px] font-bold leading-tight'>
-								+ 30K
+								+ 60K
 							</div>
 							<div className='text-[#464040] text-[12px] sm:text-[16px] lg:text-[20px] text-center leading-[16px] sm:leading-[24px]'>
 								New Ads
