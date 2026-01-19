@@ -70,12 +70,18 @@ export default function GumtreeServicesPage() {
 
 			{/* Impact Section */}
 			<ImpactMetrics
-				title='Impact'
+				title=''
+				subtitle='Outcome'
+				description="Before we dive into the project details, here's a snapshot of the impact we delivered."
 				metrics={[
 					{ value: '↑ 9%', label: 'Replies' },
+					{ value: '+ 60K', label: 'new listings' },
 					{ value: '↑ 20%', label: 'NPS' },
-					{ value: '+ 60K', label: 'New Ads' },
+					{ value: '↑ Leads', label: 'New revenue stream' },
+					{ value: '↑ 6.4%', label: 'SRP to VIP' },
+					{ value: '3PA', label: 'no negative impact' },
 				]}
+				className='mt-8 sm:mt-16 mb-16 sm:mb-32'
 			/>
 
 			{/* Problem Space */}
@@ -257,7 +263,7 @@ export default function GumtreeServicesPage() {
 			</TextSection>
 
 			{/* Milestone 1 */}
-			<TextSection preTitle='Milestone 1' title='Introducing Seller Skills'>
+			<TextSection preTitle='Milestone 1' title='Introducing Seller Skills' noBottomPadding>
 				<p className='mb-6 sm:mb-8'>
 					We introduced Seller Skills to highlight provider expertise, improve buyer matching, and strengthen
 					Gumtree&apos;s position before integrating with Bark&apos;s richer service profiles.
@@ -382,7 +388,7 @@ export default function GumtreeServicesPage() {
 			</section>
 
 				{/* Buyer Journey */}
-				<TextSection subTitle='Buyer journey'>
+				<TextSection subTitle='Buyer journey' noBottomPadding>
 					<p className='mb-12 sm:mb-16'>
 						Skills displayed on VIP (View item) pages and SRP cards, with future plans for filters and search
 						integration.
@@ -412,7 +418,7 @@ export default function GumtreeServicesPage() {
 				</TextSection>
 
 			{/* Milestone 2 */}
-			<TextSection preTitle='Milestone 2' title='Improving UI for Gumtree Service professionals'>
+			<TextSection preTitle='Milestone 2' title='Improving UI for Gumtree Service professionals' noBottomPadding>
 				<p className='mb-16 sm:mb-20'>
 					Gumtree&apos;s Services pages were inherited from &apos;For Sale&apos; and did not meet the expectations of service
 					providers or buyers. Competitors offered optimised and structured profiles, while Gumtree did not. With
@@ -450,7 +456,7 @@ export default function GumtreeServicesPage() {
 			</section>
 
 			{/* VIP Redesign */}
-			<TextSection subTitle='View item page redesign'>
+			<TextSection subTitle='View item page redesign' noBottomPadding>
 				<p className='mb-6 sm:mb-8'>
 					I restructured the Services VIP page to prioritise key details and improve clarity. Changes included
 					highlighting essential information, adding reviews (via the Trust team&apos;s Google Reviews integration),
@@ -482,7 +488,7 @@ export default function GumtreeServicesPage() {
 			</TextSection>
 
 			{/* Milestone 3 */}
-			<TextSection preTitle='Milestone 3' title='Gumtree × Bark Strategic Partnership'>
+			<TextSection preTitle='Milestone 3' title='Gumtree × Bark Strategic Partnership' noBottomPadding>
 				<p className='mb-6 sm:mb-8'>
 					Gumtree&apos;s first strategic partnership in the services space connected 10M monthly Gumtree users with 30K+
 					trusted Bark professionals across more than 1,000 categories.
@@ -540,7 +546,7 @@ export default function GumtreeServicesPage() {
 			</section>
 
 			{/* Request a quote feature */}
-			<TextSection subTitle='Request a quote feature'>
+			<TextSection subTitle='Request a quote feature' noBottomPadding>
 				<p className='mb-3 sm:mb-4'>
 					We introduced a new flow that lets buyers send job details directly to service providers. It captures
 					essential information and makes it easier for users to connect with the right professionals, allowing
@@ -582,7 +588,7 @@ export default function GumtreeServicesPage() {
 			</section>
 
 			{/* SRP */}
-			<TextSection subTitle='Search results page. Bark'>
+			<TextSection subTitle='Search results page. Bark' noBottomPadding>
 				<p className='mb-6 sm:mb-8'>
 					The Search Results Page was redesigned to integrate Bark&apos;s rich provider profiles seamlessly into
 					Gumtree&apos;s interface. The new design prioritizes key information like ratings, skills, and availability
@@ -608,7 +614,7 @@ export default function GumtreeServicesPage() {
 			</section>
 
 			{/* VIP */}
-			<TextSection subTitle='View item page. Bark'>
+			<TextSection subTitle='View item page. Bark' noBottomPadding>
 				<p className='mb-6 sm:mb-8'>
 					The View Item Page was restructured to showcase Bark&apos;s comprehensive provider profiles with enhanced
 					trust signals. The redesign prioritized key information like verified skills, detailed ratings, and
@@ -633,30 +639,21 @@ export default function GumtreeServicesPage() {
 				</div>
 			</section>
 
-			{/* Outcome */}
-			<TextSection subTitle='Outcome'>
-				<p className='mb-6 sm:mb-8'>
-					This work enabled the successful launch of the Bark partnership, connecting 10 million Gumtree users with over 30 000 verified professionals. By improving UX and balancing user needs with business and revenue goals, we created a more competitive, future-ready platform for growth and new partnerships.
-				</p>
-			</TextSection>
-
-			{/* Impact image */}
-			<section className='py-12 sm:py-8 px-4 sm:px-6 lg:px-8'>
-				<div className='max-w-6xl mx-auto'>
-					<div className='sm:bg-gray-50 sm:rounded-[20px] w-screen sm:w-full mx-auto mb-16 sm:mb-32 mt-8 sm:mt-32 -mx-4 sm:mx-auto overflow-hidden'>
-						<div className='w-full'>
-							<Image
-								src='/case-studies/gumtree-services/Impact.png'
-								alt='Outcome metrics showing positive impact and engagement including replies, new listings, NPS, leads, SRP to VIP conversion, and third-party ads performance'
-								width={1200}
-								height={600}
-								className='w-full h-auto object-contain sm:rounded-[20px]'
-								quality={90}
-							/>
-						</div>
-					</div>
-				</div>
-			</section>
+			{/* Outcome & Impact Metrics */}
+			<ImpactMetrics
+				title=''
+				subtitle='Outcome'
+				description='This work enabled the successful launch of the Bark partnership, connecting 10 million Gumtree users with over 30 000 verified professionals. By improving UX and balancing user needs with business and revenue goals, we created a more competitive, future-ready platform for growth and new partnerships.'
+				metrics={[
+					{ value: '↑ 9%', label: 'Replies' },
+					{ value: '+ 60K', label: 'new listings' },
+					{ value: '↑ 20%', label: 'NPS' },
+					{ value: '↑ Leads', label: 'New revenue stream' },
+					{ value: '↑ 6.4%', label: 'SRP to VIP' },
+					{ value: '3PA', label: 'no negative impact' },
+				]}
+				className='mt-8 sm:mt-16 mb-16 sm:mb-32'
+			/>
 
 			{/* Thank You Section */}
 			<section className='py-12 sm:py-16 pb-24 sm:pb-32 px-4 sm:px-6 lg:px-8'>

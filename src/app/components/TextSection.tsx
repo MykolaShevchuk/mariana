@@ -5,11 +5,12 @@ interface TextSectionProps {
 	preTitle?: string;
 	subTitle?: string;
 	children: ReactNode;
+	noBottomPadding?: boolean;
 }
 
-export default function TextSection({ title, preTitle, subTitle, children }: TextSectionProps) {
+export default function TextSection({ title, preTitle, subTitle, children, noBottomPadding }: TextSectionProps) {
 	return (
-		<section className='py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8'>
+		<section className={`${noBottomPadding ? 'pt-8 sm:pt-12 lg:pt-16 pb-0' : 'py-8 sm:py-12 lg:py-16'} px-4 sm:px-6 lg:px-8`}>
 			<div className='max-w-[800px] mx-auto text-left'>
 				{preTitle && (
 					<span className='text-[#2463eb] text-[18px] sm:text-[20px] lg:text-[24px] font-bold uppercase leading-[24px] block mb-2 sm:mb-4'>
