@@ -9,7 +9,7 @@ export default function WorkSection() {
 						title='Gumtree'
 						subtitle='Services'
 						year='2025'
-						description='Redesigned the Services experience across multiple journeys as part of a strategic initiative to improve engagement and outcomes for service providers. The project delivered consistent growth compared to the previous version, achieving a 9% increase in replies and a 15% uplift in service leads. Worked closely with stakeholders and cross-functional teams to align on requirements, ensure design consistency, and implement improvements that enhanced both usability and business performance.'
+						description='Redesigned the Services experience across multiple journeys as part of a strategic initiative to improve engagement and outcomes for service providers. The project delivered consistent growth compared to the previous version, achieving a 9% increase in replies, a 20% uplift in NPS and drove 60K new listings to the platform. Worked closely with stakeholders and cross-functional teams to align on requirements, ensure design consistency, and implement improvements that enhanced both usability and business performance.'
 						link='/case-studies/gumtree-services'
 						skills={[
 							'UX Design',
