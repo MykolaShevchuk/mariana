@@ -10,18 +10,18 @@ export default function AboutSection() {
 				<div className='flex flex-col md:flex-row gap-16'>
 					<div className='md:w-1/2 px-6 md:px-0'>
 						<div>
-							<h2 className='text-xl sm:text-2xl md:text-3xl font-light text-gray-900 mb-6'>About Me</h2>
-							<p className='text-sm sm:text-base lg:text-base text-gray-600 mb-6 leading-relaxed'>
+							<h3 className="text-black font-['Lora'] text-[24px] sm:text-[28px] lg:text-[32px] font-semibold leading-tight mb-3 sm:mb-4 lg:mb-6">About Me</h3>
+							<p className="text-[16px] sm:text-[18px] lg:text-[20px] text-[#464040] mb-6 leading-[26px] sm:leading-[30px] lg:leading-[32px] font-['Inter']">
 								Product Designer with {yearsOfExperience}+ years&apos; experience creating user-centred digital
 								products across mobile and web. Highly skilled in Figma and an advocate for design systems, having
 								developed one from the ground up using design tokens.
 							</p>
-							<p className='text-sm sm:text-base lg:text-base text-gray-600 mb-6 leading-relaxed'>
+							<p className="text-[16px] sm:text-[18px] lg:text-[20px] text-[#464040] mb-6 leading-[26px] sm:leading-[30px] lg:leading-[32px] font-['Inter']">
 								Collaborative and outcome-focused, with a track record of improving key user journeys and driving
 								measurable impact through close partnership with stakeholders and cross-functional teams. Value the
 								role of research and user insights in informing design decisions.
 							</p>
-							<p className='text-sm sm:text-base lg:text-base text-gray-600 leading-relaxed'>
+							<p className="text-[16px] sm:text-[18px] lg:text-[20px] text-[#464040] leading-[26px] sm:leading-[30px] lg:leading-[32px] font-['Inter']">
 								Committed to continuous learning, completing at least one professional course each year to expand
 								expertise.
 							</p>
