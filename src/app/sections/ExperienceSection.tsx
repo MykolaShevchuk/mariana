@@ -3,7 +3,7 @@ export default function ExperienceSection() {
 		<section id='experience' className='py-20 bg-gray-50 w-full'>
 			<div className='max-w-6xl mx-auto px-6'>
 				<div className='text-center mb-16'>
-					<h2 className='text-2xl sm:text-3xl md:text-4xl font-light text-gray-900 mb-4'>Professional Experience</h2>
+					<h3 className="text-black font-['Lora'] text-[24px] sm:text-[28px] lg:text-[32px] font-semibold leading-tight mb-3 sm:mb-4 lg:mb-6">Professional Experience</h3>
 				</div>
 
 				<div className='grid md:grid-cols-2 gap-8'>
@@ -13,7 +13,7 @@ export default function ExperienceSection() {
 							<p className='text-gray-900 font-medium'>Gumtree, London</p>
 							<p className='text-gray-600 text-sm'>July 2025 - Present</p>
 						</div>
-						<p className='text-sm sm:text-base lg:text-base text-gray-600 leading-relaxed'>
+						<p className="text-[16px] sm:text-[18px] lg:text-[20px] text-[#464040] leading-[26px] sm:leading-[30px] lg:leading-[32px] font-['Inter']">
 							Leading design strategy and creating concepts using Lovable AI and Figma. Ensuring design consistency
 							across all user journeys as a design system guardian, leading UI refreshes, and co-leading strategic
 							workshops with stakeholders.
@@ -26,7 +26,7 @@ export default function ExperienceSection() {
 							<p className='text-gray-900 font-medium'>Gumtree, London</p>
 							<p className='text-gray-600 text-sm'>Sep 2022 - July 2025</p>
 						</div>
-						<p className='text-sm sm:text-base lg:text-base text-gray-600 leading-relaxed'>
+						<p className="text-[16px] sm:text-[18px] lg:text-[20px] text-[#464040] leading-[26px] sm:leading-[30px] lg:leading-[32px] font-['Inter']">
 							Redesigned mobile and web experiences for Listings journey and Services initiative. Established design
 							system with design tokens, delivered +31.4% uplift in new listings, +9% replies, and received &quot;Make
 							an impact&quot; award.
@@ -39,7 +39,7 @@ export default function ExperienceSection() {
 							<p className='text-gray-900 font-medium'>LaSoft, Lviv, Ukraine</p>
 							<p className='text-gray-600 text-sm'>Mar 2016 - Sep 2022</p>
 						</div>
-						<p className='text-sm sm:text-base lg:text-base text-gray-600 leading-relaxed'>
+						<p className="text-[16px] sm:text-[18px] lg:text-[20px] text-[#464040] leading-[26px] sm:leading-[30px] lg:leading-[32px] font-['Inter']">
 							Delivered MVPs and digital products for international clients across consulting, real estate, telecoms,
 							e-commerce, and creative arts. Defined user flows, designed end-to-end experiences, and created
 							comprehensive design documentation.
@@ -52,7 +52,7 @@ export default function ExperienceSection() {
 							<p className='text-gray-900 font-medium'>LaSoft, Lviv, Ukraine</p>
 							<p className='text-gray-600 text-sm'>Mar 2015 - Oct 2015</p>
 						</div>
-						<p className='text-sm sm:text-base lg:text-base text-gray-600 leading-relaxed'>
+						<p className="text-[16px] sm:text-[18px] lg:text-[20px] text-[#464040] leading-[26px] sm:leading-[30px] lg:leading-[32px] font-['Inter']">
 							Specialized in image vectorization and producing precise, print-ready vector artwork using Adobe
 							Illustrator/Photoshop for international clients, contributing to team growth and workflow improvements.
 						</p>
