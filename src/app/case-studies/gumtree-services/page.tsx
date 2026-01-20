@@ -398,7 +398,7 @@ export default function GumtreeServicesPage() {
 				{/* Buyer Journey Image */}
 				<section className='py-12 sm:py-8 px-4 sm:px-6 lg:px-8'>
 					<div className='max-w-6xl mx-auto'>
-						<div className='sm:bg-gray-50 sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full mx-auto mb-16 overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-thumb-gray-400/50 scrollbar-track-transparent hover:scrollbar-thumb-gray-400/70 scrollbar-thumb-rounded-full -mx-4 sm:mx-auto'>
+						<div className='sm:bg-[#DCDBCE] sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full mx-auto mb-16 overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-thumb-gray-400/50 scrollbar-track-transparent hover:scrollbar-thumb-gray-400/70 scrollbar-thumb-rounded-full -mx-4 sm:mx-auto'>
 							<Image
 								src='/case-studies/gumtree-services/buyer-journey.png'
 								alt='Buyer journey flow showing the complete process from service discovery to provider selection'
@@ -442,13 +442,29 @@ export default function GumtreeServicesPage() {
 			{/* SRP Image */}
 			<section className='py-12 sm:py-8 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-6xl mx-auto'>
-					<div className='sm:bg-gray-50 sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full mx-auto mb-16 -mx-4 sm:mx-auto'>
+					<div className='sm:bg-[#DCDBCE] sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full mx-auto mb-16 -mx-4 sm:mx-auto'>
 						<Image
 							src='/case-studies/gumtree-services/milestone-2-SRP.png'
 							alt='View Item Page showing enhanced Bark provider profile with verified skills, ratings, and improved CTAs'
 							width={1200}
 							height={600}
 							className='w-full h-auto sm:max-w-3xl sm:pl-6 sm:mx-auto min-w-[300px] sm:min-w-auto object-contain'
+							quality={80}
+						/>
+					</div>
+				</div>
+			</section>
+
+			{/* SRP Image 2 */}
+			<section className='py-12 sm:py-8 px-4 sm:px-6 lg:px-8'>
+				<div className='max-w-6xl mx-auto'>
+					<div className='sm:bg-[#DCDBCE] sm:py-6 sm:pr-6 sm:pb-0 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full mx-auto mb-16 -mx-4 sm:mx-auto'>
+						<Image
+							src='/case-studies/gumtree-services/milestone-2-SRP-2.png'
+							alt='Search results page showing Bark provider listings with enhanced filtering and sorting'
+							width={1200}
+							height={600}
+							className='w-full h-auto sm:max-w-full sm:pl-6 sm:pr-6 sm:mx-auto min-w-[300px] sm:min-w-auto object-contain'
 							quality={80}
 						/>
 					</div>
@@ -467,7 +483,7 @@ export default function GumtreeServicesPage() {
 			{/* VIP Image */}
 			<section className='py-12 sm:py-8 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-6xl mx-auto'>
-					<div className='sm:bg-gray-50 sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full mx-auto mb-16 -mx-4 sm:mx-auto'>
+					<div className='sm:bg-[#DCDBCE] sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full mx-auto mb-16 -mx-4 sm:mx-auto'>
 						<Image
 							src='/case-studies/gumtree-services/milestone-2-VIP.png'
 							alt='View Item Page showing enhanced Bark provider profile with verified skills, ratings, and improved CTAs'
@@ -600,7 +616,7 @@ export default function GumtreeServicesPage() {
 			{/* SRP image */}
 			<section className='py-12 sm:py-8 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-6xl mx-auto'>
-					<div className='sm:bg-gray-50 sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full mx-auto mb-16 sm:mb-32 mt-8 sm:mt-32 -mx-4 sm:mx-auto'>
+					<div className='sm:bg-[#DCDBCE] sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full mx-auto mb-16 sm:mb-32 mt-8 sm:mt-32 -mx-4 sm:mx-auto'>
 						<Image
 							src='/case-studies/gumtree-services/milestone-3-SRP.png'
 							alt='Search Results Page showing Bark integration with enhanced provider cards, ratings, and improved CTAs'
@@ -626,7 +642,7 @@ export default function GumtreeServicesPage() {
 			{/* VIP image */}
 			<section className='py-12 sm:py-8 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-6xl mx-auto'>
-					<div className='sm:bg-gray-50 sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full mx-auto mb-16 sm:mb-32 mt-8 sm:mt-32 -mx-4 sm:mx-auto'>
+					<div className='sm:bg-[#DCDBCE] sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full mx-auto mb-16 sm:mb-32 mt-8 sm:mt-32 -mx-4 sm:mx-auto'>
 						<Image
 							src='/case-studies/gumtree-services/milestone-3-VIP.png'
 							alt='View Item Page showing enhanced Bark provider profile with verified skills, ratings, and improved CTAs'
