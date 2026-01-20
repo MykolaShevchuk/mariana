@@ -15,7 +15,7 @@ export default function HeroSection() {
 					</span>
 					<span className='block text-blue-600'>Product Designer</span>
 				</h1>
-				<p className='text-base sm:text-lg md:text-2xl text-gray-600 mb-16 max-w-3xl leading-relaxed md:leading-[40px] font-light md:ml-[4px]'>
+				<p className='text-base sm:text-lg md:text-2xl text-gray-600 mb-16 max-w-3xl leading-relaxed md:leading-[40px] font-light md:ml-[4px] text-pretty'>
 					I am a UK-based Product Designer with {yearsOfExperience}+ years of experience in mobile and web,
 					specialising in creating user-centred, consistent, and impactful experiences.
 				</p>

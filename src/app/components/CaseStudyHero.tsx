@@ -46,7 +46,7 @@ export default function CaseStudyHero({
 						)}
 
 						<div className='flex-1'>
-							<p className="text-[#464040] text-[18px] sm:text-[20px] lg:text-[24px] leading-[28px] sm:leading-[32px] lg:leading-[36px] max-w-4xl mb-6 sm:mb-8 font-['Inter']">
+							<p className="text-[#464040] text-[18px] sm:text-[20px] lg:text-[24px] leading-[28px] sm:leading-[32px] lg:leading-[36px] max-w-4xl mb-6 sm:mb-8 font-['Inter'] text-pretty">
 								{description}
 							</p>
 						</div>

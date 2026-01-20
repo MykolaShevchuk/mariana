@@ -27,7 +27,7 @@ export default function TextSection({ title, preTitle, subTitle, children, noBot
 						{subTitle}
 					</h3>
 				)}
-				<div className="text-[#464040] text-[16px] sm:text-[18px] lg:text-[20px] leading-[26px] sm:leading-[30px] lg:leading-[32px] font-['Inter']">
+				<div className="text-[#464040] text-[16px] sm:text-[18px] lg:text-[20px] leading-[26px] sm:leading-[30px] lg:leading-[32px] font-['Inter'] text-pretty">
 					{children}
 				</div>
 			</div>

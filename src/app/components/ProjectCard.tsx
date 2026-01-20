@@ -65,7 +65,7 @@ export default function ProjectCard({
               ) : null}
             </div>
             <div className="w-full lg:w-3/5 px-6 pt-6 pb-0 sm:px-8 sm:pt-8 sm:pb-0 lg:pl-6 lg:pr-6 lg:pt-12 lg:pb-0 flex flex-col justify-start">
-              <p className="text-[16px] sm:text-[18px] lg:text-[20px] text-[#464040] mb-4 sm:mb-4 leading-[26px] sm:leading-[30px] lg:leading-[32px] font-['Inter']">
+              <p className="text-[16px] sm:text-[18px] lg:text-[20px] text-[#464040] mb-4 sm:mb-4 leading-[26px] sm:leading-[30px] lg:leading-[32px] font-['Inter'] text-pretty">
                 {description}
               </p>
               <div className="flex flex-wrap gap-2">
@@ -114,7 +114,7 @@ export default function ProjectCard({
             <h3 className="text-5xl sm:text-5xl lg:text-6xl font-semibold text-gray-900 mb-3 whitespace-nowrap relative lg:-left-2 font-serif">{title}</h3>
             <h4 className="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-2 font-medium">{subtitle}</h4>
             {year && <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">{year}</p>}
-            <p className="text-[16px] sm:text-[18px] lg:text-[20px] text-[#464040] mb-4 sm:mb-4 leading-[26px] sm:leading-[30px] lg:leading-[32px] font-['Inter']">
+            <p className="text-[16px] sm:text-[18px] lg:text-[20px] text-[#464040] mb-4 sm:mb-4 leading-[26px] sm:leading-[30px] lg:leading-[32px] font-['Inter'] text-pretty">
               {description}
             </p>
             {link ? (
