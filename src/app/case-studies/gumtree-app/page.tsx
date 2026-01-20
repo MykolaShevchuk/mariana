@@ -43,7 +43,7 @@ export default function GumtreeAppPage() {
               quality={80}
             />
             <Image
-              src="/gumtree-app.jpg"
+              src="/gumtree-app.png"
               alt="Gumtree App redesign showing improved user experience and engagement metrics"
               width={800}
               height={600}
