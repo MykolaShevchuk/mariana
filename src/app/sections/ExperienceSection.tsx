@@ -9,7 +9,7 @@ export default function ExperienceSection() {
 				<div className='grid md:grid-cols-2 gap-8'>
 					<div className='bg-white p-8 rounded-xl shadow-sm border border-gray-100'>
 						<div className='mb-4'>
-							<h3 className='text-xl font-medium text-gray-900 mb-2'>Customer Experience Design Lead</h3>
+							<h3 className='text-xl font-medium text-gray-900 mb-2'>Senior Product Designer</h3>
 							<p className='text-gray-900 font-medium'>Gumtree, London</p>
 							<p className='text-gray-600 text-sm'>July 2025 - Present</p>
 						</div>

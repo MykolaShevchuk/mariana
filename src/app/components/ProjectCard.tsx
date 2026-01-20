@@ -47,7 +47,7 @@ export default function ProjectCard({
                 <div className="mb-6 sm:mb-4">
                   <p className="text-base sm:text-lg text-gray-600">{year}</p>
                   {comingSoon && (
-                    <p className="text-sm sm:text-base text-gray-400 italic">Coming soon...</p>
+                    <p className="text-sm sm:text-base text-gray-500 italic">Coming soon...</p>
                   )}
                 </div>
               )}
