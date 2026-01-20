@@ -138,7 +138,7 @@ export default function ProjectCard({
               ))}
             </div>
           </div>
-          <div className="w-full lg:w-[64%] h-[300px] sm:h-[500px] lg:h-[850px] lg:mt-[5%] flex items-center justify-center relative overflow-hidden">
+          <div className="w-full lg:w-[64%] h-[300px] sm:h-[500px] lg:h-[700px] lg:mt-[5%] flex items-center justify-center relative overflow-hidden">
             {imageSrcMobile && (
               <Image
                 src={imageSrcMobile}
