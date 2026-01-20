@@ -43,7 +43,7 @@ export default function WorkSection() {
 							'Stakeholder management',
 							'Cross-functional collaboration',
 						]}
-						imageSrc='/gumtree-app.jpg'
+						imageSrc='/gumtree-app.png'
 						imageSrcMobile='/gumtree-app-mobile.jpg'
 						imageAlt='Gumtree App redesign showing improved user experience and engagement metrics'
 						priority={true}

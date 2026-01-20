@@ -59,7 +59,7 @@ export default function GumtreeAppsPage() {
 							/>
 							{/* Desktop Image */}
 							<Image
-								src='/gumtree-app.jpg'
+								src='/gumtree-app.png'
 								alt='Gumtree App redesign'
 								width={1600}
 								height={800}
