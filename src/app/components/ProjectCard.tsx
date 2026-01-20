@@ -8,6 +8,7 @@ interface ProjectCardProps {
   year?: string;
   description: string;
   note?: string;
+  comingSoon?: boolean;
   link?: string;
   skills: string[];
   imageSrc: string;
@@ -24,6 +25,7 @@ export default function ProjectCard({
   year,
   description,
   note,
+  comingSoon = false,
   link,
   skills,
   imageSrc,
@@ -41,7 +43,14 @@ export default function ProjectCard({
             <div className="w-full lg:w-2/5 px-6 pt-6 pb-0 sm:px-8 sm:pt-8 sm:pb-0 lg:px-12 lg:pt-12 lg:pb-0 lg:pl-6 flex flex-col justify-start">
               <h3 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-gray-900 mb-2 lg:-left-2 font-serif relative">{title}</h3>
               <h4 className="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-2 font-medium">{subtitle}</h4>
-              {year && <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-4">{year}</p>}
+              {year && (
+                <div className="mb-6 sm:mb-4">
+                  <p className="text-base sm:text-lg text-gray-600">{year}</p>
+                  {comingSoon && (
+                    <p className="text-sm sm:text-base text-gray-400 italic">Coming soon...</p>
+                  )}
+                </div>
+              )}
               {link ? (
                 <Link 
                   href={link}
@@ -101,7 +110,7 @@ export default function ProjectCard({
     <div className="py-8 sm:py-12">
       <div className="w-full">
         <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-2/5 px-6 pt-6 pb-0 sm:px-8 sm:pt-8 sm:pb-0 lg:px-12 lg:pt-12 lg:pb-0 lg:pl-6 flex flex-col justify-center">
+          <div className="w-full lg:w-[36%] px-6 pt-6 pb-0 sm:px-8 sm:pt-8 sm:pb-0 lg:px-12 lg:pt-12 lg:pb-0 lg:pl-6 lg:pr-0 flex flex-col justify-center">
             <h3 className="text-5xl sm:text-5xl lg:text-6xl font-semibold text-gray-900 mb-3 whitespace-nowrap relative lg:-left-2 font-serif">{title}</h3>
             <h4 className="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-2 font-medium">{subtitle}</h4>
             {year && <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">{year}</p>}
@@ -129,7 +138,7 @@ export default function ProjectCard({
               ))}
             </div>
           </div>
-          <div className="w-full lg:w-3/5 h-[300px] sm:h-[500px] lg:h-[700px] flex items-center justify-center relative overflow-hidden">
+          <div className="w-full lg:w-[64%] h-[300px] sm:h-[500px] lg:h-[850px] lg:mt-[5%] flex items-center justify-center relative overflow-hidden">
             {imageSrcMobile && (
               <Image
                 src={imageSrcMobile}
