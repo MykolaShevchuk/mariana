@@ -33,7 +33,7 @@ export default function WorkSection() {
 						title='Gumtree'
 						subtitle='App redesign'
 						year='2024'
-						description='As part of the Gumtree app redesign for iOS and Android, I owned the Listings journey, covering listing creation, management and partner integrations. I also introduced a design system with tokens and cross-platform guidelines, ensuring consistency across teams. One of the more complex problems was handling multi-categorisation within technical constraints — where I worked with both native and web-view approaches and validated design decisions through moderated usability testing.'
+						description="During the Gumtree iOS and Android app redesign, I owned the sellers' journeys, including Ad creation, management, and partner integrations. I introduced a design system with design tokens (pre-Figma variable times) and cross-platform guidelines to ensure consistency. I also worked with engineers to solve complex multi-category challenges and validated solutions through usability testing."
 						comingSoon={true}
 						// link='/case-studies/gumtree-app'
 						skills={[
@@ -42,6 +42,10 @@ export default function WorkSection() {
 							'App',
 							'Stakeholder management',
 							'Cross-functional collaboration',
+							'Design System',
+							'Design Tokens',
+							'iOS design',
+							'Android design',
 						]}
 						imageSrc='/gumtree-app.png'
 						imageSrcMobile='/gumtree-app-mobile.jpg'

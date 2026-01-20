@@ -37,8 +37,8 @@ export default function GumtreeAppsPage() {
 							</div>
 
 							<div className='flex-1'>
-								<p className="text-[#464040] text-[18px] sm:text-[20px] lg:text-[24px] leading-[28px] sm:leading-[32px] lg:leading-[36px] max-w-4xl mb-6 sm:mb-8 font-['Inter']">
-									Description goes here.
+								<p className="text-[#464040] text-[18px] sm:text-[20px] lg:text-[24px] leading-[28px] sm:leading-[32px] lg:leading-[36px] max-w-4xl mb-6 sm:mb-8 font-['Inter'] text-pretty">
+									During the Gumtree iOS and Android app redesign, I owned the sellers' journeys, including Ad creation, management, and partner integrations. I introduced a design system with design tokens (pre-Figma variable times) and cross-platform guidelines to ensure consistency. I also worked with engineers to solve complex multi-category challenges and validated solutions through usability testing.
 								</p>
 							</div>
 						</div>
