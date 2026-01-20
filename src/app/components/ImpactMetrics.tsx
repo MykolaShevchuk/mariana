@@ -48,7 +48,7 @@ export default function ImpactMetrics({
 							{subtitle}
 						</h3>
 						{description && (
-							<p className="text-white/90 text-[16px] sm:text-[18px] lg:text-[20px] leading-[26px] sm:leading-[30px] lg:leading-[32px] font-['Inter']">
+							<p className="text-white/90 text-[16px] sm:text-[18px] lg:text-[20px] leading-[26px] sm:leading-[30px] lg:leading-[32px] font-['Inter'] text-pretty">
 								{description}
 							</p>
 						)}
