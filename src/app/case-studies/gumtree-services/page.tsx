@@ -5,6 +5,7 @@ import Accordion from '@/components/Accordion';
 import CaseStudyHero from '@/components/CaseStudyHero';
 import ImpactMetrics from '@/components/ImpactMetrics';
 import TextSection from '@/components/TextSection';
+import BeforeAfterSection from '@/components/BeforeAfterSection';
 import { Shield, Droplets, Megaphone, CheckCircle, DollarSign } from 'lucide-react';
 
 export default function GumtreeServicesPage() {
@@ -82,6 +83,26 @@ export default function GumtreeServicesPage() {
 					{ value: '3PA', label: 'no negative impact' },
 				]}
 				className='mt-8 sm:mt-16 mb-16 sm:mb-32'
+			/>
+
+			{/* Before/After Comparison - SRP */}
+			<BeforeAfterSection
+				title='Before and After'
+				description='A visual comparison showing the transformation of the Services Search Results and View Item Pages.'
+				beforeImage='/case-studies/gumtree-services/services-srp-before.png'
+				afterImage='/case-studies/gumtree-services/services-srp-after.png'
+				beforeAlt='Services search results page before redesign'
+				afterAlt='Services search results page after redesign'
+				imageCaption='Search Results Page redesign'
+			/>
+
+			{/* Before/After Comparison - VIP */}
+			<BeforeAfterSection
+				beforeImage='/case-studies/gumtree-services/services-vip-before.png'
+				afterImage='/case-studies/gumtree-services/services-vip-after.png'
+				beforeAlt='Services View Item Page before redesign'
+				afterAlt='Services View Item Page after redesign'
+				imageCaption='View Item Page redesign'
 			/>
 
 			{/* Problem Space */}
