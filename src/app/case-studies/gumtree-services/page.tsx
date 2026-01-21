@@ -76,11 +76,11 @@ export default function GumtreeServicesPage() {
 				description="Before we dive into the project details, here's a snapshot of the impact we delivered."
 				metrics={[
 					{ value: '↑ 9%', label: 'Replies' },
-					{ value: '+ 60K', label: 'new listings' },
+					{ value: '+ 60K', label: 'New listings' },
 					{ value: '↑ 20%', label: 'NPS' },
 					{ value: '↑ Leads', label: 'New revenue stream' },
 					{ value: '↑ 6.4%', label: 'SRP to VIP' },
-					{ value: '3PA', label: 'no negative impact' },
+					{ value: '3PA', label: 'No negative impact' },
 				]}
 				className='mt-8 sm:mt-16 mb-16 sm:mb-32'
 			/>
@@ -683,11 +683,11 @@ export default function GumtreeServicesPage() {
 				description='This work enabled the successful launch of the Bark partnership, connecting 10 million Gumtree users with over 30 000 verified professionals. By improving UX and balancing user needs with business and revenue goals, we created a more competitive, future-ready platform for growth and new partnerships.'
 				metrics={[
 					{ value: '↑ 9%', label: 'Replies' },
-					{ value: '+ 60K', label: 'new listings' },
+					{ value: '+ 60K', label: 'New listings' },
 					{ value: '↑ 20%', label: 'NPS' },
 					{ value: '↑ Leads', label: 'New revenue stream' },
 					{ value: '↑ 6.4%', label: 'SRP to VIP' },
-					{ value: '3PA', label: 'no negative impact' },
+					{ value: '3PA', label: 'No negative impact' },
 				]}
 				className='mt-8 sm:mt-16 mb-16 sm:mb-32'
 			/>
