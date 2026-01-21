@@ -6,6 +6,7 @@ import CaseStudyHero from '@/components/CaseStudyHero';
 import ImpactMetrics from '@/components/ImpactMetrics';
 import TextSection from '@/components/TextSection';
 import BeforeAfterSection from '@/components/BeforeAfterSection';
+import ResearchInsightsTabs from '@/components/ResearchInsightsTabs';
 import { Shield, Droplets, Megaphone, CheckCircle, DollarSign } from 'lucide-react';
 
 export default function GumtreeServicesPage() {
@@ -282,6 +283,16 @@ export default function GumtreeServicesPage() {
 
 				<Accordion items={tasksData} />
 			</TextSection>
+
+			{/* Research & Insights */}
+			<TextSection title='Research & Insights' noBottomPadding>
+				<p className='mb-8 sm:mb-12'>
+					Before moving into solutions, I wanted to connect user pain points with business strategy, ensuring we designed for both buyer trust and seller visibility.
+				</p>
+			</TextSection>
+
+			{/* Research Insights Tabs */}
+			<ResearchInsightsTabs />
 
 			{/* Milestone 1 */}
 			<TextSection preTitle='Milestone 1' title='Introducing Seller Skills' noBottomPadding>
