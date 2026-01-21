@@ -359,7 +359,7 @@ export default function GumtreeServicesPage() {
 			</TextSection>
 
 			{/* Seller Journey Images */}
-			<section className='py-12 sm:py-8 px-4 sm:px-6 lg:px-8'>
+			<section className='pt-12 pb-0 sm:py-8 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-6xl mx-auto'>
 					{/* Seller Journey Image - Mobile */}
 					<div className='w-full overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-thumb-gray-400/50 scrollbar-track-transparent hover:scrollbar-thumb-gray-400/70 scrollbar-thumb-rounded-full lg:hidden pl-0 lg:pl-24'>
@@ -396,15 +396,15 @@ export default function GumtreeServicesPage() {
 				</TextSection>
 
 				{/* Buyer Journey Image */}
-				<section className='py-12 sm:py-8 px-4 sm:px-6 lg:px-8'>
+				<section className='pt-12 pb-0 sm:py-8 px-4 sm:px-6 lg:px-8'>
 					<div className='max-w-6xl mx-auto'>
-						<div className='sm:bg-[#DCDBCE] sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full mx-auto mb-16 overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-thumb-gray-400/50 scrollbar-track-transparent hover:scrollbar-thumb-gray-400/70 scrollbar-thumb-rounded-full -mx-4 sm:mx-auto'>
+						<div className='sm:bg-[#DCDBCE] sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full mb-16 overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-thumb-gray-400/50 scrollbar-track-transparent hover:scrollbar-thumb-gray-400/70 scrollbar-thumb-rounded-full -mx-4 sm:mx-auto'>
 							<Image
 								src='/case-studies/gumtree-services/buyer-journey.png'
 								alt='Buyer journey flow showing the complete process from service discovery to provider selection'
 								width={1200}
 								height={600}
-								className='w-full h-auto sm:max-w-3xl sm:pl-6 sm:mx-auto sm:rounded-[18px] min-w-[300px] sm:min-w-auto object-contain'
+								className='w-full h-auto max-w-full sm:max-w-3xl sm:pl-6 mx-auto sm:rounded-[18px] object-contain'
 							/>
 						</div>
 					</div>
@@ -440,15 +440,15 @@ export default function GumtreeServicesPage() {
 			</TextSection>
 
 			{/* SRP Image */}
-			<section className='py-12 sm:py-8 px-4 sm:px-6 lg:px-8'>
+			<section className='pt-12 pb-0 sm:py-8 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-6xl mx-auto'>
-					<div className='sm:bg-[#DCDBCE] sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full mx-auto mb-16 -mx-4 sm:mx-auto'>
+					<div className='sm:bg-[#DCDBCE] sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full mb-16 -mx-4 sm:mx-auto'>
 						<Image
 							src='/case-studies/gumtree-services/milestone-2-SRP.png'
 							alt='View Item Page showing enhanced Bark provider profile with verified skills, ratings, and improved CTAs'
 							width={1200}
 							height={600}
-							className='w-full h-auto sm:max-w-3xl sm:pl-6 sm:mx-auto min-w-[300px] sm:min-w-auto object-contain'
+							className='w-full h-auto max-w-full sm:max-w-3xl sm:pl-6 mx-auto object-contain'
 							quality={80}
 						/>
 					</div>
@@ -456,15 +456,15 @@ export default function GumtreeServicesPage() {
 			</section>
 
 			{/* SRP Image 2 */}
-			<section className='py-12 sm:py-8 px-4 sm:px-6 lg:px-8'>
+			<section className='pt-12 pb-0 sm:py-8 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-6xl mx-auto'>
-					<div className='sm:bg-[#DCDBCE] sm:py-6 sm:pr-6 sm:pb-0 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full mx-auto mb-16 -mx-4 sm:mx-auto'>
+					<div className='bg-[#DCDBCE] py-6 pr-6 pb-0 pl-0 sm:rounded-[20px] w-screen sm:w-full mb-16 -mx-4 sm:mx-auto'>
 						<Image
 							src='/case-studies/gumtree-services/milestone-2-SRP-2.png'
 							alt='Search results page showing Bark provider listings with enhanced filtering and sorting'
 							width={1200}
 							height={600}
-							className='w-full h-auto sm:max-w-full sm:pl-6 sm:pr-6 sm:mx-auto min-w-[300px] sm:min-w-auto object-contain'
+							className='w-full h-auto max-w-full sm:max-w-full sm:pl-6 sm:pr-6 mx-auto object-contain'
 							quality={80}
 						/>
 					</div>
@@ -481,15 +481,15 @@ export default function GumtreeServicesPage() {
 			</TextSection>
 
 			{/* VIP Image */}
-			<section className='py-12 sm:py-8 px-4 sm:px-6 lg:px-8'>
+			<section className='pt-12 pb-0 sm:py-8 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-6xl mx-auto'>
-					<div className='sm:bg-[#DCDBCE] sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full mx-auto mb-16 -mx-4 sm:mx-auto'>
+					<div className='sm:bg-[#DCDBCE] sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full mb-16 -mx-4 sm:mx-auto'>
 						<Image
 							src='/case-studies/gumtree-services/milestone-2-VIP.png'
 							alt='View Item Page showing enhanced Bark provider profile with verified skills, ratings, and improved CTAs'
 							width={1200}
 							height={600}
-							className='w-full h-auto sm:max-w-3xl sm:pl-6 sm:mx-auto min-w-[300px] sm:min-w-auto object-contain'
+							className='w-full h-auto max-w-full sm:max-w-3xl sm:pl-6 mx-auto object-contain'
 							quality={80}
 						/>
 					</div>
@@ -529,7 +529,7 @@ export default function GumtreeServicesPage() {
 			</TextSection>
 
 			{/* Post a job feature images */}
-			<section className='py-12 sm:py-8 px-4 sm:px-6 lg:px-8'>
+			<section className='pt-12 pb-0 sm:py-8 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-6xl mx-auto'>
 					{/* Post a job feature image - Mobile */}
 					<div className='w-full overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-thumb-gray-400/50 scrollbar-track-transparent hover:scrollbar-thumb-gray-400/70 scrollbar-thumb-rounded-full lg:hidden mb-12 sm:mb-16'>
@@ -571,7 +571,7 @@ export default function GumtreeServicesPage() {
 			</TextSection>
 
 			{/* Request a quote feature images */}
-			<section className='py-12 sm:py-8 px-4 sm:px-6 lg:px-8'>
+			<section className='pt-12 pb-0 sm:py-8 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-6xl mx-auto'>
 					{/* Request a quote feature image - Mobile */}
 					<div className='w-full overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-thumb-gray-400/50 scrollbar-track-transparent hover:scrollbar-thumb-gray-400/70 scrollbar-thumb-rounded-full lg:hidden mb-12 sm:mb-16'>
@@ -614,15 +614,15 @@ export default function GumtreeServicesPage() {
 			</TextSection>
 
 			{/* SRP image */}
-			<section className='py-12 sm:py-8 px-4 sm:px-6 lg:px-8'>
+			<section className='pt-12 pb-0 sm:py-8 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-6xl mx-auto'>
-					<div className='sm:bg-[#DCDBCE] sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full mx-auto mb-16 sm:mb-32 mt-8 sm:mt-32 -mx-4 sm:mx-auto'>
+					<div className='sm:bg-[#DCDBCE] sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full mb-16 sm:mb-32 mt-8 sm:mt-32 -mx-4 sm:mx-auto'>
 						<Image
 							src='/case-studies/gumtree-services/milestone-3-SRP.png'
 							alt='Search Results Page showing Bark integration with enhanced provider cards, ratings, and improved CTAs'
 							width={1200}
 							height={600}
-							className='w-full h-auto sm:max-w-3xl sm:pl-6 sm:mx-auto sm:-my-[128px] min-w-[300px] sm:min-w-auto object-contain'
+							className='w-full h-auto max-w-full sm:max-w-3xl sm:pl-6 mx-auto sm:-my-[128px] object-contain'
 							quality={80}
 						/>
 					</div>
@@ -640,15 +640,15 @@ export default function GumtreeServicesPage() {
 			</TextSection>
 
 			{/* VIP image */}
-			<section className='py-12 sm:py-8 px-4 sm:px-6 lg:px-8'>
+			<section className='pt-12 pb-0 sm:py-8 px-4 sm:px-6 lg:px-8'>
 				<div className='max-w-6xl mx-auto'>
-					<div className='sm:bg-[#DCDBCE] sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full mx-auto mb-16 sm:mb-32 mt-8 sm:mt-32 -mx-4 sm:mx-auto'>
+					<div className='sm:bg-[#DCDBCE] sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full mb-16 sm:mb-32 mt-8 sm:mt-32 -mx-4 sm:mx-auto'>
 						<Image
 							src='/case-studies/gumtree-services/milestone-3-VIP.png'
 							alt='View Item Page showing enhanced Bark provider profile with verified skills, ratings, and improved CTAs'
 							width={1200}
 							height={600}
-							className='w-full h-auto sm:max-w-3xl sm:pl-6 sm:mx-auto sm:-my-[128px] min-w-[300px] sm:min-w-auto object-contain'
+							className='w-full h-auto max-w-full sm:max-w-3xl sm:pl-6 mx-auto sm:-my-[128px] object-contain'
 							quality={80}
 						/>
 					</div>
