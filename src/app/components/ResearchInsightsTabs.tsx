@@ -136,7 +136,7 @@ export default function ResearchInsightsTabs() {
 																		className='rounded-lg px-6 py-4 text-center'
 																		style={{ backgroundColor: selectedView === 'buyers' ? '#1e7a8c' : '#e87444' }}
 																	>
-																		<div className='text-white/70 text-[12px] font-medium mb-1'>
+																		<div className='text-white/90 text-[12px] font-medium mb-1'>
 																			{selectedView === 'buyers' ? 'Buyer Mindset' : 'Seller Mindset'}
 																		</div>
 																		<div className='text-white text-[20px] sm:text-[24px] font-bold leading-tight'>
@@ -249,7 +249,7 @@ export default function ResearchInsightsTabs() {
 											className='rounded-lg px-6 py-4 text-center'
 											style={{ backgroundColor: selectedView === 'buyers' ? '#1e7a8c' : '#e87444' }}
 										>
-											<div className='text-white/70 text-[12px] font-medium mb-1'>
+											<div className='text-white/90 text-[12px] font-medium mb-1'>
 												{selectedView === 'buyers' ? 'Buyer Mindset' : 'Seller Mindset'}
 											</div>
 											<div className='text-white text-[20px] sm:text-[24px] font-bold leading-tight'>
