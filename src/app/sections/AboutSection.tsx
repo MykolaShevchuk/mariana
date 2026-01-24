@@ -40,6 +40,7 @@ export default function AboutSection() {
 										<Tag className='bg-white/50'>Visual design</Tag>
 										<Tag className='bg-white/50'>Prototyping</Tag>
 										<Tag className='bg-white/50'>Wireframing</Tag>
+										<Tag className='bg-white/50'>Vibe coding</Tag>
 									</div>
 								</div>
 
@@ -69,6 +70,8 @@ export default function AboutSection() {
 										<Tag className='bg-white/50'>FigJam</Tag>
 										<Tag className='bg-white/50'>Miro</Tag>
 										<Tag className='bg-white/50'>Lovable AI</Tag>
+										<Tag className='bg-white/50'>Cursor</Tag>
+										<Tag className='bg-white/50'>GitHub</Tag>
 									</div>
 								</div>
 							</div>
