@@ -165,14 +165,115 @@ export default function GumtreeAppsPage() {
 				</p>
 				<h3 className="text-black font-['Lora'] text-[24px] sm:text-[28px] lg:text-[32px] font-semibold leading-tight mb-3 sm:mb-4 lg:mb-6">Discovery & Research</h3>
 				<p className="mb-6 sm:mb-8">
-					I reviewed established design systems to understand how they structure components and scale across products. A recurring pattern was the use of design tokens to separate design decisions from implementation.
+					I started with an audit of the existing app and design assets to understand what was reusable, where inconsistencies existed, and which decisions had previously caused friction for design and engineering. In parallel, I reviewed established design systems to understand how they structure components and scale across products.
 				</p>
+			</TextSection>
+
+			{/* Gumtree Design foundations – Type, Colours, Grid (background wider, outside text container) */}
+			<section className="pt-12 pb-0 sm:py-8 px-4 sm:px-6 lg:px-8">
+				<div className="max-w-6xl mx-auto">
+					<div className="sm:bg-[#DCDBCE] sm:p-0 sm:rounded-[20px] sm:overflow-hidden sm:border sm:border-gray-200 w-screen sm:w-full mb-16 -mx-4 sm:mx-auto">
+						<Image
+							src="/case-studies/gumtree-app/design-foundations.png"
+							alt="Gumtree Design foundations: Type, Colours, and Grid with token specifications and Figma usage"
+							width={1200}
+							height={800}
+							className="w-full h-auto max-w-full object-contain sm:rounded-[20px]"
+							quality={80}
+						/>
+					</div>
+				</div>
+			</section>
+
+			<TextSection noBottomPadding>
 				<p className="mb-6 sm:mb-8">
-					In parallel, I ran unmoderated usability testing to reassess the app&apos;s typeface. I compared the existing font, Inter, with Nunito Sans and Readex Pro. Readex Pro performed strongest in side by side comparisons, scoring highest for trust, friendliness, and modernity while remaining professional and easy to read on mobile. Based on this, it was selected as the new app typeface.
+					A recurring pattern was the use of design tokens to separate design decisions from implementation. I shared these findings with the design team and engineers to align on the direction early and validate that a token based approach would work for our technical setup.
 				</p>
+			</TextSection>
+
+			{/* Design Tokens in design systems – overview and color tokens */}
+			<section className="pt-12 pb-0 sm:py-8 px-4 sm:px-6 lg:px-8">
+				<div className="max-w-6xl mx-auto">
+					<div className="sm:bg-[#DCDBCE] sm:p-0 sm:rounded-[20px] sm:overflow-hidden sm:border sm:border-gray-200 w-screen sm:w-full mb-16 -mx-4 sm:mx-auto">
+						<Image
+							src="/case-studies/gumtree-app/design-tokens-presentation.png"
+							alt="Design Tokens in design systems: overview, adoption by Material, Atlassian, Shopify, Carbon, Salesforce, GitHub, Asana, and color tokens table"
+							width={1200}
+							height={800}
+							className="w-full h-auto max-w-full object-contain sm:rounded-[20px]"
+							quality={80}
+						/>
+					</div>
+				</div>
+			</section>
+
+			<TextSection noBottomPadding>
 				<p className="mb-6 sm:mb-8">
-					Alongside these visual decisions, I carried out a focused design token discovery. As the app was being rebuilt from scratch across multiple platforms, design tokens provided a clear way to maintain consistency and create a reliable path from design to code. While dark mode was not part of the original scope, the token based setup made it possible to support it with minimal additional effort.
+					To reassess the app&apos;s visual foundations, I ran unmoderated usability testing to evaluate typography options. I compared the existing font, Inter, with Nunito Sans and Readex Pro. Readex Pro performed strongest in side by side comparisons, scoring highest for trust, friendliness, and modernity while remaining professional and easy to read on mobile. Based on these results, it was selected as the new app typeface.
 				</p>
+			</TextSection>
+
+			{/* Typography usability testing – Readex Pro, Nunito Sans, Inter comparison */}
+			<section className="pt-12 pb-0 sm:py-8 px-4 sm:px-6 lg:px-8">
+				<div className="max-w-6xl mx-auto">
+					<div className="sm:bg-[#DCDBCE] sm:p-0 sm:rounded-[20px] sm:overflow-hidden sm:border sm:border-gray-200 w-screen sm:w-full mb-16 -mx-4 sm:mx-auto">
+						<Image
+							src="/case-studies/gumtree-app/font-testing.png"
+							alt="Typography usability testing: Readex Pro, Nunito Sans, and Inter compared with sample text, aggregated sentiment scores, and participant feedback"
+							width={1200}
+							height={800}
+							className="w-full h-auto max-w-full object-contain sm:rounded-[20px]"
+							quality={80}
+						/>
+					</div>
+				</div>
+			</section>
+
+			<TextSection noBottomPadding>
+				<p className="mb-6 sm:mb-8">
+					Alongside this, I carried out a focused design token discovery. As the app was being rebuilt from scratch across multiple platforms, design tokens provided a clear way to maintain consistency and establish a reliable path from design to code.
+				</p>
+			</TextSection>
+
+			{/* Design tokens naming – taxonomy and token discovery */}
+			<section className="pt-12 pb-0 sm:py-8 px-4 sm:px-6 lg:px-8">
+				<div className="max-w-6xl mx-auto">
+					<div className="sm:bg-[#DCDBCE] sm:p-0 sm:rounded-[20px] sm:overflow-hidden sm:border sm:border-gray-200 w-screen sm:w-full mb-16 -mx-4 sm:mx-auto">
+						<Image
+							src="/case-studies/gumtree-app/design-tokens-naming-article.png"
+							alt="Naming tokens in design systems: terms, types, and taxonomy to describe visual style"
+							width={1200}
+							height={800}
+							className="w-full h-auto max-w-full object-contain sm:rounded-[20px]"
+							quality={80}
+						/>
+					</div>
+				</div>
+			</section>
+
+			<TextSection noBottomPadding>
+				<p className="mb-6 sm:mb-8">
+					While dark mode was not part of the original scope, the token based setup made it possible to support it with minimal additional effort.
+				</p>
+			</TextSection>
+
+			{/* Dark mode – design tokens for light and dark themes */}
+			<section className="pt-12 pb-0 sm:py-8 px-4 sm:px-6 lg:px-8">
+				<div className="max-w-6xl mx-auto">
+					<div className="sm:bg-[#DCDBCE] sm:p-0 sm:rounded-[20px] sm:overflow-hidden sm:border sm:border-gray-200 w-screen sm:w-full mb-16 -mx-4 sm:mx-auto">
+						<Image
+							src="/case-studies/gumtree-app/dark-mode-tokens.png"
+							alt="Design tokens for light and dark mode: color swatches and token definitions for text, background, border, and icon"
+							width={1200}
+							height={800}
+							className="w-full h-auto max-w-full object-contain sm:rounded-[20px]"
+							quality={80}
+						/>
+					</div>
+				</div>
+			</section>
+
+			<TextSection noBottomPadding>
 				<h3 className="text-black font-['Lora'] text-[24px] sm:text-[28px] lg:text-[32px] font-semibold leading-tight mb-3 sm:mb-4 lg:mb-6">Solution</h3>
 				<p className="mb-6 sm:mb-8">
 					I built a token based design system using Token Studio, before Figma Variables were available. It was designed app first, with web specific needs scoped for a later phase to keep delivery focused.
