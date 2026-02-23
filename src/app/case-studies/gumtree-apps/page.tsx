@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Tag from '@/components/Tag';
 import Accordion from '@/components/Accordion';
 import TextSection from '@/components/TextSection';
+import BentoGrid from '@/components/BentoGrid';
 
 export default function GumtreeAppsPage() {
 	return (
@@ -273,20 +274,22 @@ export default function GumtreeAppsPage() {
 				</div>
 			</section>
 
-			<TextSection noBottomPadding>
-				<h3 className="text-black font-['Lora'] text-[24px] sm:text-[28px] lg:text-[32px] font-semibold leading-tight mb-3 sm:mb-4 lg:mb-6">Solution</h3>
-				<p className="mb-6 sm:mb-8">
-					I built a token based design system using Token Studio, before Figma Variables were available. It was designed app first, with web specific needs scoped for a later phase to keep delivery focused.
-				</p>
-				<h3 className="text-black font-['Lora'] text-[24px] sm:text-[28px] lg:text-[32px] font-semibold leading-tight mb-3 sm:mb-4 lg:mb-6">Collaboration Model</h3>
-				<p className="mb-6 sm:mb-8">
-					To scale beyond a single owner, I set up a clear contribution model so multiple designers could create and update components safely, with shared rules for ownership, review, and consistency.
-				</p>
-				<h3 className="text-black font-['Lora'] text-[24px] sm:text-[28px] lg:text-[32px] font-semibold leading-tight mb-3 sm:mb-4 lg:mb-6">Outcome</h3>
-				<p>
-					The design system reduced rework, improved collaboration with engineers, and made journey design faster and more consistent. It provided a strong foundation for the greenfield app launch and future product development.
-				</p>
-			</TextSection>
-		</div>
+		<TextSection noBottomPadding>
+			<h3 className="text-black font-['Lora'] text-[24px] sm:text-[28px] lg:text-[32px] font-semibold leading-tight mb-3 sm:mb-4 lg:mb-6">Solution</h3>
+			<p className="mb-6 sm:mb-8">
+				I built a token based design system using Token Studio, before Figma Variables were available. It was designed app first, with web specific needs scoped for a later phase to keep delivery focused.
+			</p>
+			<h3 className="text-black font-['Lora'] text-[24px] sm:text-[28px] lg:text-[32px] font-semibold leading-tight mb-3 sm:mb-4 lg:mb-6">Collaboration Model</h3>
+			<p className="mb-6 sm:mb-8">
+				To scale beyond a single owner, I set up a clear contribution model so multiple designers could create and update components safely, with shared rules for ownership, review, and consistency.
+			</p>
+			<h3 className="text-black font-['Lora'] text-[24px] sm:text-[28px] lg:text-[32px] font-semibold leading-tight mb-3 sm:mb-4 lg:mb-6">Outcome</h3>
+			<p>
+				The design system reduced rework, improved collaboration with engineers, and made journey design faster and more consistent. It provided a strong foundation for the greenfield app launch and future product development.
+			</p>
+		</TextSection>
+
+		<BentoGrid />
+	</div>
 	);
 }
