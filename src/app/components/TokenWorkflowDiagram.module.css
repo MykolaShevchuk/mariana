@@ -1,0 +1,126 @@
+.container {
+	border: 1px solid #e8edf2;
+	border-radius: 16px;
+	background: #fff;
+	overflow: hidden;
+}
+
+/* ─── Desktop wrapper (scrollable on narrow viewports) ─── */
+.desktopWrapper {
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	display: none; /* hidden on mobile, shown at ≥900px */
+}
+
+.svgDesktop {
+	display: block;
+	width: 100%;
+	min-width: 1060px;
+}
+
+/* ─── Mobile SVG (shown below 900px, scales to 100% width) ─── */
+.svgMobile {
+	display: block;
+	width: 100%;
+}
+
+/* ─── Responsive breakpoint ─── */
+@media (min-width: 900px) {
+	.desktopWrapper {
+		display: block;
+	}
+
+	.svgMobile {
+		display: none;
+	}
+}
+
+/* ─── Dash flow animation ─── */
+@keyframes dashFlow {
+	to {
+		stroke-dashoffset: -14;
+	}
+}
+
+.edgeAnimated {
+	stroke-dasharray: 6 8;
+	animation: dashFlow 1.6s linear infinite;
+}
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+	.edgeAnimated {
+		animation: none;
+	}
+
+	.pulseDot {
+		display: none;
+	}
+}
+
+/* ─── Legend ─── */
+.legend {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px 24px;
+	padding: 14px 20px;
+	border-top: 1px solid #f1f5f9;
+	background: #fafbfc;
+	align-items: center;
+}
+
+.legendItem {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-family: Inter, system-ui, sans-serif;
+	font-size: 12px;
+	color: #64748b;
+	line-height: 1.4;
+}
+
+.legendSolid {
+	width: 24px;
+	border-top: 2px solid #94a3b8;
+	flex-shrink: 0;
+}
+
+.legendDashed {
+	width: 24px;
+	border-top: 2px dashed #94a3b8;
+	flex-shrink: 0;
+}
+
+.legendDot {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #3b82f6;
+	flex-shrink: 0;
+}
+
+.legendBadge {
+	font-size: 10px;
+	color: #c2410c;
+	background: #fff7ed;
+	border: 1px solid #fed7aa;
+	padding: 2px 7px;
+	border-radius: 4px;
+	white-space: nowrap;
+}
+
+/* ─── Scroll hint (desktop only, narrow viewport) ─── */
+.scrollHint {
+	display: none;
+	font-family: Inter, system-ui, sans-serif;
+	font-size: 11px;
+	color: #94a3b8;
+	padding: 4px 20px 8px;
+	text-align: right;
+}
+
+@media (min-width: 900px) and (max-width: 1080px) {
+	.scrollHint {
+		display: block;
+	}
+}

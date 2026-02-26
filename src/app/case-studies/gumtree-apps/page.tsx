@@ -4,6 +4,8 @@ import Tag from '@/components/Tag';
 import Accordion from '@/components/Accordion';
 import TextSection from '@/components/TextSection';
 import BentoGrid from '@/components/BentoGrid';
+import TokenWorkflowDiagram from '@/components/TokenWorkflowDiagram';
+import MilestonesTimeline from '@/components/MilestonesTimeline';
 
 export default function GumtreeAppsPage() {
 	return (
@@ -150,9 +152,11 @@ export default function GumtreeAppsPage() {
 				<p>
 					Later, technical constraints required parts of the seller flow to move from native to WebView. We adjusted the designs to keep the experience feeling connected and tested the most sensitive steps with users to make sure the changes did not negatively affect payments or revenue.
 				</p>
-			</TextSection>
+		</TextSection>
 
-			<TextSection preTitle="Phase 1" title="Design System as an Enabler" noBottomPadding>
+		<MilestonesTimeline />
+
+		<TextSection preTitle="Phase 1" title="Design System as an Enabler" noBottomPadding>
 				<p className="mb-6 sm:mb-8">
 					Creating a shared foundation to support a greenfield app rebuild and faster product delivery.
 				</p>
@@ -280,9 +284,19 @@ export default function GumtreeAppsPage() {
 				I built a token based design system using Token Studio, before Figma Variables were available. It was designed app first, with web specific needs scoped for a later phase to keep delivery focused.
 			</p>
 			<h3 className="text-black font-['Lora'] text-[24px] sm:text-[28px] lg:text-[32px] font-semibold leading-tight mb-3 sm:mb-4 lg:mb-6">Collaboration Model</h3>
-			<p className="mb-6 sm:mb-8">
+			<p>
 				To scale beyond a single owner, I set up a clear contribution model so multiple designers could create and update components safely, with shared rules for ownership, review, and consistency.
 			</p>
+		</TextSection>
+
+		{/* Token Collaboration Workflow diagram */}
+		<section className='py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8'>
+			<div className='max-w-6xl mx-auto'>
+				<TokenWorkflowDiagram />
+			</div>
+		</section>
+
+		<TextSection noBottomPadding>
 			<h3 className="text-black font-['Lora'] text-[24px] sm:text-[28px] lg:text-[32px] font-semibold leading-tight mb-3 sm:mb-4 lg:mb-6">Outcome</h3>
 			<p>
 				The design system reduced rework, improved collaboration with engineers, and made journey design faster and more consistent. It provided a strong foundation for the greenfield app launch and future product development.

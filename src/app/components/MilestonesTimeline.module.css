@@ -1,0 +1,335 @@
+/* ── Section ─────────────────────────────────────────────────────────────── */
+.section {
+	padding: 80px 24px 96px;
+	background: #fff;
+}
+
+.inner {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+/* ── Header ──────────────────────────────────────────────────────────────── */
+.header {
+	margin-bottom: 72px;
+}
+
+.title {
+	font-family: 'Lora', Georgia, serif;
+	font-size: clamp(40px, 5.5vw, 64px);
+	font-weight: 700;
+	color: #1e293b;
+	line-height: 1.1;
+	margin: 0 0 10px;
+}
+
+.subtitle {
+	font-family: Inter, system-ui, sans-serif;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: #94a3b8;
+	margin: 0;
+}
+
+/* ── Timeline container ──────────────────────────────────────────────────── */
+.timeline {
+	position: relative;
+	padding: 24px 0;
+}
+
+/* ── Vertical stripe (absolute, behind everything) ───────────────────────── */
+.stripe {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: calc(50% - 20px);
+	width: 40px;
+	background: var(--stripe-color, #f5e300);
+	border-radius: 8px;
+	z-index: 0;
+	opacity: 0.6;
+}
+
+/* ── Milestone row ───────────────────────────────────────────────────────── */
+.row {
+	display: grid;
+	grid-template-columns: 1fr 40px 1fr;
+	position: relative;
+	z-index: 1;
+	min-height: 140px;
+}
+
+/* ── Grid columns — explicit placement so DOM order is irrelevant ─────────── */
+.colLeft {
+	grid-column: 1;
+	padding: 104px 22px 44px 0;
+}
+
+.stripeCol {
+	grid-column: 2;
+	position: relative; /* anchor for the absolutely-positioned label */
+}
+
+.colRight {
+	grid-column: 3;
+	padding: 104px 0 44px 22px;
+}
+
+/* Empty column (no content): collapse padding so it takes no visual space */
+.colEmpty {
+	padding: 0;
+}
+
+/* ── Label — pinned near top of each row, centered horizontally on stripe ── */
+.stripeLabel {
+	position: absolute;
+	top: 44px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	align-items: baseline;
+	gap: 5px;
+	white-space: nowrap;
+	z-index: 2;
+}
+
+.milestoneLabel {
+	font-family: 'Lora', Georgia, serif;
+	font-size: 24px;
+	font-weight: 600;
+	color: #1e293b;
+	letter-spacing: normal;
+	line-height: 1.25;
+	margin: 0;
+}
+
+@media (min-width: 640px) {
+	.milestoneLabel {
+		font-size: 28px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.milestoneLabel {
+		font-size: 32px;
+	}
+}
+
+.arrow {
+	font-size: clamp(16px, 2vw, 24px);
+	font-weight: 300;
+	color: #1e293b;
+	line-height: 1;
+	opacity: 0.45;
+}
+
+/* ── Content block + scroll animation ───────────────────────────────────── */
+.contentBlock {
+	/* SSR default: visible — no flash before hydration */
+}
+
+.cbHidden {
+	opacity: 0;
+	transform: translateY(8px);
+	transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.cbVisible {
+	opacity: 1;
+	transform: translateY(0);
+	transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.cbLeft {
+	text-align: left;
+}
+
+.cbRight {
+	text-align: right;
+}
+
+.cbRight .body {
+	margin-left: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.cbHidden {
+		opacity: 1;
+		transform: none;
+	}
+	.cbVisible {
+		transition: none;
+	}
+}
+
+/* ── Content typography ──────────────────────────────────────────────────── */
+.eyebrow {
+	display: block;
+	font-family: Inter, system-ui, sans-serif;
+	font-size: 10.5px;
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: #94a3b8;
+	margin-bottom: 8px;
+}
+
+.milestoneTitle {
+	font-family: 'Lora', Georgia, serif;
+	font-size: clamp(17px, 1.9vw, 23px);
+	font-weight: 600;
+	color: #1e293b;
+	margin: 0 0 10px;
+	line-height: 1.25;
+}
+
+.body {
+	font-family: Inter, system-ui, sans-serif;
+	font-size: 15px;
+	line-height: 1.7;
+	color: #464040;
+	margin: 0 0 10px;
+	max-width: 75%;
+	text-wrap: pretty;
+}
+
+.body:last-child {
+	margin-bottom: 0;
+}
+
+.note {
+	font-family: Inter, system-ui, sans-serif;
+	font-size: 12px;
+	font-style: italic;
+	color: #94a3b8;
+	margin: 6px 0 0;
+	line-height: 1.5;
+}
+
+/* ── Floating annotation (handwritten-feel) ──────────────────────────────── */
+.annotation {
+	position: absolute;
+	font-family: Inter, system-ui, sans-serif;
+	font-size: 11px;
+	font-style: italic;
+	color: #64748b;
+	line-height: 1.4;
+	white-space: nowrap;
+	pointer-events: none;
+	z-index: 3;
+}
+
+/* ── Placeholder (double diamond coming soon) ────────────────────────────── */
+.placeholderBox {
+	border: 1.5px dashed #cbd5e1;
+	border-radius: 12px;
+	padding: 28px 24px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 80px;
+}
+
+.placeholderText {
+	font-family: Inter, system-ui, sans-serif;
+	font-size: 13px;
+	color: #94a3b8;
+	font-style: italic;
+}
+
+/* ── Tablet (641–900px) ──────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+	.section {
+		padding: 64px 20px 80px;
+	}
+
+	.header {
+		margin-bottom: 56px;
+	}
+
+	.colLeft {
+		padding-right: 32px;
+		padding-left: 0;
+	}
+
+	.colRight {
+		padding-left: 32px;
+		padding-right: 0;
+	}
+
+	.annotation {
+		display: none;
+	}
+}
+
+/* ── Mobile (≤640px): stripe left, all blocks stacked right ─────────────── */
+@media (max-width: 640px) {
+	.section {
+		padding: 56px 0 72px;
+	}
+
+	.inner {
+		padding: 0 16px;
+	}
+
+	.header {
+		margin-bottom: 40px;
+	}
+
+	/* Stripe shifts to left edge */
+	.stripe {
+		left: 0;
+		width: 44px;
+		border-radius: 0 8px 8px 0;
+	}
+
+	/* 2-column grid: stripe (44px) | content */
+	.row {
+		grid-template-columns: 44px 1fr;
+		min-height: 80px;
+	}
+
+	/* All three columns get explicit mobile placement */
+	.colLeft {
+		grid-column: 2;
+		grid-row: 1;
+		padding: 20px 16px 20px 20px !important;
+	}
+
+	.stripeCol {
+		grid-column: 1;
+		grid-row: 1;
+	}
+
+	.colRight {
+		grid-column: 2;
+		grid-row: 1;
+		padding: 20px 16px 20px 20px !important;
+	}
+
+	/* Hide the empty column so it doesn't stack under the content column */
+	.colEmpty {
+		display: none !important;
+	}
+
+	/* Hide the stripe label — milestone title in the content block is enough */
+	.stripeLabel {
+		display: none;
+	}
+
+	/* Force left alignment */
+	.cbLeft,
+	.cbRight {
+		text-align: left;
+	}
+
+	.annotation {
+		display: none;
+	}
+
+	.body {
+		font-size: 14px;
+	}
+}
