@@ -1,0 +1,365 @@
+/* ── Wrapper ─────────────────────────────────────────────────────────────── */
+.wrapper {
+	width: 100%;
+}
+
+/* ── Desktop layout container (maintains SVG aspect ratio) ───────────────── */
+.desktopLayout {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 800 / 760;
+}
+
+.mobileLayout {
+	display: none;
+}
+
+/* Column wrapper for diagram (used for mobile grid placement) */
+.diagramColumn {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: transparent;
+}
+
+/* ── SVG overlay ─────────────────────────────────────────────────────────── */
+.svg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* ── Diamonds ────────────────────────────────────────────────────────────── */
+.diamond {
+	stroke: #1e293b;
+	stroke-width: 3;
+	fill: transparent;
+	transform-box: fill-box;
+	transform-origin: center;
+	transform: scale(0.97);
+	opacity: 0;
+	transition:
+		transform 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+		opacity 0.7s ease,
+		stroke 0.2s ease;
+}
+
+.wrapper.revealed .diamond {
+	transform: scale(1);
+	opacity: 1;
+}
+
+.diamondHighlighted {
+	stroke: #9ca3af;
+}
+
+/* Filled diamonds — inset inside outline, rendered behind */
+.diamondFilled {
+	stroke: none;
+	fill: var(--stripe-color, #B0F4AC);
+	transform-box: fill-box;
+	transform-origin: center;
+	transform: scale(0.97);
+	opacity: 0;
+	transition:
+		transform 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+		opacity 0.7s ease;
+}
+
+.wrapper.revealed .diamondFilled {
+	transform: scale(1);
+	opacity: 1;
+}
+
+.diamondDivider {
+	stroke: #1e293b;
+	stroke-width: 3;
+	opacity: 0;
+	transition: opacity 0.7s ease 0.3s;
+}
+
+.wrapper.revealed .diamondDivider {
+	opacity: 1;
+}
+
+/* ── Connector lines ─────────────────────────────────────────────────────── */
+.connector {
+	stroke: #e5e7eb;
+	stroke-width: 1;
+	stroke-dasharray: 190;
+	stroke-dashoffset: 190;
+	transition:
+		stroke-dashoffset 0.5s ease,
+		stroke 0.2s ease,
+		stroke-width 0.2s ease;
+}
+
+.wrapper.revealed .connector {
+	stroke-dashoffset: 0;
+}
+
+.highlighted {
+	stroke: #9ca3af;
+	stroke-width: 1.5;
+}
+
+/* Stagger delays per connector */
+.discoverConnector {
+	transition-delay: 0.55s;
+}
+.defineConnector {
+	transition-delay: 0.63s;
+}
+.developConnector {
+	transition-delay: 0.55s;
+}
+.deliverConnector {
+	transition-delay: 0.63s;
+}
+
+/* ── Phase blocks (absolutely positioned on desktop) ─────────────────────── */
+.phase {
+	position: absolute;
+	cursor: default;
+}
+
+/* Phases connect to diamond vertices — viewBox 800×760
+   Diamond 1: top vertex (400,90)  bottom vertex (400,290)
+   Diamond 2: top vertex (400,470) bottom vertex (400,670)    */
+
+.discoverPhase {
+	left: 0;
+	width: 30%;
+	top: 11.84%; /* 90/760  — top of diamond 1 */
+	transform: translateY(-50%);
+}
+
+.definePhase {
+	right: 0;
+	width: 30%;
+	top: 38.16%; /* 290/760 — bottom of diamond 1 */
+	transform: translateY(-50%);
+	text-align: right;
+}
+
+.developPhase {
+	left: 0;
+	width: 30%;
+	top: 61.84%; /* 470/760 — top of diamond 2 */
+	transform: translateY(-50%);
+}
+
+.deliverPhase {
+	right: 0;
+	width: 30%;
+	top: 88.16%; /* 670/760 — bottom of diamond 2 */
+	transform: translateY(-50%);
+	text-align: right;
+}
+
+/* ── Phase inner wrapper (handles entrance animation) ────────────────────── */
+.phaseInner {
+	opacity: 0;
+	transform: translateY(5px);
+	transition:
+		opacity 0.45s ease,
+		transform 0.45s ease;
+}
+
+.wrapper.revealed .phaseInner {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* Stagger delays per phase */
+.discoverInner {
+	transition-delay: 0.85s;
+}
+.defineInner {
+	transition-delay: 0.97s;
+}
+.developInner {
+	transition-delay: 1.09s;
+}
+.deliverInner {
+	transition-delay: 1.21s;
+}
+
+/* ── Phase hover effects ─────────────────────────────────────────────────── */
+.phase:hover .phaseLabel {
+	color: #4b5563;
+}
+
+.phase:hover .phaseTitle {
+	color: #111827;
+}
+
+/* ── Typography ──────────────────────────────────────────────────────────── */
+.phaseLabel {
+	display: block;
+	font-family: Inter, system-ui, sans-serif;
+	font-size: 10px;
+	font-weight: 600;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: #9ca3af;
+	margin-bottom: 5px;
+	transition: color 0.2s ease;
+}
+
+.phaseTitle {
+	font-family: 'Lora', Georgia, serif;
+	font-size: 18px;
+	font-weight: 600;
+	color: #1e293b;
+	margin: 0 0 6px;
+	line-height: 1.3;
+	transition: color 0.2s ease;
+}
+
+@media (min-width: 640px) {
+	.phaseTitle {
+		font-size: 20px;
+	}
+}
+
+.phaseBody {
+	font-family: Inter, system-ui, sans-serif;
+	font-size: 15px;
+	line-height: 1.7;
+	color: #464040;
+	margin: 0;
+	letter-spacing: normal;
+	text-wrap: pretty;
+}
+
+/* ── Reduced motion ──────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+	.diamond {
+		transition: none;
+		opacity: 1;
+		transform: scale(1);
+	}
+	.connector {
+		transition: none;
+		stroke-dashoffset: 0;
+	}
+	.phaseInner {
+		transition: none;
+		opacity: 1;
+		transform: translateY(0);
+	}
+	.mobilePhase {
+		transition: none;
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* ── Mobile: full-screen double diamond behind the four phase sections, with opacity ─── */
+@media (max-width: 640px) {
+	.wrapper {
+		min-height: 100vh;
+		position: relative;
+	}
+
+	.desktopLayout {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto auto auto;
+		position: relative;
+		aspect-ratio: none;
+		min-height: 100vh;
+		overflow: hidden;
+	}
+
+	.mobileLayout {
+		display: none;
+	}
+
+	/* Diagram: full-screen behind "Mapping the reality", etc. Sits above timeline center line. No background. */
+	.diagramColumn {
+		position: absolute;
+		inset: 0;
+		z-index: 1;
+		pointer-events: none;
+		opacity: 0.22;
+		overflow: visible;
+		background: transparent;
+	}
+
+	/* SVG scaled to fill the whole mobile screen (centered, can overflow) */
+	.diagramColumn .svg {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		width: 140vmax;
+		height: 133vmax; /* 140 * 760/800 to keep aspect */
+		transform: translate(-50%, -50%);
+		max-width: none;
+		max-height: none;
+	}
+
+	/* Mobile: outlined diamonds become filled (same color as .diamondFilled), no stroke */
+	.diamond {
+		fill: var(--stripe-color, #B0F4AC);
+		stroke: none;
+		stroke-width: 0;
+	}
+	.diamondDivider {
+		stroke: none;
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	/* Phases aligned with timeline content blocks (Design System, Direction, etc.): same padding and max-width */
+	.phase {
+		position: relative;
+		z-index: 1;
+		width: 100%;
+		left: auto;
+		right: auto;
+		top: auto;
+		transform: none;
+		grid-column: 1;
+		padding: 44px 16px 12px 26px;
+		text-align: left;
+		box-sizing: border-box;
+	}
+
+	.phase:nth-child(2) {
+		grid-row: 1;
+		padding-top: 0;
+	}
+	.phase:nth-child(3) {
+		grid-row: 2;
+	}
+	.phase:nth-child(4) {
+		grid-row: 3;
+	}
+	.phase:nth-child(5) {
+		grid-row: 4;
+	}
+
+	.phaseInner {
+		transform: none;
+		text-align: left;
+		max-width: 75%;
+	}
+
+	.definePhase .phaseInner,
+	.deliverPhase .phaseInner {
+		text-align: left;
+	}
+
+	.phaseTitle {
+		font-size: 18px;
+	}
+	.phaseBody {
+		font-size: 14px;
+	}
+}

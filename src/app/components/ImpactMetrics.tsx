@@ -1,3 +1,5 @@
+import AnimateOnScroll from './AnimateOnScroll';
+
 interface Metric {
 	value: string;
 	label: string;
@@ -36,7 +38,7 @@ export default function ImpactMetrics({
 			className={`py-12 sm:py-16 px-4 sm:px-6 lg:px-8 ${className}`}
 			style={{ backgroundColor: '#132431' }}
 		>
-			<div className='max-w-6xl mx-auto'>
+			<AnimateOnScroll className='max-w-6xl mx-auto'>
 				{title && (
 					<h2 className="text-white font-['Lora'] text-[32px] sm:text-[40px] lg:text-[45px] font-semibold leading-tight mb-8 sm:mb-10 lg:mb-12 text-center">
 						{title}
@@ -59,7 +61,7 @@ export default function ImpactMetrics({
 						<MetricCard key={index} value={metric.value} label={metric.label} />
 					))}
 				</div>
-			</div>
+			</AnimateOnScroll>
 		</section>
 	);
 }

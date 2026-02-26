@@ -1,4 +1,5 @@
 import Tag from '../components/Tag';
+import AnimateOnScroll from '../components/AnimateOnScroll';
 
 export default function AboutSection() {
 	// Calculate years of experience from 2015
@@ -8,7 +9,7 @@ export default function AboutSection() {
 		<section id='about' className='py-12 px-0 md:px-6'>
 			<div className='max-w-6xl mx-auto'>
 				<div className='flex flex-col md:flex-row gap-16'>
-					<div className='md:w-1/2 px-6 md:px-0'>
+					<AnimateOnScroll className='md:w-1/2 px-6 md:px-0'>
 						<div>
 							<h3 className="text-black font-['Lora'] text-[24px] sm:text-[28px] lg:text-[32px] font-semibold leading-tight mb-3 sm:mb-4 lg:mb-6">About Me</h3>
 							<p className="text-[16px] sm:text-[18px] lg:text-[20px] text-[#464040] mb-6 leading-[26px] sm:leading-[30px] lg:leading-[32px] font-['Inter'] text-pretty">
@@ -26,8 +27,8 @@ export default function AboutSection() {
 								expertise.
 							</p>
 						</div>
-					</div>
-					<div className='md:w-1/2 space-y-6'>
+					</AnimateOnScroll>
+					<AnimateOnScroll className='md:w-1/2 space-y-6' delay={0.1}>
 						<div className='bg-gray-50 p-6 rounded-none md:rounded-xl'>
 							<h3 className='text-xl font-medium text-gray-900 mb-3'>Skills</h3>
 							<div className='space-y-8'>
@@ -76,7 +77,7 @@ export default function AboutSection() {
 								</div>
 							</div>
 						</div>
-					</div>
+					</AnimateOnScroll>
 				</div>
 			</div>
 		</section>

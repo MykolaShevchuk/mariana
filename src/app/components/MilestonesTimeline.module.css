@@ -16,11 +16,23 @@
 
 .title {
 	font-family: 'Lora', Georgia, serif;
-	font-size: clamp(40px, 5.5vw, 64px);
-	font-weight: 700;
+	font-size: 28px;
+	font-weight: 600;
 	color: #1e293b;
 	line-height: 1.1;
 	margin: 0 0 10px;
+}
+
+@media (min-width: 640px) {
+	.title {
+		font-size: 32px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.title {
+		font-size: 40px;
+	}
 }
 
 .subtitle {
@@ -46,10 +58,110 @@
 	bottom: 0;
 	left: calc(50% - 20px);
 	width: 40px;
-	background: var(--stripe-color, #f5e300);
+	background: var(--stripe-color, #B0F4AC);
 	border-radius: 8px;
 	z-index: 0;
-	opacity: 0.6;
+}
+
+/* Mobile path segments: hidden on desktop */
+.stripeSegmentMobile {
+	display: none;
+}
+
+/* Section wrappers: on desktop they don't create layout (contents stay in flow) */
+.timelineSectionTop,
+.timelineSectionMiddle,
+.timelineSectionBottom {
+	display: contents;
+}
+
+.timelineMiddleContent {
+	/* No extra wrapper on desktop */
+}
+
+/* ── Full-width row (e.g. Double Diamond) ────────────────────────────────── */
+.rowFull {
+	position: relative;
+	z-index: 1;
+	padding: 8px 0 32px;
+}
+
+/* ── Foundation: two blocks (text + image, text + video), left-aligned ─────── */
+.foundationContent {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+	align-items: flex-start;
+}
+
+.foundationContentLeft {
+	align-items: flex-end;
+}
+
+.foundationContentLeft .body {
+	text-align: right;
+}
+
+.foundationContentLeft .foundationBlock {
+	align-items: flex-end;
+}
+
+.foundationBlock {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	align-items: flex-start;
+}
+
+.foundationContent .foundationVideo,
+.foundationImage {
+	width: 100%;
+	max-width: 560px;
+	margin: 0;
+	display: block;
+	border-radius: 12px;
+	overflow: hidden;
+	background: #f1f5f9;
+}
+
+.foundationImage {
+	width: 100%;
+	height: auto;
+}
+
+/* ── Growth: certificate below "Learning in motion" ──────────────────────── */
+.milestoneWithMedia {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	align-items: flex-end;
+}
+
+.certificateImage,
+.timelineImage {
+	width: 100%;
+	max-width: 392px; /* 30% smaller than 560px */
+	height: auto;
+	display: block;
+	border-radius: 12px;
+	overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+	.certificateImage {
+		max-width: 219px; /* 30% smaller + 20% more on desktop */
+	}
+}
+
+/* ── Design System: Tokens Studio image (light grey border, rounded) ───────── */
+.tokensStudioImage {
+	width: 100%;
+	max-width: 392px;
+	height: auto;
+	display: block;
+	border-radius: 12px;
+	border: 1px solid #e2e8f0;
+	overflow: hidden;
 }
 
 /* ── Milestone row ───────────────────────────────────────────────────────── */
@@ -278,51 +390,182 @@
 		margin-bottom: 40px;
 	}
 
-	/* Stripe shifts to left edge */
+	/* Mobile: hide single stripe; use segment path instead */
 	.stripe {
+		display: none;
+	}
+
+	/* Section wrappers: create stacking context so segments position relative to content */
+	.timelineSectionTop,
+	.timelineSectionMiddle,
+	.timelineSectionBottom {
+		display: block;
+		position: relative;
+		overflow: visible;
+	}
+
+	/* Middle section: content (diamonds + text) must sit above the center line */
+	.timelineMiddleContent {
+		position: relative;
+		z-index: 1;
+	}
+
+	/* Mobile path segments — positioned relative to their section so turn is after POC / before Growth */
+	.stripeSegmentMobile {
+		display: block;
+		position: absolute;
+		z-index: 0;
+		background: var(--stripe-color, #B0F4AC);
+		border-radius: 0 4px 4px 0;
+		pointer-events: none;
+	}
+
+	/* Top + bottom sections: keep stripe segments on top so they aren’t covered by adjacent sections */
+	.timelineSectionTop .stripeSegmentMobile,
+	.timelineSectionBottom .stripeSegmentMobile {
+		z-index: 1;
+	}
+
+	/* Top section: vertical left edge for full height (after POC content only) */
+	.timelineSectionTop .stripeSegmentMobile[data-segment='top'] {
 		left: 0;
-		width: 44px;
-		border-radius: 0 8px 8px 0;
+		top: 0;
+		width: 10px;
+		height: 100%;
+		border-radius: 0 4px 4px 0;
 	}
 
-	/* 2-column grid: stripe (44px) | content */
+	/* Turn right: at bottom of top section, horizontal to center */
+	.timelineSectionTop .stripeSegmentMobile[data-segment='turn-right'] {
+		left: 0;
+		bottom: 0;
+		width: 50%;
+		height: 10px;
+		top: auto;
+		border-radius: 0 4px 4px 0;
+	}
+
+	/* Center line: start above middle section so it meets turn-right with no gap */
+	.timelineSectionMiddle .stripeSegmentMobile[data-segment='down-d1'] {
+		left: 50%;
+		top: -10px;
+		width: 10px;
+		height: calc(25% + 10px);
+		margin-left: -5px;
+		border-radius: 4px;
+	}
+
+	/* From center of second diamond down; extend to meet turn-left */
+	.timelineSectionMiddle .stripeSegmentMobile[data-segment='down-d2'] {
+		left: 50%;
+		top: 75%;
+		width: 10px;
+		height: calc(25% + 10px);
+		margin-left: -5px;
+		border-radius: 4px;
+	}
+
+	/* Turn left: extend down into bottom section so it meets main timeline with no gap */
+	.timelineSectionMiddle .stripeSegmentMobile[data-segment='turn-left'] {
+		left: 0;
+		bottom: -10px;
+		width: 50%;
+		height: 20px;
+		top: auto;
+		border-radius: 0 4px 4px 0;
+	}
+
+	/* Bottom section: stripe overlaps up to meet turn-left */
+	.timelineSectionBottom .stripeSegmentMobile[data-segment='bottom'] {
+		left: 0;
+		top: -20px;
+		width: 10px;
+		height: calc(100% + 20px);
+		border-radius: 0 4px 4px 0;
+	}
+
+	/* 2-column grid: stripe (10px) | content — all text blocks on the right, left-aligned */
 	.row {
-		grid-template-columns: 44px 1fr;
+		grid-template-columns: 10px 1fr;
 		min-height: 80px;
+		margin-bottom: 40px;
+	}
+	.row:last-child {
+		margin-bottom: 0;
 	}
 
-	/* All three columns get explicit mobile placement */
+	/* No gap between POC and turn-right: last row of top section has no bottom margin */
+	.timelineSectionTop .row:last-of-type {
+		margin-bottom: 0;
+	}
+
+	.rowFull {
+		margin-bottom: 40px;
+		padding-top: 0;
+		padding-bottom: 40px;
+	}
+
+	/* No gap between diagram and turn-left / Growth: rowFull in middle section has no bottom margin */
+	.timelineSectionMiddle .rowFull {
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+
+	/* Seller Journeys title: 32px spacing to Discover section */
+	.rowSellerJourneys {
+		margin-bottom: 32px;
+	}
+
+	/* All content in the right column, left-aligned; extra top padding for section title (milestone label) */
 	.colLeft {
 		grid-column: 2;
 		grid-row: 1;
-		padding: 20px 16px 20px 20px !important;
+		padding: 44px 0 12px 16px !important;
+		text-align: left;
 	}
 
 	.stripeCol {
 		grid-column: 1;
 		grid-row: 1;
+		position: relative;
 	}
 
 	.colRight {
 		grid-column: 2;
 		grid-row: 1;
-		padding: 20px 16px 20px 20px !important;
+		padding: 44px 0 12px 16px !important;
+		text-align: left;
 	}
 
-	/* Hide the empty column so it doesn't stack under the content column */
+	/* Empty column hidden so only one content column shows */
 	.colEmpty {
 		display: none !important;
 	}
 
-	/* Hide the stripe label — milestone title in the content block is enough */
+	/* Milestone label: on the right of the line, at top, as section title; aligned with content block */
 	.stripeLabel {
-		display: none;
+		position: absolute;
+		top: 12px;
+		left: 10px;
+		padding-left: 16px;
+		transform: none;
+		white-space: nowrap;
+		z-index: 1;
+		box-sizing: border-box;
+		max-width: calc(100vw - 10px - 16px - 32px);
+	}
+	.milestoneLabel {
+		font-size: 18px;
+		font-weight: 600;
 	}
 
-	/* Force left alignment */
+	/* Force left alignment for content blocks */
 	.cbLeft,
 	.cbRight {
 		text-align: left;
+	}
+	.cbRight .body {
+		margin-left: 0;
 	}
 
 	.annotation {

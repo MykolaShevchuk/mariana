@@ -1,0 +1,82 @@
+/* Stripe-style wrapper: dotted background is in SVG pattern */
+.wrapper {
+	border-radius: 16px;
+	background: transparent;
+	overflow: visible;
+	max-width: 100%;
+	align-self: flex-start; /* left-align with text when inside flex container */
+}
+
+.svg {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+@media (min-width: 1024px) {
+	.wrapper {
+		transform: scale(1.4);
+		transform-origin: left top;
+	}
+}
+
+.bgRect {
+	opacity: 0.85;
+}
+
+/* Animated dashed stroke (flow along path) */
+@keyframes strokeDash {
+	to {
+		stroke-dashoffset: -24;
+	}
+}
+
+.animatedStroke {
+	stroke-dasharray: 8 10;
+	animation: strokeDash 2s linear infinite;
+}
+
+/* L-shaped connectors (Token Studio → Figma, Token Studio → JSON): thin, small dashes, no arrow, 2x slower */
+@keyframes strokeDashL {
+	to {
+		stroke-dashoffset: -16;
+	}
+}
+
+.connectorL {
+	stroke-width: 1;
+	stroke-dasharray: 3 5;
+	animation: strokeDashL 4s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.animatedStroke,
+	.connectorL {
+		animation: none;
+	}
+}
+
+.node {
+	cursor: default;
+}
+
+.nodeLabel {
+	font-family: Inter, system-ui, sans-serif;
+	font-size: 11px;
+	font-weight: 600;
+	fill: #475569;
+}
+
+/* Icon color inside nodes */
+.node [fill="currentColor"] {
+	fill: #475569;
+}
+
+.node [stroke="currentColor"] {
+	stroke: #475569;
+}
+
+/* Token Studio logo (white-on-dark image) */
+.tokenStudioLogo {
+	border-radius: 6px;
+}

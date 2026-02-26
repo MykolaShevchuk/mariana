@@ -1,12 +1,15 @@
+import AnimateOnScroll from '../components/AnimateOnScroll';
+
 export default function ExperienceSection() {
 	return (
 		<section id='experience' className='py-20 bg-gray-50 w-full'>
 			<div className='max-w-6xl mx-auto px-6'>
-				<div className='text-center mb-16'>
+				<AnimateOnScroll className='text-center mb-16'>
 					<h3 className="text-black font-['Lora'] text-[24px] sm:text-[28px] lg:text-[32px] font-semibold leading-tight mb-3 sm:mb-4 lg:mb-6">Professional Experience</h3>
-				</div>
+				</AnimateOnScroll>
 
 				<div className='grid md:grid-cols-2 gap-8'>
+					<AnimateOnScroll>
 					<div className='bg-white p-8 rounded-xl shadow-sm border border-gray-100'>
 						<div className='mb-4'>
 							<h3 className='text-xl font-medium text-gray-900 mb-2'>Senior Product Designer</h3>
@@ -19,7 +22,9 @@ export default function ExperienceSection() {
 							workshops with stakeholders.
 						</p>
 					</div>
+					</AnimateOnScroll>
 
+					<AnimateOnScroll>
 					<div className='bg-white p-8 rounded-xl shadow-sm border border-gray-100'>
 						<div className='mb-4'>
 							<h3 className='text-xl font-medium text-gray-900 mb-2'>Product Designer</h3>
@@ -32,7 +37,9 @@ export default function ExperienceSection() {
 							an impact&quot; award.
 						</p>
 					</div>
+					</AnimateOnScroll>
 
+					<AnimateOnScroll>
 					<div className='bg-white p-8 rounded-xl shadow-sm border border-gray-100'>
 						<div className='mb-4'>
 							<h3 className='text-xl font-medium text-gray-900 mb-2'>UI/UX Designer</h3>
@@ -45,7 +52,9 @@ export default function ExperienceSection() {
 							comprehensive design documentation.
 						</p>
 					</div>
+					</AnimateOnScroll>
 
+					<AnimateOnScroll>
 					<div className='bg-white p-8 rounded-xl shadow-sm border border-gray-100'>
 						<div className='mb-4'>
 							<h3 className='text-xl font-medium text-gray-900 mb-2'>Graphic Designer</h3>
@@ -57,6 +66,7 @@ export default function ExperienceSection() {
 							Illustrator/Photoshop for international clients, contributing to team growth and workflow improvements.
 						</p>
 					</div>
+					</AnimateOnScroll>
 				</div>
 			</div>
 		</section>

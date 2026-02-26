@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import AnimateOnScroll from './AnimateOnScroll';
 
 interface CaseStudyHeroProps {
 	title: string;
@@ -23,7 +24,7 @@ export default function CaseStudyHero({
 }: CaseStudyHeroProps) {
 	return (
 		<section className='pt-8 sm:pt-12 pb-4 sm:pb-8 px-4 sm:px-6 lg:px-8'>
-			<div className='max-w-6xl mx-auto'>
+			<AnimateOnScroll className='max-w-6xl mx-auto'>
 				<div className='mb-6 sm:mb-8'>
 					<h1 className="text-black font-['Lora'] text-[36px] sm:text-[40px] md:text-[50px] lg:text-[65px] font-semibold  mb-4 sm:mb-6 lg:mb-8">
 						{title}
@@ -78,7 +79,7 @@ export default function CaseStudyHero({
 						/>
 					</div>
 				</div>
-			</div>
+			</AnimateOnScroll>
 		</section>
 	);
 }

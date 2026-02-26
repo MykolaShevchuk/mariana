@@ -1,5 +1,6 @@
 import TextSection from './TextSection';
 import BeforeAfterSlider from './BeforeAfterSlider';
+import AnimateOnScroll from './AnimateOnScroll';
 
 interface BeforeAfterSectionProps {
 	title?: string;
@@ -31,7 +32,7 @@ export default function BeforeAfterSection({
 			)}
 
 			<section className='pt-12 pb-0 sm:py-8 px-4 sm:px-6 lg:px-8'>
-				<div className='max-w-6xl mx-auto'>
+				<AnimateOnScroll className='max-w-6xl mx-auto'>
 					<div className='sm:bg-[#DCDBCE] sm:py-6 sm:pr-6 sm:pb-6 sm:pl-0 sm:rounded-[20px] w-screen sm:w-full overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-thumb-gray-400/50 scrollbar-track-transparent hover:scrollbar-thumb-gray-400/70 scrollbar-thumb-rounded-full -mx-4 sm:mx-auto mb-0 sm:mb-4'>
 						<div className='sm:pl-6'>
 							<BeforeAfterSlider
@@ -49,7 +50,7 @@ export default function BeforeAfterSection({
 						</p>
 					)}
 					{!imageCaption && <div className='mb-4 sm:mb-16' />}
-				</div>
+				</AnimateOnScroll>
 			</section>
 		</>
 	);

@@ -52,6 +52,29 @@
   }
 }
 
+/* Scroll-triggered content animation (matches timeline content blocks) */
+.animate-on-scroll.is-hidden {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll.is-hidden {
+    opacity: 1;
+    transform: none;
+  }
+  .animate-on-scroll.is-visible {
+    transition: none;
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

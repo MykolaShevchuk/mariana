@@ -1,10 +1,12 @@
 import ProjectCard from '../components/ProjectCard';
+import AnimateOnScroll from '../components/AnimateOnScroll';
 
 export default function WorkSection() {
 	return (
 		<section id='work' className='py-8 px-0 sm:px-6 bg-white'>
 			<div className='max-w-6xl mx-auto'>
 				<div>
+					<AnimateOnScroll>
 					<ProjectCard
 						title='Gumtree'
 						subtitle='Services'
@@ -28,7 +30,9 @@ export default function WorkSection() {
 						priority={true}
 						featured={true}
 					/>
+					</AnimateOnScroll>
 
+					<AnimateOnScroll>
 					<ProjectCard
 						title='Gumtree'
 						subtitle='App redesign'
@@ -54,7 +58,9 @@ export default function WorkSection() {
 						featured={true}
 						additionalImageOffset='-ml-[80px] -mr-[80px]'
 					/>
+					</AnimateOnScroll>
 
+					<AnimateOnScroll>
 					<ProjectCard
 						title='Outsail'
 						subtitle='Vendor Selection Platform'
@@ -66,7 +72,9 @@ export default function WorkSection() {
 						imageAlt='Outsail UI - Vendor Selection Platform showing Home dashboard and My Scorecard interface'
 						priority={true}
 					/>
+					</AnimateOnScroll>
 
+					<AnimateOnScroll>
 					<ProjectCard
 						title='Ann Verner'
 						subtitle='Artist Portfolio'
@@ -77,7 +85,9 @@ export default function WorkSection() {
 						imageSrcMobile='/ann-verner-mobile.jpg'
 						imageAlt='Ann Verner Artist Portfolio showing Ukrainian collage artist website with navigation in Ukrainian and English, featuring conceptual art pieces from 2019'
 					/>
+					</AnimateOnScroll>
 
+					<AnimateOnScroll>
 					<ProjectCard
 						title='Varia'
 						subtitle='Real Estate Platform'
@@ -94,6 +104,7 @@ export default function WorkSection() {
 						imageSrcMobile='/varia-mobile.jpg'
 						imageAlt='Varia Real Estate Platform showing homepage search interface and property details page with 360° virtual tour capabilities'
 					/>
+					</AnimateOnScroll>
 				</div>
 			</div>
 		</section>

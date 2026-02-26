@@ -1,3 +1,5 @@
+import AnimateOnScroll from '../components/AnimateOnScroll';
+
 export default function HeroSection() {
 	// Calculate years of experience from 2015
 	const yearsOfExperience = new Date().getFullYear() - 2017;
@@ -5,7 +7,7 @@ export default function HeroSection() {
 	return (
 		<section className='pt-12 pb-20 px-6 min-h-[calc(100vh-120px)] md:min-h-screen flex items-center bg-gray-50'>
 			<div className='max-w-6xl mx-auto'>
-			<div className='text-left'>
+			<AnimateOnScroll className='text-left'>
 				<h1
 					className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium text-gray-900 mb-8 leading-none tracking-tight'
 					style={{ fontFamily: 'var(--font-lora)' }}
@@ -27,7 +29,7 @@ export default function HeroSection() {
 							Get in touch
 						</a>
 					</div>
-				</div>
+				</AnimateOnScroll>
 			</div>
 		</section>
 	);
