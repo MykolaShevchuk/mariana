@@ -312,8 +312,8 @@ export default function MilestonesTimeline({
 												<ContentBlock milestone={milestone} align='right' />
 												{isDesignSystem && (
 													<img
-														src="/tokens-studio-figma.png"
-														alt="Tokens Studio for Figma plugin showing color token sets and values"
+														src="/tokens-studio-design-system.png"
+														alt="Design system documentation: Tokens Studio for Figma with colour tokens, plus typography and border radius specs"
 														className={styles.tokensStudioImage}
 													/>
 												)}

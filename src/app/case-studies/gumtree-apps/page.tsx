@@ -290,8 +290,8 @@ export default function GumtreeAppsPage() {
 			</p>
 		</TextSection>
 
-		{/* Token Collaboration Workflow diagram */}
-		<section className='py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8'>
+		{/* Token Collaboration Workflow diagram — dotted background like DesignTokenFlowDiagram */}
+		<section className='py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-white'>
 			<div className='max-w-6xl mx-auto'>
 				<TokenWorkflowDiagram />
 			</div>

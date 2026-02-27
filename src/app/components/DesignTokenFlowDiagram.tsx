@@ -67,32 +67,32 @@ export default function DesignTokenFlowDiagram() {
 
 				{/* Nodes: each group is translate(cx-r, cy-r), so rect at 0,0 and text at (r, NODE_SIZE+14) */}
 				<g className={styles.node} transform={`translate(${tokenStudio.x - r}, ${tokenStudio.y - r})`}>
-					<rect width={NODE_SIZE} height={NODE_SIZE} rx="10" fill="#fff" stroke="#e2e8f0" strokeWidth="1.5" />
+					<rect width={NODE_SIZE} height={NODE_SIZE} rx="10" ry="10" className={styles.logoBox} />
 					<image href="/token-studio-logo.png" x="0" y="0" width={NODE_SIZE} height={NODE_SIZE} preserveAspectRatio="xMidYMid slice" clipPath="url(#nodeClip)" />
 					<text x={r} y={NODE_SIZE + 14} textAnchor="middle" className={styles.nodeLabel}>Token Studio</text>
 				</g>
 				<g className={styles.node} transform={`translate(${figma.x - r}, ${figma.y - r})`}>
-					<rect width={NODE_SIZE} height={NODE_SIZE} rx="10" fill="#fff" stroke="#e2e8f0" strokeWidth="1.5" />
+					<rect width={NODE_SIZE} height={NODE_SIZE} rx="10" ry="10" className={styles.logoBox} />
 					<image href="/figma-logo.png" x="0" y="0" width={NODE_SIZE} height={NODE_SIZE} preserveAspectRatio="xMidYMid slice" clipPath="url(#nodeClip)" />
 					<text x={r} y={NODE_SIZE + 14} textAnchor="middle" className={styles.nodeLabel}>Figma</text>
 				</g>
 				<g className={styles.node} transform={`translate(${exportJson.x - r}, ${exportJson.y - r})`}>
-					<rect width={NODE_SIZE} height={NODE_SIZE} rx="10" fill="#fff" stroke="#e2e8f0" strokeWidth="1.5" />
+					<rect width={NODE_SIZE} height={NODE_SIZE} rx="10" ry="10" className={styles.logoBox} />
 					<image href="/json-logo.png" x="0" y="0" width={NODE_SIZE} height={NODE_SIZE} preserveAspectRatio="xMidYMid slice" clipPath="url(#nodeClip)" />
 					<text x={r} y={NODE_SIZE + 14} textAnchor="middle" className={styles.nodeLabel}>Export JSON</text>
 				</g>
 				<g className={styles.node} transform={`translate(${styleDict.x - r}, ${styleDict.y - r})`}>
-					<rect width={NODE_SIZE} height={NODE_SIZE} rx="10" fill="#fff" stroke="#e2e8f0" strokeWidth="1.5" />
+					<rect width={NODE_SIZE} height={NODE_SIZE} rx="10" ry="10" className={styles.logoBox} />
 					<image href="/style-dictionary-logo.png" x="0" y="0" width={NODE_SIZE} height={NODE_SIZE} preserveAspectRatio="xMidYMid slice" clipPath="url(#nodeClip)" />
 					<text x={r} y={NODE_SIZE + 14} textAnchor="middle" className={styles.nodeLabel}>Style Dictionary</text>
 				</g>
 				<g className={styles.node} transform={`translate(${ios.x - r}, ${ios.y - r})`}>
-					<rect width={NODE_SIZE} height={NODE_SIZE} rx="10" fill="#fff" stroke="#e2e8f0" strokeWidth="1.5" />
+					<rect width={NODE_SIZE} height={NODE_SIZE} rx="10" ry="10" className={styles.logoBox} />
 					<image href="/ios-logo.png" x="0" y="0" width={NODE_SIZE} height={NODE_SIZE} preserveAspectRatio="xMidYMid slice" clipPath="url(#nodeClip)" />
 					<text x={r} y={NODE_SIZE + 14} textAnchor="middle" className={styles.nodeLabel}>iOS</text>
 				</g>
 				<g className={styles.node} transform={`translate(${android.x - r}, ${android.y - r})`}>
-					<rect width={NODE_SIZE} height={NODE_SIZE} rx="10" fill="#fff" stroke="#e2e8f0" strokeWidth="1.5" />
+					<rect width={NODE_SIZE} height={NODE_SIZE} rx="10" ry="10" className={styles.logoBox} />
 					<image href="/android-logo.png" x="0" y="0" width={NODE_SIZE} height={NODE_SIZE} preserveAspectRatio="xMidYMid slice" clipPath="url(#nodeClip)" />
 					<text x={r} y={NODE_SIZE + 14} textAnchor="middle" className={styles.nodeLabel}>Android</text>
 				</g>

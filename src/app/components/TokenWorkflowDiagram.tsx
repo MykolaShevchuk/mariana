@@ -2,18 +2,37 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
 import styles from './TokenWorkflowDiagram.module.css';
+import diagramStyles from './DesignTokenFlowDiagram.module.css';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
+
+const LOGO_SRC: Record<string, string> = {
+	'token-owner': '', // placeholder – same style as Slack
+	'token-studio': '/token-studio-logo.png',
+	figma: '/figma-logo.png',
+	'token-json': '/json-logo.png',
+	'style-dictionary': '/style-dictionary-logo.png',
+	'design-libs': '', // placeholder – replace with logo when provided
+	slack: '',
+	jira: '',
+	'token-tests': '',
+	publish: '',
+	'ios-team': '/ios-logo.png',
+	'android-team': '/android-logo.png',
+};
 
 type NodeDef = {
 	id: string;
 	label: string;
 	sublabel?: string;
+	/** Optional line under sublabel (e.g. "Manual sync chosen for QA") */
+	badge?: string;
 	lane: 'design' | 'center' | 'dev';
 	x: number;
 	y: number;
 	w: number;
 	h: number;
+	logo?: keyof typeof LOGO_SRC;
 };
 
 type EdgeDef = {
@@ -31,86 +50,95 @@ type EdgeDef = {
 	animDur?: number;
 };
 
-// ─── Desktop config (viewBox 0 0 1060 780) ───────────────────────────────────
+// ─── Desktop config (viewBox 0 0 1060 880) ───────────────────────────────────
 // Coordinate notes: node center = (x + w/2, y + h/2); edges derived from rect edges.
 
+// Center column: center x = 550. Token Studio, Token JSON, Jira center-aligned (x so that x + w/2 = 550).
 const NODES: NodeDef[] = [
-	{ id: 'token-owner',  label: 'Token Owner',        sublabel: 'Me',                     lane: 'center', x: 455, y: 50,  w: 190, h: 52 },
-	{ id: 'token-studio', label: 'Token Studio',       sublabel: 'Design tokens',           lane: 'design', x: 30,  y: 200, w: 155, h: 52 },
-	{ id: 'design-libs',  label: 'Design Libraries',   sublabel: 'Published Figma libs',    lane: 'design', x: 30,  y: 340, w: 175, h: 52 },
-	{ id: 'figma',        label: 'Figma',              sublabel: 'Design team',             lane: 'design', x: 40,  y: 480, w: 130, h: 52 },
-	{ id: 'slack',        label: 'Slack',              sublabel: 'Design System channel',   lane: 'design', x: 225, y: 480, w: 210, h: 52 },
-	{ id: 'jira',         label: 'Jira ticket',        sublabel: 'Request to dev',          lane: 'dev',    x: 790, y: 200, w: 130, h: 52 },
-	{ id: 'token-json',   label: 'Token JSON',         sublabel: 'Tokens in codebase',      lane: 'dev',    x: 755, y: 340, w: 200, h: 52 },
-	{ id: 'ios-team',     label: 'iOS team',           sublabel: undefined,                 lane: 'dev',    x: 715, y: 480, w: 110, h: 52 },
-	{ id: 'android-team', label: 'Android team',       sublabel: undefined,                 lane: 'dev',    x: 885, y: 480, w: 140, h: 52 },
-	{ id: 'token-tests',  label: 'Run token tests',    sublabel: 'QA step',                 lane: 'dev',    x: 795, y: 590, w: 155, h: 52 },
-	{ id: 'publish',      label: 'Publish app update', sublabel: 'Tokens applied',          lane: 'dev',    x: 775, y: 700, w: 190, h: 52 },
+	{ id: 'token-owner',  label: 'Change request',      sublabel: 'Request to make changes from design or dev team', lane: 'center', x: 455, y: 50,  w: 190, h: 52, logo: 'token-owner' },
+	{ id: 'token-studio', label: 'Token Studio',       sublabel: 'Make changes to Design Tokens', lane: 'center', x: 472, y: 156, w: 155, h: 52, logo: 'token-studio' },
+	{ id: 'token-json',   label: 'Token JSON',         sublabel: 'Export Json Token file',  lane: 'center', x: 450, y: 268, w: 200, h: 52, logo: 'token-json' },
+	{ id: 'jira',         label: 'Jira ticket',        sublabel: 'Create Jira request for dev team to update the Json in the code', badge: 'Manual sync chosen for QA', lane: 'center', x: 485, y: 380, w: 130, h: 52, logo: 'jira' },
+	{ id: 'design-libs',  label: 'Design Libraries',   sublabel: 'Published Figma libs',    lane: 'design', x: 30,  y: 452, w: 175, h: 52, logo: 'design-libs' },
+	{ id: 'figma',        label: 'Figma',              sublabel: 'Design team',             lane: 'design', x: 40,  y: 592, w: 130, h: 52, logo: 'figma' },
+	{ id: 'slack',        label: 'Slack',              sublabel: 'Design System channel',   lane: 'design', x: 225, y: 592, w: 210, h: 52, logo: 'slack' },
+	{ id: 'style-dictionary', label: 'Style Dictionary', sublabel: 'Transform Json to the OS specific code', lane: 'dev',    x: 790, y: 532, w: 160, h: 52, logo: 'style-dictionary' },
+	{ id: 'ios-team',     label: 'iOS',                sublabel: undefined,                 lane: 'dev',    x: 715, y: 612, w: 110, h: 52, logo: 'ios-team' },
+	{ id: 'android-team', label: 'Android',            sublabel: undefined,                 lane: 'dev',    x: 900, y: 612, w: 140, h: 52, logo: 'android-team' },
+	{ id: 'token-tests',  label: 'QA',                 sublabel: 'QA step',                 lane: 'dev',    x: 795, y: 702, w: 155, h: 52, logo: 'token-tests' },
+	{ id: 'publish',      label: 'Publish app update', sublabel: 'Tokens applied',          lane: 'dev',    x: 775, y: 812, w: 190, h: 52, logo: 'publish' },
 ];
+
+// L-shaped path helper: start (sx,sy), horizontal left, then 90° turn with radius r, then vertical to (ex, ey). Same corner radius as POC (DesignTokenFlowDiagram).
+const CORNER_RADIUS = 8;
+function pathLDown(sx: number, sy: number, ex: number, ey: number): string {
+	return `M ${sx},${sy} H ${ex + CORNER_RADIUS} Q ${ex},${sy}, ${ex},${sy + CORNER_RADIUS} L ${ex},${ey}`;
+}
+// Mirrored: horizontal right, then 90° turn, then vertical down to (ex, ey).
+function pathRDown(sx: number, sy: number, ex: number, ey: number): string {
+	return `M ${sx},${sy} H ${ex - CORNER_RADIUS} Q ${ex},${sy}, ${ex},${sy + CORNER_RADIUS} L ${ex},${ey}`;
+}
+// Down then right: vertical from (sx,sy), then 90° turn, then horizontal to (ex, ey). For iOS/Android → QA.
+function pathDownThenRight(sx: number, sy: number, ex: number, ey: number): string {
+	return `M ${sx},${sy} L ${sx},${ey - CORNER_RADIUS} Q ${sx},${ey} ${sx + CORNER_RADIUS},${ey} L ${ex},${ey}`;
+}
+// Down then left: vertical from (sx,sy), then 90° turn, then horizontal to (ex, ey).
+function pathDownThenLeft(sx: number, sy: number, ex: number, ey: number): string {
+	return `M ${sx},${sy} L ${sx},${ey - CORNER_RADIUS} Q ${sx},${ey} ${sx - CORNER_RADIUS},${ey} L ${ex},${ey}`;
+}
 
 const EDGES: EdgeDef[] = [
-	{ id: 'a', from: 'token-owner',  to: 'token-studio',  label: 'tweak tokens',       labelPos: { x: 258, y: 137 }, style: 'solid',  animated: true,  emphasis: true,  animDur: 2.2, d: 'M 455,76 C 320,76 320,226 185,226' },
-	{ id: 'b', from: 'token-studio', to: 'design-libs',   label: 'publish',            labelPos: { x: 50,  y: 295 }, style: 'solid',  animated: true,  emphasis: true,  animDur: 2.0, d: 'M 107,252 C 107,296 117,296 117,340' },
-	{ id: 'c', from: 'design-libs',  to: 'figma',                                                                     style: 'solid',  animated: true,                   animDur: 2.4, d: 'M 117,392 C 117,436 105,436 105,480' },
-	{ id: 'd', from: 'token-studio', to: 'token-json',    label: 'export JSON',        labelPos: { x: 490, y: 254 }, style: 'solid',  animated: true,  emphasis: true,  animDur: 2.6, d: 'M 185,226 C 470,226 470,366 755,366' },
-	{ id: 'e', from: 'token-owner',  to: 'jira',          label: 'ask dev to update',  labelPos: { x: 702, y: 137 }, style: 'solid',  animated: true,                   animDur: 2.0, d: 'M 645,76 C 717,76 717,226 790,226' },
-	{ id: 'f', from: 'jira',         to: 'ios-team',                                                                  style: 'solid',  animated: true,                   animDur: 2.2, d: 'M 855,252 C 855,366 770,366 770,480' },
-	{ id: 'g', from: 'jira',         to: 'android-team',                                                              style: 'solid',  animated: true,                   animDur: 2.4, d: 'M 855,252 C 855,366 955,366 955,480' },
-	{ id: 'h', from: 'token-json',   to: 'ios-team',      label: 'manual update for QA', labelPos: { x: 762, y: 446 }, style: 'dashed', animated: false, badge: 'Manual sync chosen for QA', badgePos: { x: 686, y: 412 }, d: 'M 825,392 C 825,436 770,436 770,480' },
-	{ id: 'i', from: 'token-json',   to: 'android-team',  label: 'manual update for QA',                              style: 'dashed', animated: false,                             d: 'M 885,392 C 885,436 955,436 955,480' },
-	{ id: 'j', from: 'ios-team',     to: 'token-tests',                                                               style: 'solid',  animated: true,                   animDur: 2.0, d: 'M 770,532 C 770,574 860,574 860,590' },
-	{ id: 'k', from: 'android-team', to: 'token-tests',                                                               style: 'solid',  animated: true,                   animDur: 2.2, d: 'M 955,532 C 955,574 884,574 884,590' },
-	{ id: 'l', from: 'token-tests',  to: 'publish',                                                                   style: 'solid',  animated: true,  emphasis: true,  animDur: 1.8, d: 'M 872,642 C 872,671 870,671 870,700' },
-	{ id: 'm', from: 'token-owner',  to: 'slack',         label: 'inform designers',   labelPos: { x: 500, y: 247 }, style: 'solid',  animated: true,                   animDur: 2.8, d: 'M 550,102 C 550,250 330,250 330,480' },
-	{ id: 'n', from: 'slack',        to: 'figma',         label: 'announcement',       labelPos: { x: 166, y: 497 }, style: 'dashed', animated: false,                             d: 'M 225,506 C 198,506 198,506 170,506' },
+	{ id: 'a', from: 'token-owner',  to: 'token-studio',  label: 'tweak tokens',       labelPos: { x: 258, y: 132 }, style: 'solid',  animated: true,  emphasis: true,  animDur: 2.2, d: 'M 550,102 L 550,156' },
+	{ id: 'b', from: 'token-studio', to: 'design-libs',   label: 'publish',            labelPos: { x: 295, y: 318 }, style: 'solid',  animated: true,  emphasis: true,  animDur: 2.0, d: pathLDown(472, 208, 117.5, 452) },
+	{ id: 'c', from: 'design-libs',  to: 'figma',                                                                     style: 'solid',  animated: true,                   animDur: 2.4, d: 'M 117,504 C 117,548 105,548 105,592' },
+	{ id: 'd', from: 'token-studio', to: 'token-json',    label: 'export JSON',        labelPos: { x: 538, y: 218 }, style: 'dashed', animated: false, d: 'M 550,208 L 550,268' },
+	{ id: 'd2', from: 'token-json',   to: 'jira',             label: 'create Jira ticket', labelPos: { x: 538, y: 328 }, style: 'dashed', animated: false, d: 'M 550,320 L 550,380' },
+	{ id: 'd3', from: 'jira',         to: 'style-dictionary', label: 'transform',         labelPos: { x: 720, y: 462 }, style: 'dashed', animated: false, d: pathRDown(572, 406, 870, 532) },
+	{ id: 'h', from: 'style-dictionary', to: 'ios-team',      label: 'manual update for QA', labelPos: { x: 762, y: 574 }, style: 'dashed', animated: false, d: pathLDown(892, 554, 770, 612) },
+	{ id: 'i', from: 'style-dictionary', to: 'android-team',  label: 'manual update for QA',                              style: 'dashed', animated: false,                             d: pathRDown(892, 554, 970, 612) },
+	{ id: 'j', from: 'ios-team',     to: 'token-tests',                                                               style: 'solid',  animated: true,                   animDur: 2.0, d: pathDownThenRight(770, 664, 872, 702) },
+	{ id: 'k', from: 'android-team', to: 'token-tests',                                                               style: 'solid',  animated: true,                   animDur: 2.2, d: pathDownThenLeft(970, 664, 872, 702) },
+	{ id: 'l', from: 'token-tests',  to: 'publish',                                                                   style: 'solid',  animated: true,  emphasis: true,  animDur: 1.8, d: 'M 872,754 C 872,783 870,783 870,812' },
+	{ id: 'm', from: 'token-owner',  to: 'slack',         label: 'inform designers',   labelPos: { x: 500, y: 346 }, style: 'solid',  animated: true,                   animDur: 2.8, d: 'M 550,102 C 550,358 330,358 330,592' },
+	{ id: 'n', from: 'slack',        to: 'figma',         label: 'announcement',       labelPos: { x: 166, y: 609 }, style: 'dashed', animated: false,                             d: 'M 225,618 C 198,618 198,618 170,618' },
 ];
 
-// ─── Mobile config (viewBox 0 0 388 530) ─────────────────────────────────────
-// Two-column vertical layout: Design (left, x 0–195) | Dev (right, x 196–388)
+// ─── Mobile config (viewBox 0 0 388 710) ─────────────────────────────────────
+// Token Owner block at top (full width), then Design (left) | Dev (right) columns
 // Token Owner spans the full width at the top.
 // iOS team and Android team are stacked vertically in the dev column.
 
+// Mobile: center column center x = 194. Token Studio, Token JSON, Jira center-aligned (x + w/2 = 194).
 const MOBILE_NODES: NodeDef[] = [
-	{ id: 'token-owner',  label: 'Token Owner',        sublabel: 'Me',                     lane: 'center', x: 97,  y: 16,  w: 194, h: 46 },
-	{ id: 'token-studio', label: 'Token Studio',       sublabel: 'Design tokens',           lane: 'design', x: 10,  y: 108, w: 148, h: 46 },
-	{ id: 'design-libs',  label: 'Design Libraries',   sublabel: 'Published Figma libs',    lane: 'design', x: 10,  y: 202, w: 160, h: 46 },
-	{ id: 'figma',        label: 'Figma',              sublabel: 'Design team',             lane: 'design', x: 10,  y: 300, w: 118, h: 46 },
-	{ id: 'slack',        label: 'Slack',              sublabel: 'Design System channel',   lane: 'design', x: 10,  y: 396, w: 155, h: 46 },
-	{ id: 'jira',         label: 'Jira ticket',        sublabel: 'Request to dev',          lane: 'dev',    x: 220, y: 108, w: 152, h: 46 },
-	{ id: 'token-json',   label: 'Token JSON',         sublabel: 'Tokens in codebase',      lane: 'dev',    x: 210, y: 202, w: 162, h: 46 },
-	{ id: 'ios-team',     label: 'iOS team',           sublabel: undefined,                 lane: 'dev',    x: 213, y: 300, w: 78,  h: 42 },
-	{ id: 'android-team', label: 'Android team',       sublabel: undefined,                 lane: 'dev',    x: 213, y: 354, w: 110, h: 42 },
-	{ id: 'token-tests',  label: 'Run token tests',    sublabel: 'QA step',                 lane: 'dev',    x: 210, y: 408, w: 162, h: 46 },
-	{ id: 'publish',      label: 'Publish app update', sublabel: 'Tokens applied',          lane: 'dev',    x: 210, y: 468, w: 162, h: 46 },
+	{ id: 'token-owner',  label: 'Change request',      sublabel: 'Request to make changes from design or dev team', lane: 'center', x: 97,  y: 16,  w: 194, h: 46, logo: 'token-owner' },
+	{ id: 'token-studio', label: 'Token Studio',       sublabel: 'Make changes to Design Tokens', lane: 'center', x: 117, y: 92,  w: 155, h: 46, logo: 'token-studio' },
+	{ id: 'token-json',   label: 'Token JSON',         sublabel: 'Export Json Token file',  lane: 'center', x: 113, y: 184, w: 162, h: 46, logo: 'token-json' },
+	{ id: 'jira',         label: 'Jira ticket',        sublabel: 'Create Jira request for dev team to update the Json in the code', badge: 'Manual sync chosen for QA', lane: 'center', x: 118, y: 276, w: 152, h: 46, logo: 'jira' },
+	{ id: 'design-libs',  label: 'Design Libraries',   sublabel: 'Published Figma libs',    lane: 'design', x: 10,  y: 342, w: 160, h: 46, logo: 'design-libs' },
+	{ id: 'figma',        label: 'Figma',              sublabel: 'Design team',             lane: 'design', x: 10,  y: 440, w: 118, h: 46, logo: 'figma' },
+	{ id: 'slack',        label: 'Slack',              sublabel: 'Design System channel',   lane: 'design', x: 10,  y: 536, w: 155, h: 46, logo: 'slack' },
+	{ id: 'style-dictionary', label: 'Style Dictionary', sublabel: 'Transform Json to the OS specific code', lane: 'dev',    x: 210, y: 452, w: 162, h: 46, logo: 'style-dictionary' },
+	{ id: 'ios-team',     label: 'iOS',                sublabel: undefined,                 lane: 'dev',    x: 213, y: 508, w: 78,  h: 42, logo: 'ios-team' },
+	{ id: 'android-team', label: 'Android',            sublabel: undefined,                 lane: 'dev',    x: 213, y: 562, w: 110, h: 42, logo: 'android-team' },
+	{ id: 'token-tests',  label: 'QA',                 sublabel: 'QA step',                 lane: 'dev',    x: 210, y: 616, w: 162, h: 46, logo: 'token-tests' },
+	{ id: 'publish',      label: 'Publish app update', sublabel: 'Tokens applied',          lane: 'dev',    x: 210, y: 672, w: 162, h: 46, logo: 'publish' },
 ];
 
-// Coordinate references for mobile edges:
-//   token-owner:  left(97,39)  right(291,39)  bottom-L(155,62)  bottom-R(225,62)
-//   token-studio: right(158,131) bottom(84,154) top(84,108)
-//   design-libs:  top(90,202) bottom(90,248)
-//   figma:        top(69,300) bottom(69,346)
-//   slack:        top(87,396)
-//   jira:         left(220,131) top(296,108) bottom(296,154)
-//   token-json:   left(210,225) top(291,202) bottom(291,248)  bL(260,248) bR(315,248)
-//   ios-team:     top(252,300) bottom(252,342)
-//   android-team: top(268,354) bottom(268,396)
-//   token-tests:  top(291,408) bottom(291,454)  tL(260,408) tR(315,408)
-//   publish:      top(291,468)
+// Mobile: center column (194). Token Owner → Token Studio → Token JSON → Jira (vertical). Then branches to design/dev.
 const MOBILE_EDGES: EdgeDef[] = [
-	{ id: 'a', from: 'token-owner',  to: 'token-studio',  style: 'solid',  animated: true,  emphasis: true,  animDur: 2.2, d: 'M 97,39 C 50,39 50,131 158,131' },
-	{ id: 'b', from: 'token-studio', to: 'design-libs',   style: 'solid',  animated: true,  emphasis: true,  animDur: 2.0, d: 'M 84,154 C 84,177 90,177 90,202' },
-	{ id: 'c', from: 'design-libs',  to: 'figma',         style: 'solid',  animated: true,                   animDur: 2.4, d: 'M 90,248 C 90,274 69,274 69,300' },
-	{ id: 'd', from: 'token-studio', to: 'token-json',    style: 'solid',  animated: true,  emphasis: true,  animDur: 2.6, d: 'M 158,131 C 188,131 188,225 210,225' },
-	{ id: 'e', from: 'token-owner',  to: 'jira',          style: 'solid',  animated: true,                   animDur: 2.0, d: 'M 225,62 C 225,85 296,85 296,108' },
-	{ id: 'f', from: 'jira',         to: 'ios-team',      style: 'solid',  animated: true,                   animDur: 2.2, d: 'M 296,154 C 296,227 252,227 252,300' },
-	{ id: 'g', from: 'jira',         to: 'android-team',  style: 'solid',  animated: true,                   animDur: 2.4, d: 'M 296,154 C 296,254 268,254 268,354' },
-	{ id: 'h', from: 'token-json',   to: 'ios-team',      style: 'dashed', animated: false,                             d: 'M 260,248 C 260,274 252,274 252,300' },
-	{ id: 'i', from: 'token-json',   to: 'android-team',  style: 'dashed', animated: false,                             d: 'M 315,248 C 315,301 268,301 268,354' },
-	{ id: 'j', from: 'ios-team',     to: 'token-tests',   style: 'solid',  animated: true,                   animDur: 2.0, d: 'M 252,342 C 252,375 260,375 260,408' },
-	{ id: 'k', from: 'android-team', to: 'token-tests',   style: 'solid',  animated: true,                   animDur: 2.2, d: 'M 268,396 C 268,402 315,402 315,408' },
-	{ id: 'l', from: 'token-tests',  to: 'publish',       style: 'solid',  animated: true,  emphasis: true,  animDur: 1.8, d: 'M 291,454 C 291,461 291,461 291,468' },
-	{ id: 'm', from: 'token-owner',  to: 'slack',         style: 'solid',  animated: true,                   animDur: 2.8, d: 'M 155,62 C 155,200 87,200 87,396' },
-	{ id: 'n', from: 'slack',        to: 'figma',         style: 'dashed', animated: false,                             d: 'M 87,396 C 87,371 69,371 69,346' },
+	{ id: 'a', from: 'token-owner',  to: 'token-studio',  style: 'solid',  animated: true,  emphasis: true,  animDur: 2.2, d: 'M 194,62 L 194,92' },
+	{ id: 'b', from: 'token-studio', to: 'design-libs',   style: 'solid',  animated: true,  emphasis: true,  animDur: 2.0, d: pathLDown(117, 138, 90, 342) },
+	{ id: 'c', from: 'design-libs',  to: 'figma',         style: 'solid',  animated: true,                   animDur: 2.4, d: 'M 90,388 C 90,414 69,414 69,440' },
+	{ id: 'd', from: 'token-studio', to: 'token-json',    style: 'dashed', animated: false, d: 'M 194,138 L 194,184' },
+	{ id: 'd2', from: 'token-json',   to: 'jira',             style: 'dashed', animated: false, d: 'M 194,230 L 194,276' },
+	{ id: 'd3', from: 'jira',         to: 'style-dictionary', style: 'dashed', animated: false, d: pathRDown(216, 299, 291, 452) },
+	{ id: 'h', from: 'style-dictionary', to: 'ios-team',      style: 'dashed', animated: false, d: pathLDown(313, 474, 252, 508) },
+	{ id: 'i', from: 'style-dictionary', to: 'android-team',  style: 'dashed', animated: false, d: pathRDown(313, 474, 268, 562) },
+	{ id: 'j', from: 'ios-team',     to: 'token-tests',   style: 'solid',  animated: true,                   animDur: 2.0, d: pathDownThenRight(252, 552, 291, 616) },
+	{ id: 'k', from: 'android-team', to: 'token-tests',   style: 'solid',  animated: true,                   animDur: 2.2, d: pathDownThenLeft(268, 606, 291, 616) },
+	{ id: 'l', from: 'token-tests',  to: 'publish',       style: 'solid',  animated: true,  emphasis: true,  animDur: 1.8, d: 'M 291,662 C 291,667 291,667 291,672' },
+	{ id: 'm', from: 'token-owner',  to: 'slack',         style: 'solid',  animated: true,                   animDur: 2.8, d: 'M 155,62 C 155,309 87,309 87,536' },
+	{ id: 'n', from: 'slack',        to: 'figma',         style: 'dashed', animated: false,                             d: 'M 87,536 C 87,511 69,511 69,486' },
 ];
 
 // ─── Lane visual config ───────────────────────────────────────────────────────
@@ -137,14 +165,77 @@ function useReducedMotion(): boolean {
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
 
-function DiagramNode({ node, isHovered, isDimmed, onMouseEnter, onMouseLeave }: {
-	node: NodeDef; isHovered: boolean; isDimmed: boolean;
+const LOGO_SIZE = 44;
+
+function DiagramNode({ node, isHovered, isDimmed, logoClipPathId, onMouseEnter, onMouseLeave }: {
+	node: NodeDef; isHovered: boolean; isDimmed: boolean; logoClipPathId: string;
 	onMouseEnter: () => void; onMouseLeave: () => void;
 }) {
 	const ls = LANE_STYLE[node.lane];
 	const cx = node.x + node.w / 2;
-	const labelY = node.sublabel ? node.y + 19 : node.y + node.h / 2 + 5;
+	const useLogoUI = node.logo !== undefined;
+	const logoHref = node.logo ? LOGO_SRC[node.logo] : '';
+	const hasLogoImage = Boolean(logoHref);
 
+	if (useLogoUI) {
+		// Same UI as logo nodes: 44×44 box (white, #e2e8f0 border), image or placeholder, label/sublabel underneath
+		const logoX = node.x + (node.w - LOGO_SIZE) / 2;
+		const logoY = node.y;
+		return (
+			<g
+				onMouseEnter={onMouseEnter}
+				onMouseLeave={onMouseLeave}
+				style={{ opacity: isDimmed ? 0.2 : 1, transition: 'opacity 0.18s ease', cursor: 'default' }}
+			>
+				{/* Invisible hit area for hover (keep same node bounds) */}
+				<rect x={node.x} y={node.y} width={node.w} height={node.h} fill="transparent" />
+				<g transform={`translate(${logoX}, ${logoY})`}>
+					<rect width={LOGO_SIZE} height={LOGO_SIZE} rx={10} ry={10} className={diagramStyles.logoBox} />
+					{hasLogoImage ? (
+						<image
+							href={logoHref}
+							x={0} y={0} width={LOGO_SIZE} height={LOGO_SIZE}
+							preserveAspectRatio="xMidYMid slice"
+							clipPath={`url(#${logoClipPathId})`}
+						/>
+					) : (
+						<rect x={4} y={4} width={36} height={36} rx={8} fill="#f1f5f9" stroke="#e2e8f0" strokeWidth={1} clipPath={`url(#${logoClipPathId})`} />
+					)}
+					<text x={LOGO_SIZE / 2} y={LOGO_SIZE + 14} textAnchor="middle" className={styles.logoNodeLabel}>
+						{node.label}
+					</text>
+					{node.sublabel && (
+						<foreignObject
+							x={LOGO_SIZE / 2 - LOGO_SIZE}
+							y={LOGO_SIZE + 18}
+							width={LOGO_SIZE * 2}
+							height={28}
+							className={styles.logoNodeSublabelForeign}
+						>
+							<div className={styles.logoNodeSublabelWrap} xmlns="http://www.w3.org/1999/xhtml">
+								{node.sublabel}
+							</div>
+						</foreignObject>
+					)}
+					{node.badge && (
+						<foreignObject
+							x={LOGO_SIZE / 2 - LOGO_SIZE}
+							y={LOGO_SIZE + 50}
+							width={LOGO_SIZE * 2}
+							height={22}
+							className={styles.logoNodeSublabelForeign}
+						>
+							<div className={styles.logoNodeBadge} xmlns="http://www.w3.org/1999/xhtml">
+								{node.badge}
+							</div>
+						</foreignObject>
+					)}
+				</g>
+			</g>
+		);
+	}
+
+	const labelY = node.sublabel ? node.y + 19 : node.y + node.h / 2 + 5;
 	return (
 		<g
 			onMouseEnter={onMouseEnter}
@@ -177,8 +268,6 @@ function DiagramEdge({ edge, isHighlighted, isDimmed, reducedMotion, onMouseEnte
 	onMouseEnter: () => void; onMouseLeave: () => void;
 }) {
 	const color = isDimmed ? '#e8edf2' : isHighlighted ? '#3b82f6' : '#94a3b8';
-	const strokeWidth = isHighlighted ? 2 : 1.5;
-	const dashArray = edge.style === 'dashed' ? '5 6' : undefined;
 	const labelW = ((edge.label?.length ?? 0) * 7) + 18;
 
 	return (
@@ -186,20 +275,18 @@ function DiagramEdge({ edge, isHighlighted, isDimmed, reducedMotion, onMouseEnte
 			{/* Wide invisible hit area for easier hover */}
 			<path d={edge.d} fill='none' stroke='transparent' strokeWidth={18} style={{ cursor: 'crosshair' }} />
 
-			{/* Edge path */}
+			{/* Edge path — match DesignTokenFlowDiagram: thin dashed lines, no arrowheads */}
 			<path
-				d={edge.d} fill='none' stroke={color} strokeWidth={strokeWidth}
-				strokeDasharray={dashArray}
-				className={edge.animated && !reducedMotion ? styles.edgeAnimated : undefined}
-				markerEnd='url(#arrowhead)'
-				style={{ transition: 'stroke 0.18s ease, stroke-width 0.18s ease' }}
+				d={edge.d} fill='none' stroke={color} strokeWidth={1}
+				className={edge.animated && !reducedMotion ? styles.connectorL : styles.connectorLStatic}
+				style={{ transition: 'stroke 0.18s ease' }}
 			/>
 
-			{/* Pulse dot (emphasis edges only) */}
+			{/* Pulse dot (emphasis edges only) — 4× slower for visibility */}
 			{edge.emphasis && !reducedMotion && (
 				<circle r={4} fill={isHighlighted ? '#1d4ed8' : '#3b82f6'} className={styles.pulseDot}>
 					{/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-					{(React as any).createElement('animateMotion', { dur: `${edge.animDur ?? 2}s`, repeatCount: 'indefinite', path: edge.d })}
+					{(React as any).createElement('animateMotion', { dur: `${((edge.animDur ?? 2) * 4)}s`, repeatCount: 'indefinite', path: edge.d })}
 				</circle>
 			)}
 
@@ -232,12 +319,12 @@ function DiagramEdge({ edge, isHighlighted, isDimmed, reducedMotion, onMouseEnte
 
 // ─── Shared SVG chrome helpers ────────────────────────────────────────────────
 
-function SvgDefs() {
+function SvgDefs({ clipPathId }: { clipPathId: string }) {
 	return (
 		<defs>
-			<marker id='arrowhead' markerWidth={8} markerHeight={6} refX={7} refY={3} orient='auto'>
-				<path d='M 0,0 L 8,3 L 0,6 Z' fill='context-stroke' />
-			</marker>
+			<clipPath id={clipPathId}>
+				<rect x={0} y={0} width={44} height={44} rx={10} ry={10} />
+			</clipPath>
 		</defs>
 	);
 }
@@ -298,12 +385,13 @@ export default function TokenWorkflowDiagram() {
 		));
 	}
 
-	function renderNodes(nodes: NodeDef[]) {
+	function renderNodes(nodes: NodeDef[], logoClipPathId: string) {
 		return nodes.map((node) => (
 			<DiagramNode
 				key={node.id} node={node}
 				isHovered={hoveredNode === node.id}
 				isDimmed={anyHovered && !connectedNodeIds.has(node.id)}
+				logoClipPathId={logoClipPathId}
 				{...nodeHandlers(node.id)}
 			/>
 		));
@@ -318,7 +406,7 @@ export default function TokenWorkflowDiagram() {
 				role='region'
 				aria-label='Token collaboration workflow — scroll horizontally on narrow screens'
 			>
-				<svg viewBox='0 0 1060 780' className={styles.svgDesktop}
+				<svg viewBox='0 0 1060 880' className={styles.svgDesktop}
 					role='img' aria-labelledby='wf-title wf-desc'>
 					<title id='wf-title'>Token Collaboration Workflow</title>
 					<desc id='wf-desc'>
@@ -327,15 +415,15 @@ export default function TokenWorkflowDiagram() {
 						(Jira, Token JSON, iOS team, Android team, token tests, publishing).
 					</desc>
 
-					<SvgDefs />
+					<SvgDefs clipPathId="logoNodeClipDesktop" />
 
 					{/* Lane backgrounds */}
-					<rect x={0}   y={36} width={440} height={736} fill='rgba(248,250,252,0.65)' />
-					<rect x={680} y={36} width={380} height={736} fill='rgba(248,250,252,0.65)' />
+					<rect x={0}   y={36} width={440} height={828} fill='rgba(248,250,252,0.65)' />
+					<rect x={680} y={36} width={380} height={828} fill='rgba(248,250,252,0.65)' />
 
 					{/* Lane separators */}
-					<line x1={440} y1={36} x2={440} y2={772} stroke='#e2e8f0' strokeWidth={1} strokeDasharray='4 7' />
-					<line x1={680} y1={36} x2={680} y2={772} stroke='#e2e8f0' strokeWidth={1} strokeDasharray='4 7' />
+					<line x1={440} y1={36} x2={440} y2={864} stroke='#e2e8f0' strokeWidth={1} strokeDasharray='4 7' />
+					<line x1={680} y1={36} x2={680} y2={864} stroke='#e2e8f0' strokeWidth={1} strokeDasharray='4 7' />
 
 					{/* Lane labels */}
 					<text x={220} y={22} textAnchor='middle' fontFamily='Inter,system-ui,sans-serif' fontSize={11} fontWeight={600} letterSpacing={1.5} fill='#94a3b8'>DESIGN</text>
@@ -343,19 +431,19 @@ export default function TokenWorkflowDiagram() {
 					<text x={868} y={22} textAnchor='middle' fontFamily='Inter,system-ui,sans-serif' fontSize={11} fontWeight={600} letterSpacing={1.5} fill='#94a3b8'>DEVELOPMENT</text>
 
 					{renderEdges(EDGES)}
-					{renderNodes(NODES)}
+					{renderNodes(NODES, 'logoNodeClipDesktop')}
 				</svg>
 			</div>
 
 			{/* ── Mobile SVG (<900px, scales to 100% width, no scroll) ── */}
-			<svg viewBox='0 0 388 530' className={styles.svgMobile}
+			<svg viewBox='0 0 388 710' className={styles.svgMobile}
 				role='img' aria-labelledby='wf-title-m wf-desc-m'>
 				<title id='wf-title-m'>Token Collaboration Workflow</title>
 				<desc id='wf-desc-m'>
 					Two-column workflow: Design (left) and Development (right), coordinated by Token Owner at the top.
 				</desc>
 
-				<SvgDefs />
+				<SvgDefs clipPathId="logoNodeClipMobile" />
 
 				{/* Lane backgrounds */}
 				<rect x={0}   y={68} width={196} height={454} fill='rgba(248,250,252,0.65)' />
@@ -369,16 +457,8 @@ export default function TokenWorkflowDiagram() {
 				<text x={290} y={84} textAnchor='middle' fontFamily='Inter,system-ui,sans-serif' fontSize={9}  fontWeight={600} letterSpacing={1.2} fill='#94a3b8'>DEVELOPMENT</text>
 
 				{renderEdges(MOBILE_EDGES)}
-				{renderNodes(MOBILE_NODES)}
+				{renderNodes(MOBILE_NODES, 'logoNodeClipMobile')}
 			</svg>
-
-			{/* ── Legend ── */}
-			<div className={styles.legend}>
-				<div className={styles.legendItem}><div className={styles.legendSolid} /><span>Automated propagation</span></div>
-				<div className={styles.legendItem}><div className={styles.legendDashed} /><span>Manual sync / announcement</span></div>
-				<div className={styles.legendItem}><div className={styles.legendDot} /><span>Active token flow</span></div>
-				<div className={styles.legendItem}><span className={styles.legendBadge}>Manual sync chosen intentionally for QA</span></div>
-			</div>
 
 			<p className={styles.scrollHint}>← Scroll to explore the full diagram →</p>
 		</div>

@@ -1,7 +1,9 @@
+/* Match DesignTokenFlowDiagram: dotted background, rounded corners, no border */
 .container {
-	border: 1px solid #e8edf2;
 	border-radius: 16px;
-	background: #fff;
+	background-color: transparent;
+	background-image: radial-gradient(circle, #e2e8f0 1px, transparent 1px);
+	background-size: 12px 12px;
 	overflow: hidden;
 }
 
@@ -35,27 +37,76 @@
 	}
 }
 
-/* ─── Dash flow animation ─── */
-@keyframes dashFlow {
+/* ─── Connector style (match DesignTokenFlowDiagram): thin dashed, no arrows) ─── */
+@keyframes strokeDashL {
 	to {
-		stroke-dashoffset: -14;
+		stroke-dashoffset: -16;
 	}
 }
 
-.edgeAnimated {
-	stroke-dasharray: 6 8;
-	animation: dashFlow 1.6s linear infinite;
+.connectorL {
+	stroke-dasharray: 3 5;
+	animation: strokeDashL 4s linear infinite;
+}
+
+.connectorLStatic {
+	stroke-dasharray: 3 5;
 }
 
 /* ─── Reduced motion ─── */
 @media (prefers-reduced-motion: reduce) {
-	.edgeAnimated {
+	.connectorL {
 		animation: none;
 	}
 
 	.pulseDot {
 		display: none;
 	}
+}
+
+/* Logo nodes: match DesignTokenFlowDiagram (44×44 box, label below) */
+.logoNodeLabel {
+	font-family: Inter, system-ui, sans-serif;
+	font-size: 11px;
+	font-weight: 600;
+	fill: #475569;
+}
+
+.logoNodeSublabel {
+	font-family: Inter, system-ui, sans-serif;
+	font-size: 9.5px;
+	fill: #94a3b8;
+}
+
+/* Sublabel container: twice logo width (88px), centered under logo */
+.logoNodeSublabelForeign {
+	overflow: visible;
+	pointer-events: none;
+}
+
+/* Sublabel max-width = twice logo width (88px); text wraps inside */
+.logoNodeSublabelWrap {
+	max-width: 88px;
+	text-align: center;
+	font-family: Inter, system-ui, sans-serif;
+	font-size: 9.5px;
+	color: #94a3b8;
+	line-height: 1.35;
+}
+
+/* Badge under sublabel (e.g. "Manual sync chosen for QA" in Jira block) */
+.logoNodeBadge {
+	max-width: 88px;
+	text-align: center;
+	font-family: Inter, system-ui, sans-serif;
+	font-size: 9px;
+	color: #c2410c;
+	line-height: 1.3;
+	padding: 3px 6px;
+	background: #fff7ed;
+	border: 1px solid #fed7aa;
+	border-radius: 4px;
+	box-sizing: border-box;
 }
 
 /* ─── Legend ─── */

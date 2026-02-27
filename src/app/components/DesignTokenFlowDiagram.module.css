@@ -60,6 +60,13 @@
 	cursor: default;
 }
 
+/* Shared logo box: 44×44, rounded, white fill, light border — reused by TokenWorkflowDiagram */
+.logoBox {
+	fill: #fff;
+	stroke: #e2e8f0;
+	stroke-width: 1.5;
+}
+
 .nodeLabel {
 	font-family: Inter, system-ui, sans-serif;
 	font-size: 11px;
