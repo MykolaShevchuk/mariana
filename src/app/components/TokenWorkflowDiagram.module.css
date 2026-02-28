@@ -18,12 +18,32 @@
 	display: block;
 	width: 100%;
 	min-width: 1060px;
+	border-radius: 16px;
+	overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+	.desktopWrapper {
+		/* Enlarged diagram, no horizontal scroll: clip overflow (including background) */
+		width: 100%;
+		overflow-x: hidden;
+	}
+
+	.svgDesktop {
+		/* Diagram 20% larger on desktop: SVG is 120% width, wrapper clips to viewport */
+		width: 120%;
+		min-width: unset;
+		/* Center the diagram: shift left so middle 100% is visible (not right edge cut off) */
+		margin-left: -10%;
+	}
 }
 
 /* ─── Mobile SVG (shown below 900px, scales to 100% width) ─── */
 .svgMobile {
 	display: block;
 	width: 100%;
+	border-radius: 16px;
+	overflow: hidden;
 }
 
 /* ─── Responsive breakpoint ─── */
@@ -75,7 +95,7 @@
 .logoNodeSublabel {
 	font-family: Inter, system-ui, sans-serif;
 	font-size: 9.5px;
-	fill: #94a3b8;
+	fill: #64748b;
 }
 
 /* Sublabel container: twice logo width (88px), centered under logo */
@@ -90,7 +110,7 @@
 	text-align: center;
 	font-family: Inter, system-ui, sans-serif;
 	font-size: 9.5px;
-	color: #94a3b8;
+	color: #64748b;
 	line-height: 1.35;
 }
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 import styles from './MilestonesTimeline.module.css';
 import SellerDoubleDiamond from './SellerDoubleDiamond';
 import DesignTokenFlowDiagram from './DesignTokenFlowDiagram';
@@ -51,7 +51,7 @@ type MilestoneItem = {
 	id: string;
 	label: string;
 	eyebrow?: string;
-	body: string;
+	body: string | string[];
 	note?: string;
 	annotation?: {
 		text: string;
@@ -77,7 +77,10 @@ const MILESTONES: MilestoneItem[] = [
 		id: 'direction',
 		label: 'Direction',
 		eyebrow: 'Phase 02',
-		body: 'I ran usability testing to select a new typeface and explored design tokens. We aligned early with engineering.',
+		body: [
+			'I ran usability testing to select a new typeface, evaluating Inter (current), Nunito Sans, and Readex Pro. Readex Pro scored highest on friendliness, trust, and modernity and became the new Gumtree typeface.',
+			'I researched design tokens as a foundation for consistent, multi-platform design.',
+		],
 	},
 	{
 		id: 'system',
@@ -208,9 +211,15 @@ function ContentBlock({
 		);
 	}
 
+	const bodyParagraphs = Array.isArray(milestone.body) ? milestone.body : [milestone.body];
+
 	return (
 		<div ref={ref} className={`${styles.contentBlock} ${animClass} ${alignClass}`}>
-			<p className={styles.body}>{milestone.body}</p>
+			{bodyParagraphs.map((paragraph, i) => (
+				<p key={i} className={styles.body}>
+					{paragraph}
+				</p>
+			))}
 			{milestone.note && (
 				<p className={styles.note}>{milestone.note}</p>
 			)}
@@ -220,11 +229,101 @@ function ContentBlock({
 
 // ─── Main component ───────────────────────────────────────────────────────
 
+// ─── Media lightbox (image or video, enlarge on click) ───────────────────────
+
+function MediaLightbox({
+	open,
+	kind,
+	src,
+	alt,
+	srcFull,
+	onClose,
+}: {
+	open: boolean;
+	kind: 'image' | 'video';
+	src: string;
+	alt?: string;
+	srcFull?: string;
+	onClose: () => void;
+}) {
+	const dialogRef = useRef<HTMLDialogElement>(null);
+	const videoRef = useRef<HTMLVideoElement>(null);
+	const modalImageSrc = kind === 'image' ? (srcFull ?? src) : src;
+
+	useEffect(() => {
+		const dialog = dialogRef.current;
+		if (!dialog) return;
+		if (open) {
+			dialog.showModal();
+		}
+		return () => {
+			dialog.close();
+		};
+	}, [open]);
+
+	useEffect(() => {
+		if (open && kind === 'video') {
+			videoRef.current?.play().catch(() => {});
+		} else {
+			videoRef.current?.pause();
+		}
+	}, [open, kind]);
+
+	useEffect(() => {
+		const dialog = dialogRef.current;
+		if (!dialog) return;
+		const handleCancel = () => onClose();
+		dialog.addEventListener('cancel', handleCancel);
+		return () => dialog.removeEventListener('cancel', handleCancel);
+	}, [onClose]);
+
+	return (
+		<dialog
+			ref={dialogRef}
+			className={styles.lightboxDialog}
+			onClick={(e) => {
+				if (e.target === dialogRef.current) onClose();
+			}}
+			aria-modal="true"
+			aria-label={kind === 'image' ? 'Enlarged image' : 'Enlarged video'}
+		>
+			<button
+				type="button"
+				className={styles.lightboxClose}
+				onClick={onClose}
+				aria-label="Close"
+			>
+				×
+			</button>
+			{kind === 'image' ? (
+				<img src={modalImageSrc} alt={alt ?? ''} className={styles.lightboxImage} />
+			) : (
+				<video
+					ref={videoRef}
+					src={src}
+					className={styles.lightboxVideo}
+					controls
+					playsInline
+					loop
+					muted
+					aria-label={alt ?? 'Video'}
+				/>
+			)}
+		</dialog>
+	);
+}
+
 export default function MilestonesTimeline({
 	stripeColor = '#B0F4AC',
 }: {
 	stripeColor?: string;
 }) {
+	const [lightbox, setLightbox] = useState<
+		| { kind: 'image'; src: string; alt: string; srcFull?: string }
+		| { kind: 'video'; src: string; alt?: string }
+		| null
+	>(null);
+
 	return (
 		<section className={styles.section}>
 			<div className={styles.inner}>
@@ -263,11 +362,24 @@ export default function MilestonesTimeline({
 											<div className={styles.foundationContent}>
 												<div className={styles.foundationBlock}>
 													<p className={styles.body}>I audited the legacy app.</p>
-													<img
-														src="/legacy-app.png"
-														alt="Legacy Gumtree app screens showing mattress and car listings"
-														className={styles.foundationImage}
-													/>
+													<button
+														type="button"
+														className={styles.timelineImageButton}
+														onClick={() =>
+															setLightbox({
+																kind: 'image',
+																src: '/legacy-app.png',
+																alt: 'Legacy Gumtree app screens showing mattress and car listings',
+															})
+														}
+														aria-label="Enlarge image"
+													>
+														<img
+															src="/legacy-app.png"
+															alt="Legacy Gumtree app screens showing mattress and car listings"
+															className={styles.foundationImage}
+														/>
+													</button>
 												</div>
 											</div>
 										</div>
@@ -278,9 +390,22 @@ export default function MilestonesTimeline({
 											<div className={`${styles.foundationContent} ${styles.foundationContentLeft}`}>
 												<div className={styles.foundationBlock}>
 													<p className={styles.body}>
-														I questioned old patterns, and explored how modern design systems scale.
+														To avoid repeating legacy UX and technical debt, we invested in a design system before redesigning core journeys. I questioned old patterns and explored how modern systems scale.
 													</p>
-													<AutoplayInViewVideo src="/foundations.mov" />
+													<button
+														type="button"
+														className={styles.timelineVideoButton}
+														onClick={() =>
+															setLightbox({
+																kind: 'video',
+																src: '/foundations.mov',
+																alt: 'Foundations phase overview',
+															})
+														}
+														aria-label="Enlarge video"
+													>
+														<AutoplayInViewVideo src="/foundations.mov" />
+													</button>
 												</div>
 											</div>
 										</div>
@@ -293,9 +418,116 @@ export default function MilestonesTimeline({
 							);
 						})()}
 						{MILESTONES.slice(1, 4).map((milestone, index) => {
-							const isRight = index % 2 === 0;
+							const isDirectionTwoRows =
+								milestone.id === 'direction' &&
+								Array.isArray(milestone.body) &&
+								milestone.body.length >= 2;
+							if (isDirectionTwoRows) {
+								const [firstPara, secondPara] = milestone.body;
+								return (
+									<Fragment key={milestone.id}>
+										{/* Row 1: Direction label, first paragraph on the right + font testing images */}
+										<div className={styles.row}>
+											<div className={`${styles.colLeft} ${styles.colEmpty}`} />
+											<div className={styles.stripeCol}>
+												<div className={styles.stripeLabel}>
+													<h3 className={styles.milestoneLabel}>{milestone.label}</h3>
+												</div>
+											</div>
+											<div className={styles.colRight}>
+												<div className={styles.milestoneWithMedia}>
+													<ContentBlock
+														milestone={{ ...milestone, body: firstPara }}
+														align="left"
+													/>
+													<div className={styles.directionImages}>
+														<button
+															type="button"
+															className={styles.directionImageButton}
+															onClick={() =>
+																setLightbox({
+																	kind: 'image',
+																	src: '/font-testing.png',
+																	alt: 'Usability testing report: Question 11 comparing Inter, Nunito Sans and Readex Pro typefaces with participant feedback',
+																	srcFull: '/font-testing-full.png',
+																})
+															}
+															aria-label="Enlarge image"
+														>
+															<img
+																src="/font-testing.png"
+																alt="Usability testing report: Question 11 comparing Inter, Nunito Sans and Readex Pro typefaces with participant feedback"
+																className={styles.timelineImage}
+															/>
+														</button>
+														<button
+															type="button"
+															className={styles.directionImageButton}
+															onClick={() =>
+																setLightbox({
+																	kind: 'image',
+																	src: '/readex-pro-typeface.png',
+																	alt: 'Readex Pro typeface feedback board: characteristics including youthful and friendly',
+																	srcFull: '/readex-pro-typeface-full.png',
+																})
+															}
+															aria-label="Enlarge image"
+														>
+															<img
+																src="/readex-pro-typeface.png"
+																alt="Readex Pro typeface feedback board: characteristics including youthful and friendly"
+																className={styles.timelineImage}
+															/>
+														</button>
+													</div>
+												</div>
+											</div>
+										</div>
+										{/* Row 2: second paragraph on the left + design tokens research video */}
+										<div className={styles.row}>
+											<div className={styles.colLeft}>
+												<div className={`${styles.foundationContent} ${styles.foundationContentLeft}`}>
+													<div className={styles.foundationBlock}>
+														<ContentBlock
+															milestone={{ ...milestone, body: secondPara }}
+															align="right"
+														/>
+														<button
+															type="button"
+															className={styles.timelineVideoButton}
+															onClick={() =>
+																setLightbox({
+																	kind: 'video',
+																	src: '/design-tokens-research.mov',
+																	alt: 'Design tokens research',
+																})
+															}
+															aria-label="Enlarge video"
+														>
+															<AutoplayInViewVideo src="/design-tokens-research.mov" />
+														</button>
+													</div>
+												</div>
+											</div>
+											<div className={styles.stripeCol}>
+												<div className={styles.stripeLabel} aria-hidden="true" />
+											</div>
+											<div className={`${styles.colRight} ${styles.colEmpty}`} />
+										</div>
+									</Fragment>
+								);
+							}
+							const isRight =
+								milestone.id === 'system'
+									? true
+									: milestone.id === 'poc'
+										? false
+										: index % 2 === 0;
 							const hasContent = Boolean(
-								(milestone.body && milestone.body.trim()) ||
+								(milestone.body &&
+									(Array.isArray(milestone.body)
+										? milestone.body.some((b) => b.trim())
+										: milestone.body.trim())) ||
 									milestone.note ||
 									milestone.isPlaceholder
 							);
@@ -310,13 +542,7 @@ export default function MilestonesTimeline({
 										{!isRight && hasContent && (
 											<div className={hasMedia ? styles.milestoneWithMedia : undefined}>
 												<ContentBlock milestone={milestone} align='right' />
-												{isDesignSystem && (
-													<img
-														src="/tokens-studio-design-system.png"
-														alt="Design system documentation: Tokens Studio for Figma with colour tokens, plus typography and border radius specs"
-														className={styles.tokensStudioImage}
-													/>
-												)}
+												{isPoc && <DesignTokenFlowDiagram />}
 											</div>
 										)}
 									</div>
@@ -331,7 +557,26 @@ export default function MilestonesTimeline({
 										{isRight && hasContent && (
 											<div className={hasMedia ? styles.milestoneWithMedia : undefined}>
 												<ContentBlock milestone={milestone} align='left' />
-												{isPoc && <DesignTokenFlowDiagram />}
+												{isDesignSystem && (
+													<button
+														type="button"
+														className={styles.timelineImageButton}
+														onClick={() =>
+															setLightbox({
+																kind: 'image',
+																src: '/tokens-studio-design-system.png',
+																alt: 'Design system documentation: Tokens Studio for Figma with colour tokens, plus typography and border radius specs',
+															})
+														}
+														aria-label="Enlarge image"
+													>
+														<img
+															src="/tokens-studio-design-system.png"
+															alt="Design system documentation: Tokens Studio for Figma with colour tokens, plus typography and border radius specs"
+															className={styles.tokensStudioImage}
+														/>
+													</button>
+												)}
 											</div>
 										)}
 									</div>
@@ -383,7 +628,10 @@ export default function MilestonesTimeline({
 							const globalIndex = index + 5;
 							const isRight = globalIndex % 2 === 0;
 							const hasContent = Boolean(
-								(milestone.body && milestone.body.trim()) ||
+								(milestone.body &&
+									(Array.isArray(milestone.body)
+										? milestone.body.some((b) => b.trim())
+										: milestone.body.trim())) ||
 									milestone.note ||
 									milestone.isPlaceholder
 							);
@@ -399,18 +647,44 @@ export default function MilestonesTimeline({
 											<div className={hasMedia ? styles.milestoneWithMedia : undefined}>
 												<ContentBlock milestone={milestone} align='right' />
 												{isGrowth && (
-													<img
-														src="/certificate-mobile-interfaces.png"
-														alt="Mobile Interfaces Advanced Course certificate from Creative & Tech Online Institute"
-														className={styles.certificateImage}
-													/>
+													<button
+														type="button"
+														className={`${styles.timelineImageButton} ${styles.certificateImageButton}`}
+														onClick={() =>
+															setLightbox({
+																kind: 'image',
+																src: '/certificate-mobile-interfaces.png',
+																alt: 'Mobile Interfaces Advanced Course certificate from Creative & Tech Online Institute',
+															})
+														}
+														aria-label="Enlarge image"
+													>
+														<img
+															src="/certificate-mobile-interfaces.png"
+															alt="Mobile Interfaces Advanced Course certificate from Creative & Tech Online Institute"
+															className={styles.certificateImage}
+														/>
+													</button>
 												)}
 												{isValidation && (
-													<img
-														src="/validation-usability-testing.png"
-														alt="Usability testing: Sell Your Item promote ad screen with participant video"
-														className={styles.timelineImage}
-													/>
+													<button
+														type="button"
+														className={styles.timelineImageButton}
+														onClick={() =>
+															setLightbox({
+																kind: 'image',
+																src: '/validation-usability-testing.png',
+																alt: 'Usability testing: Sell Your Item promote ad screen with participant video',
+															})
+														}
+														aria-label="Enlarge image"
+													>
+														<img
+															src="/validation-usability-testing.png"
+															alt="Usability testing: Sell Your Item promote ad screen with participant video"
+															className={styles.timelineImage}
+														/>
+													</button>
 												)}
 											</div>
 										)}
@@ -448,6 +722,16 @@ export default function MilestonesTimeline({
 					</div>
 				</div>
 			</div>
+			{lightbox && (
+				<MediaLightbox
+					open
+					kind={lightbox.kind}
+					src={lightbox.src}
+					alt={lightbox.kind === 'image' ? lightbox.alt : lightbox.alt}
+					srcFull={lightbox.kind === 'image' ? lightbox.srcFull : undefined}
+					onClose={() => setLightbox(null)}
+				/>
+			)}
 		</section>
 	);
 }

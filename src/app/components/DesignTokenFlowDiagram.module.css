@@ -5,6 +5,7 @@
 	overflow: visible;
 	max-width: 100%;
 	align-self: flex-start; /* left-align with text when inside flex container */
+	margin-bottom: 96px; /* extra spacing underneath diagram before next section */
 }
 
 .svg {

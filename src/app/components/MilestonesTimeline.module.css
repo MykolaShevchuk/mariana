@@ -137,6 +137,159 @@
 	align-items: flex-end;
 }
 
+/* Direction: font testing images stacked below first paragraph */
+.directionImages {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	align-items: flex-end;
+	width: 100%;
+	max-width: 392px;
+}
+
+.directionImages .timelineImage {
+	border: 1px solid #f1f5f9;
+}
+
+/* Clickable image wrapper (enlarge on click) — shared for all timeline images */
+.timelineImageButton,
+.directionImageButton {
+	display: block;
+	width: 100%;
+	padding: 0;
+	border: none;
+	background: none;
+	cursor: pointer;
+	text-align: left;
+}
+
+.directionImageButton {
+	text-align: right;
+}
+
+.timelineImageButton:focus-visible,
+.directionImageButton:focus-visible {
+	outline: 2px solid #1e293b;
+	outline-offset: 2px;
+	border-radius: 12px;
+}
+
+/* ── Lightbox (enlarged image dialog) ──────────────────────────────────────── */
+@keyframes lightboxBackdropIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes lightboxImageIn {
+	from {
+		opacity: 0;
+		transform: scale(0.99);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.lightboxDialog {
+	position: fixed;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	max-width: none;
+	max-height: none;
+	margin: 0;
+	border: none;
+	background: rgba(15, 23, 42, 0.3);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1000;
+	animation: lightboxBackdropIn 0.22s ease-out;
+}
+
+.lightboxDialog::backdrop {
+	background: rgba(15, 23, 42, 0.3);
+	animation: lightboxBackdropIn 0.22s ease-out;
+}
+
+.lightboxClose {
+	position: absolute;
+	top: 24px;
+	right: 24px;
+	width: 44px;
+	height: 44px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 28px;
+	line-height: 1;
+	color: #fff;
+	background: rgba(255, 255, 255, 0.15);
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	z-index: 2;
+}
+
+.lightboxClose:hover {
+	background: rgba(255, 255, 255, 0.25);
+}
+
+.lightboxClose:focus-visible {
+	outline: 2px solid #fff;
+	outline-offset: 2px;
+}
+
+.lightboxImage,
+.lightboxVideo {
+	max-width: 90vw;
+	max-height: 85vh;
+	width: auto;
+	height: auto;
+	object-fit: contain;
+	border-radius: 12px;
+	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.lightboxImage {
+	animation: lightboxImageIn 0.28s ease-out 0.04s both;
+}
+
+.lightboxVideo {
+	animation: lightboxImageIn 0.28s ease-out 0.04s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.lightboxDialog,
+	.lightboxDialog::backdrop,
+	.lightboxImage,
+	.lightboxVideo {
+		animation: none;
+	}
+}
+
+/* Clickable video wrapper (enlarge on click) */
+.timelineVideoButton {
+	display: block;
+	width: 100%;
+	padding: 0;
+	border: none;
+	background: none;
+	cursor: pointer;
+	text-align: left;
+}
+
+.timelineVideoButton:focus-visible {
+	outline: 2px solid #1e293b;
+	outline-offset: 2px;
+	border-radius: 12px;
+}
+
 .certificateImage,
 .timelineImage {
 	width: 100%;
@@ -150,6 +303,19 @@
 @media (min-width: 1024px) {
 	.certificateImage {
 		max-width: 219px; /* 30% smaller + 20% more on desktop */
+	}
+
+	/* Growth: align certificate image right so it lines up with description text; stays in left column */
+	.certificateImageButton {
+		width: auto;
+		max-width: 100%;
+		align-self: flex-end;
+		text-align: right;
+	}
+
+	.certificateImageButton .certificateImage {
+		display: block;
+		margin-left: auto;
 	}
 }
 
@@ -315,7 +481,7 @@
 	font-family: Inter, system-ui, sans-serif;
 	font-size: 12px;
 	font-style: italic;
-	color: #94a3b8;
+	color: #64748b;
 	margin: 6px 0 0;
 	line-height: 1.5;
 }
