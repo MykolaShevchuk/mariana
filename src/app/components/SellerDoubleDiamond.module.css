@@ -7,7 +7,7 @@
 .desktopLayout {
 	position: relative;
 	width: 100%;
-	aspect-ratio: 800 / 760;
+	aspect-ratio: 800 / 920;
 }
 
 .mobileLayout {
@@ -86,6 +86,7 @@
 	opacity: 1;
 }
 
+
 /* ── Connector lines ─────────────────────────────────────────────────────── */
 .connector {
 	stroke: #e5e7eb;
@@ -134,31 +135,27 @@
 .discoverPhase {
 	left: 0;
 	width: 30%;
-	top: 11.84%; /* 90/760  — top of diamond 1 */
-	transform: translateY(-50%);
+	top: 11.3%; /* 104/920 — top vertex of diamond 1 */
 	overflow: visible;
 }
 
 .definePhase {
 	right: 0;
 	width: 30%;
-	top: 38.16%; /* 290/760 — bottom of diamond 1 */
-	transform: translateY(-50%);
+	top: 11.3%; /* 104/920 — top-aligned with Discover */
 	text-align: right;
 }
 
 .developPhase {
 	left: 0;
 	width: 30%;
-	top: 61.84%; /* 470/760 — top of diamond 2 */
-	transform: translateY(-50%);
+	top: 82%; /* clear Discover image */
 }
 
 .deliverPhase {
 	right: 0;
 	width: 30%;
-	top: 88.16%; /* 670/760 — bottom of diamond 2 */
-	transform: translateY(-50%);
+	top: 82%; /* clear Define image */
 	text-align: right;
 }
 
@@ -265,6 +262,44 @@
 	.discoverPhase .phaseImage {
 		width: 100%;
 		max-width: 360px;
+	}
+	/* Define phase: same width as Deliver visual so right column is consistent and doesn’t overflow */
+	.definePhase .phaseImage {
+		max-width: 240px;
+		max-height: 65vh;
+		object-fit: contain;
+	}
+}
+
+/* Validation testing images under Deliver — same width as phone mockup (240px) */
+.validationImages {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	gap: 16px;
+	align-items: flex-start;
+	margin-top: 16px;
+	background: #f1f5f9;
+	border-radius: 12px;
+	padding: 0;
+	width: fit-content;
+	max-width: 240px;
+}
+
+.validationImage {
+	display: block;
+	width: 100%;
+	max-width: 240px;
+	height: auto;
+	flex: 1;
+	min-width: 0;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+	.deliverPhase .validationImage {
+		max-width: 240px;
 	}
 }
 
@@ -424,7 +459,7 @@
 		left: 50%;
 		top: 50%;
 		width: 140vmax;
-		height: 133vmax; /* 140 * 760/800 to keep aspect */
+		height: 161vmax; /* 140 * 920/800 to keep aspect */
 		transform: translate(-50%, -50%);
 		max-width: none;
 		max-height: none;

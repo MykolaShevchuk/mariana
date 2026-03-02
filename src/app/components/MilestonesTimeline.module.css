@@ -83,7 +83,9 @@
 .rowFull {
 	position: relative;
 	z-index: 1;
-	padding: 8px 0 32px;
+	/* Extra bottom padding reserves space for absolutely-positioned phase content
+	   (phone mockups, images) that overflows the aspect-ratio container */
+	padding: 8px 0 560px;
 }
 
 /* ── Foundation: two blocks (text + image, text + video), left-aligned ─────── */

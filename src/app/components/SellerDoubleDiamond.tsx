@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import styles from './SellerDoubleDiamond.module.css';
+import PhoneMockup from './PhoneMockup';
 
 // ─── Autoplay video when in viewport ───────────────────────────────────────
 function AutoplayInViewVideo({ src }: { src: string }) {
@@ -102,11 +103,12 @@ const phaseConnectorClass: Record<PhaseId, string> = {
 	deliver: styles.deliverConnector,
 };
 
-// ─── SVG coordinate constants (viewBox 0 0 800 760) ──────────────────────
+// ─── SVG coordinate constants (viewBox 0 0 800 920) ──────────────────────
 //
-//  Outlined diamonds: 5% smaller (half=138), connected at (400, 380).
+//  Outlined diamonds: 5% smaller (half=138), connected at (400,380).
 //  Diamond 1 — center (400,242), half=138: top (400,104) right (538,242) bottom (400,380) left (262,242)
 //  Diamond 2 — center (400,518), half=138: top (400,380) right (538,518) bottom (400,656) left (262,518)
+//  ViewBox is taller than the diamonds (920 vs 760) to give content room below.
 //
 //  Filled diamonds: inset (half=117), same centers, rendered behind outline.
 //  Filled 1: 400,125 517,242 400,359 283,242
@@ -166,8 +168,8 @@ function DiscoverModal({
 			</button>
 			<div className={styles.discoverModalContent}>
 				<img
-					src="/user-flows-placing.png"
-					alt="User flows flowchart: property listing paths for For Sale, To rent, To Share, and To Swap"
+					src="/user-flows-placing.png?v=3"
+					alt="User flow: Sell flow (login, location selected, draft)"
 					className={styles.discoverModalImage}
 				/>
 				<video
@@ -249,84 +251,51 @@ export default function SellerDoubleDiamond() {
 			{/* ── Desktop: SVG + absolutely-positioned phase blocks; mobile: diagram on stripe, phases right ─────────── */}
 			<div className={styles.desktopLayout}>
 				<div className={styles.diagramColumn}>
-				<svg
-					className={styles.svg}
-					viewBox='0 0 800 760'
-					xmlns='http://www.w3.org/2000/svg'
-					aria-hidden='true'
-				>
-				{/* Connector lines — horizontal at each text's y-level to the diamond edge */}
-				{/* Discover → top vertex of diamond 1 (left, y=90) */}
-				<line
-					x1='240'
-					y1='90'
-					x2='400'
-					y2='90'
-					className={`${styles.connector} ${phaseConnectorClass.discover} ${isConnectorHighlighted('discover') ? styles.highlighted : ''}`}
-				/>
-				{/* Define → right edge of diamond 1 at y=290 (center y=235, offset=55 → x=490) */}
-				<line
-					x1='560'
-					y1='290'
-					x2='490'
-					y2='290'
-					className={`${styles.connector} ${phaseConnectorClass.define} ${isConnectorHighlighted('define') ? styles.highlighted : ''}`}
-				/>
-				{/* Develop → left edge of diamond 2 at y=470 (half=138 → x=352) */}
-				<line
-					x1='240'
-					y1='470'
-					x2='352'
-					y2='470'
-					className={`${styles.connector} ${phaseConnectorClass.develop} ${isConnectorHighlighted('develop') ? styles.highlighted : ''}`}
-				/>
-				{/* Deliver → bottom vertex of diamond 2 (right, y=670) */}
-				<line
-					x1='560'
-					y1='670'
-					x2='400'
-					y2='670'
-					className={`${styles.connector} ${phaseConnectorClass.deliver} ${isConnectorHighlighted('deliver') ? styles.highlighted : ''}`}
-				/>
+			<svg
+				className={styles.svg}
+				viewBox='0 0 800 920'
+				xmlns='http://www.w3.org/2000/svg'
+				aria-hidden='true'
+			>
 
-				{/* Filled diamonds — inset inside outline (half=117), behind the outlined ones */}
-				<polygon
-					points='400,125 517,242 400,359 283,242'
-					className={styles.diamondFilled}
-					aria-hidden='true'
-				/>
-				<polygon
-					points='400,401 517,518 400,635 283,518'
-					className={styles.diamondFilled}
-					aria-hidden='true'
-				/>
+			{/* Filled diamonds — inset inside outline (half=117), behind the outlined ones */}
+			<polygon
+				points='400,125 517,242 400,359 283,242'
+				className={styles.diamondFilled}
+				aria-hidden='true'
+			/>
+			<polygon
+				points='400,401 517,518 400,635 283,518'
+				className={styles.diamondFilled}
+				aria-hidden='true'
+			/>
 
-				{/* Diamond 1 — outlined, 5% smaller (half=138), connected at (400,380) */}
-				<polygon
-					points='400,104 538,242 400,380 262,242'
-					className={`${styles.diamond} ${topDiamondHighlighted ? styles.diamondHighlighted : ''}`}
-					onMouseEnter={() => setHoveredDiamond('top')}
-					onMouseLeave={() => setHoveredDiamond(null)}
-				/>
-				{/* Horizontal divider — diamond 1 midpoint */}
-				<line
-					x1='262' y1='242' x2='538' y2='242'
-					className={styles.diamondDivider}
-				/>
+			{/* Diamond 1 — outlined, 5% smaller (half=138), connected at (400,380) */}
+			<polygon
+				points='400,104 538,242 400,380 262,242'
+				className={`${styles.diamond} ${topDiamondHighlighted ? styles.diamondHighlighted : ''}`}
+				onMouseEnter={() => setHoveredDiamond('top')}
+				onMouseLeave={() => setHoveredDiamond(null)}
+			/>
+			{/* Horizontal divider — diamond 1 midpoint */}
+			<line
+				x1='262' y1='242' x2='538' y2='242'
+				className={styles.diamondDivider}
+			/>
 
-				{/* Diamond 2 — outlined, 5% smaller (half=138), connected at (400,380) */}
-				<polygon
-					points='400,380 538,518 400,656 262,518'
-					className={`${styles.diamond} ${bottomDiamondHighlighted ? styles.diamondHighlighted : ''}`}
-					onMouseEnter={() => setHoveredDiamond('bottom')}
-					onMouseLeave={() => setHoveredDiamond(null)}
-				/>
-				{/* Horizontal divider — diamond 2 midpoint */}
-				<line
-					x1='262' y1='518' x2='538' y2='518'
-					className={styles.diamondDivider}
-				/>
-				</svg>
+			{/* Diamond 2 — outlined, 5% smaller (half=138), connected at (400,380) */}
+			<polygon
+				points='400,380 538,518 400,656 262,518'
+				className={`${styles.diamond} ${bottomDiamondHighlighted ? styles.diamondHighlighted : ''}`}
+				onMouseEnter={() => setHoveredDiamond('bottom')}
+				onMouseLeave={() => setHoveredDiamond(null)}
+			/>
+			{/* Horizontal divider — diamond 2 midpoint */}
+			<line
+				x1='262' y1='518' x2='538' y2='518'
+				className={styles.diamondDivider}
+			/>
+			</svg>
 				</div>
 
 				{/* Phase text blocks */}
@@ -351,11 +320,26 @@ export default function SellerDoubleDiamond() {
 										aria-label="Enlarge: user flows flowchart and video"
 									>
 										<img
-											src="/user-flows-placing.png"
-											alt="User flows flowchart: property listing paths for For Sale, To rent, To Share, and To Swap"
+											src="/user-flows-placing.png?v=3"
+											alt="User flow: Sell flow (login, location selected, draft)"
 											className={styles.phaseImage}
 										/>
 									</button>
+								)}
+								{id === 'define' && (
+									<img
+										src="/cjm-sellers.png"
+										alt="Seller apps customer journey map: Create Account and Sign In flows, emotions, JTBD, pain points and conversion funnels"
+										className={styles.phaseImage}
+									/>
+								)}
+								{id === 'develop' && (
+									<PhoneMockup src="/post-ad-flow.mov" type="video" alt="Post ad flow walkthrough" />
+								)}
+								{id === 'deliver' && (
+									<div className={styles.validationImages}>
+										<img src="/validation-testing-grid.png" alt="User feedback from validation testing: participant quotes and video thumbnails by platform" className={styles.validationImage} />
+									</div>
 								)}
 							</div>
 						</div>
@@ -380,12 +364,27 @@ export default function SellerDoubleDiamond() {
 									aria-label="Enlarge: user flows flowchart and video"
 								>
 									<img
-										src="/user-flows-placing.png"
-										alt="User flows flowchart: property listing paths for For Sale, To rent, To Share, and To Swap"
+										src="/user-flows-placing.png?v=3"
+										alt="User flow: Sell flow (login, location selected, draft)"
 										className={styles.phaseImage}
 									/>
 								</button>
 							)}
+							{id === 'define' && (
+								<img
+									src="/cjm-sellers.png"
+									alt="Seller apps customer journey map: Create Account and Sign In flows, emotions, JTBD, pain points and conversion funnels"
+									className={styles.phaseImage}
+								/>
+							)}
+						{id === 'develop' && (
+							<PhoneMockup src="/post-ad-flow.mov" type="video" alt="Post ad flow walkthrough" />
+						)}
+						{id === 'deliver' && (
+							<div className={styles.validationImages}>
+								<img src="/validation-testing-grid.png" alt="User feedback from validation testing: participant quotes and video thumbnails by platform" className={styles.validationImage} />
+							</div>
+						)}
 						</div>
 					);
 				})}
