@@ -3,6 +3,45 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './SellerDoubleDiamond.module.css';
 
+// ─── Autoplay video when in viewport ───────────────────────────────────────
+function AutoplayInViewVideo({ src }: { src: string }) {
+	const videoRef = useRef<HTMLVideoElement>(null);
+
+	useEffect(() => {
+		const video = videoRef.current;
+		if (!video) return;
+
+		video.playbackRate = 0.5;
+
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				if (entry.isIntersecting) {
+					video.playbackRate = 0.5;
+					video.play().catch(() => {});
+				} else {
+					video.pause();
+				}
+			},
+			{ threshold: 0.25, rootMargin: '0px 0px -10% 0px' }
+		);
+
+		observer.observe(video);
+		return () => observer.disconnect();
+	}, []);
+
+	return (
+		<video
+			ref={videoRef}
+			className={styles.phaseVideo}
+			src={src}
+			muted
+			playsInline
+			loop
+			aria-label="User flows: placing"
+		/>
+	);
+}
+
 // ─── Types ────────────────────────────────────────────────────────────────
 
 type PhaseId = 'discover' | 'define' | 'develop' | 'deliver';
@@ -78,11 +117,80 @@ const phaseConnectorClass: Record<PhaseId, string> = {
 
 // ─── Component ────────────────────────────────────────────────────────────
 
+// ─── Discover modal (image + video) ─────────────────────────────────────────
+function DiscoverModal({
+	open,
+	onClose,
+}: {
+	open: boolean;
+	onClose: () => void;
+}) {
+	const videoRef = useRef<HTMLVideoElement>(null);
+
+	useEffect(() => {
+		if (open) {
+			videoRef.current?.play().catch(() => {});
+		} else {
+			videoRef.current?.pause();
+		}
+	}, [open]);
+
+	useEffect(() => {
+		if (!open) return;
+		const handleKeyDown = (e: KeyboardEvent) => {
+			if (e.key === 'Escape') onClose();
+		};
+		window.addEventListener('keydown', handleKeyDown);
+		return () => window.removeEventListener('keydown', handleKeyDown);
+	}, [open, onClose]);
+
+	if (!open) return null;
+
+	return (
+		<div
+			className={styles.discoverModalOverlay}
+			onClick={(e) => {
+				if (e.target === e.currentTarget) onClose();
+			}}
+			role="dialog"
+			aria-modal="true"
+			aria-label="Discover: user flows flowchart and video"
+		>
+			<button
+				type="button"
+				className={styles.discoverModalClose}
+				onClick={onClose}
+				aria-label="Close"
+			>
+				×
+			</button>
+			<div className={styles.discoverModalContent}>
+				<img
+					src="/user-flows-placing.png"
+					alt="User flows flowchart: property listing paths for For Sale, To rent, To Share, and To Swap"
+					className={styles.discoverModalImage}
+				/>
+				<video
+					ref={videoRef}
+					src="/user-flows-placing.mov"
+					className={styles.discoverModalVideo}
+					controls
+					playsInline
+					loop
+					muted
+					aria-label="User flows: placing"
+				/>
+			</div>
+		</div>
+	);
+}
+
 export default function SellerDoubleDiamond() {
 	const wrapperRef = useRef<HTMLDivElement>(null);
 	const [revealed, setRevealed] = useState(false);
 	const [hoveredPhase, setHoveredPhase] = useState<PhaseId | null>(null);
 	const [hoveredDiamond, setHoveredDiamond] = useState<'top' | 'bottom' | null>(null);
+	const [discoverModalOpen, setDiscoverModalOpen] = useState(false);
 
 	useEffect(() => {
 		const el = wrapperRef.current;
@@ -235,6 +343,20 @@ export default function SellerDoubleDiamond() {
 								<span className={styles.phaseLabel}>{phase.label}</span>
 								<h3 className={styles.phaseTitle}>{phase.title}</h3>
 								<p className={styles.phaseBody}>{phase.body}</p>
+								{id === 'discover' && (
+									<button
+										type="button"
+										className={styles.phaseImageButton}
+										onClick={() => setDiscoverModalOpen(true)}
+										aria-label="Enlarge: user flows flowchart and video"
+									>
+										<img
+											src="/user-flows-placing.png"
+											alt="User flows flowchart: property listing paths for For Sale, To rent, To Share, and To Swap"
+											className={styles.phaseImage}
+										/>
+									</button>
+								)}
 							</div>
 						</div>
 					);
@@ -250,10 +372,29 @@ export default function SellerDoubleDiamond() {
 							<span className={styles.phaseLabel}>{phase.label}</span>
 							<h3 className={styles.phaseTitle}>{phase.title}</h3>
 							<p className={styles.phaseBody}>{phase.body}</p>
+							{id === 'discover' && (
+								<button
+									type="button"
+									className={styles.phaseImageButton}
+									onClick={() => setDiscoverModalOpen(true)}
+									aria-label="Enlarge: user flows flowchart and video"
+								>
+									<img
+										src="/user-flows-placing.png"
+										alt="User flows flowchart: property listing paths for For Sale, To rent, To Share, and To Swap"
+										className={styles.phaseImage}
+									/>
+								</button>
+							)}
 						</div>
 					);
 				})}
 			</div>
+
+			<DiscoverModal
+				open={discoverModalOpen}
+				onClose={() => setDiscoverModalOpen(false)}
+			/>
 		</div>
 	);
 }
