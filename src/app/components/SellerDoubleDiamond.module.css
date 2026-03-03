@@ -86,6 +86,35 @@
 	opacity: 1;
 }
 
+/* ── Animated spark ──────────────────────────────────────────────────────── */
+.sparkGroup {
+	opacity: 0;
+	transition: opacity 0.5s ease 1.8s;
+}
+
+.wrapper.revealed .sparkGroup {
+	opacity: 1;
+}
+
+.spark {
+	fill: #ffffff;
+	stroke: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.sparkGroup {
+		display: none;
+	}
+}
+
+/* Desktop: scale 10% and translate so connection point lands on the horizontal divider.
+   Max safe translate is 151px before bottom vertex exits the 920-unit viewBox. */
+@media (min-width: 1024px) {
+	.diamondsGroup {
+		transform-origin: 400px 520px;
+		transform: translate(0, 151px) scale(0.9);
+	}
+}
 
 /* ── Connector lines ─────────────────────────────────────────────────────── */
 .connector {
@@ -121,6 +150,7 @@
 .deliverConnector {
 	transition-delay: 0.63s;
 }
+
 
 /* ── Phase blocks (absolutely positioned on desktop) ─────────────────────── */
 .phase {
@@ -185,6 +215,18 @@
 }
 .deliverInner {
 	transition-delay: 1.21s;
+}
+
+/* Phase text block — min-height on Discover/Define so images align at top */
+.phaseText {
+	display: block;
+}
+
+@media (min-width: 1024px) {
+	.discoverPhase .phaseText,
+	.definePhase .phaseText {
+		min-height: 152px;
+	}
 }
 
 /* ── Phase hover effects ─────────────────────────────────────────────────── */
@@ -263,11 +305,12 @@
 		width: 100%;
 		max-width: 360px;
 	}
-	/* Define phase: same width as Deliver visual so right column is consistent and doesn’t overflow */
+	/* Define phase: crop height to match user flow image aspect ratio (694:1024), trim from bottom */
 	.definePhase .phaseImage {
 		max-width: 240px;
-		max-height: 65vh;
-		object-fit: contain;
+		aspect-ratio: 694 / 1024;
+		object-fit: cover;
+		object-position: top;
 	}
 }
 

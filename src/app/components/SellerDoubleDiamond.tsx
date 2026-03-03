@@ -59,12 +59,12 @@ const PHASES: Record<PhaseId, PhaseData> = {
 	discover: {
 		label: 'Discover',
 		title: 'Mapping the reality',
-		body: 'We mapped existing app and web listing flows to understand how they worked in production. This revealed undocumented logic, inconsistencies, and feature parity gaps across categories.',
+		body: 'We mapped app and web listing flows in production and uncovered undocumented logic and inconsistencies.',
 	},
 	define: {
 		label: 'Define',
-		title: 'Focusing on what matters',
-		body: 'We identified revenue-critical moments in ad creation and management and clarified where clarity, speed, and trust mattered most. Scope was narrowed to what would deliver measurable impact.',
+		title: 'Defining priorities',
+		body: 'Using a customer journey map, we identified friction points and focused on simplifying the most critical steps.',
 	},
 	develop: {
 		label: 'Develop',
@@ -257,44 +257,71 @@ export default function SellerDoubleDiamond() {
 				xmlns='http://www.w3.org/2000/svg'
 				aria-hidden='true'
 			>
-
-			{/* Filled diamonds — inset inside outline (half=117), behind the outlined ones */}
+			<defs>
+				{/* Spark glow: soft #B0F4AC halo around a bright white centre */}
+				<filter id='sparkGlow' x='-200%' y='-200%' width='500%' height='500%'>
+					<feGaussianBlur in='SourceGraphic' stdDeviation='7' result='blur' />
+					<feColorMatrix
+						in='blur'
+						type='matrix'
+						values='0 0 0 0 0.69  0 0 0 0 0.96  0 0 0 0 0.67  0 0 0 1.4 0'
+						result='coloredBlur'
+					/>
+					<feMerge>
+						<feMergeNode in='coloredBlur' />
+						<feMergeNode in='SourceGraphic' />
+					</feMerge>
+				</filter>
+			</defs>
+			<g className={styles.diamondsGroup}>
+			{/* Filled diamonds — connection at (400,520), between Discover/Define and Develop/Deliver */}
 			<polygon
-				points='400,125 517,242 400,359 283,242'
+				points='400,265 517,382 400,499 283,382'
 				className={styles.diamondFilled}
 				aria-hidden='true'
 			/>
 			<polygon
-				points='400,401 517,518 400,635 283,518'
+				points='400,541 517,658 400,775 283,658'
 				className={styles.diamondFilled}
 				aria-hidden='true'
 			/>
 
-			{/* Diamond 1 — outlined, 5% smaller (half=138), connected at (400,380) */}
+			{/* Diamond 1 — outlined, connection at (400,520) */}
 			<polygon
-				points='400,104 538,242 400,380 262,242'
+				points='400,244 538,382 400,520 262,382'
 				className={`${styles.diamond} ${topDiamondHighlighted ? styles.diamondHighlighted : ''}`}
 				onMouseEnter={() => setHoveredDiamond('top')}
 				onMouseLeave={() => setHoveredDiamond(null)}
 			/>
-			{/* Horizontal divider — diamond 1 midpoint */}
 			<line
-				x1='262' y1='242' x2='538' y2='242'
+				x1='262' y1='382' x2='538' y2='382'
 				className={styles.diamondDivider}
 			/>
 
-			{/* Diamond 2 — outlined, 5% smaller (half=138), connected at (400,380) */}
+			{/* Diamond 2 — outlined, connection at (400,520) */}
 			<polygon
-				points='400,380 538,518 400,656 262,518'
+				points='400,520 538,658 400,796 262,658'
 				className={`${styles.diamond} ${bottomDiamondHighlighted ? styles.diamondHighlighted : ''}`}
 				onMouseEnter={() => setHoveredDiamond('bottom')}
 				onMouseLeave={() => setHoveredDiamond(null)}
 			/>
-			{/* Horizontal divider — diamond 2 midpoint */}
 			<line
-				x1='262' y1='518' x2='538' y2='518'
+				x1='262' y1='658' x2='538' y2='658'
 				className={styles.diamondDivider}
 			/>
+
+			{/* Animated spark — travels the full diamond outline */}
+			<g className={styles.sparkGroup} aria-hidden='true' filter='url(#sparkGlow)'>
+				<circle r='3' className={styles.spark}>
+					<animateMotion
+						dur='18s'
+						repeatCount='indefinite'
+						calcMode='linear'
+						path='M 400,244 L 538,382 L 400,520 L 538,658 L 400,796 L 262,658 L 400,520 L 262,382 Z'
+					/>
+				</circle>
+			</g>
+			</g>
 			</svg>
 				</div>
 
@@ -309,9 +336,11 @@ export default function SellerDoubleDiamond() {
 							onMouseLeave={() => setHoveredPhase(null)}
 						>
 							<div className={`${styles.phaseInner} ${phaseInnerClass[id]}`}>
-								<span className={styles.phaseLabel}>{phase.label}</span>
-								<h3 className={styles.phaseTitle}>{phase.title}</h3>
-								<p className={styles.phaseBody}>{phase.body}</p>
+								<div className={styles.phaseText}>
+									<span className={styles.phaseLabel}>{phase.label}</span>
+									<h3 className={styles.phaseTitle}>{phase.title}</h3>
+									<p className={styles.phaseBody}>{phase.body}</p>
+								</div>
 								{id === 'discover' && (
 									<button
 										type="button"
@@ -328,7 +357,7 @@ export default function SellerDoubleDiamond() {
 								)}
 								{id === 'define' && (
 									<img
-										src="/cjm-sellers.png"
+										src="/cjm-sellers.png?v=2"
 										alt="Seller apps customer journey map: Create Account and Sign In flows, emotions, JTBD, pain points and conversion funnels"
 										className={styles.phaseImage}
 									/>
@@ -353,9 +382,11 @@ export default function SellerDoubleDiamond() {
 					const phase = PHASES[id];
 					return (
 						<div key={`m-${id}`} className={styles.mobilePhase}>
-							<span className={styles.phaseLabel}>{phase.label}</span>
-							<h3 className={styles.phaseTitle}>{phase.title}</h3>
-							<p className={styles.phaseBody}>{phase.body}</p>
+							<div className={styles.phaseText}>
+								<span className={styles.phaseLabel}>{phase.label}</span>
+								<h3 className={styles.phaseTitle}>{phase.title}</h3>
+								<p className={styles.phaseBody}>{phase.body}</p>
+							</div>
 							{id === 'discover' && (
 								<button
 									type="button"
@@ -372,7 +403,7 @@ export default function SellerDoubleDiamond() {
 							)}
 							{id === 'define' && (
 								<img
-									src="/cjm-sellers.png"
+									src="/cjm-sellers.png?v=2"
 									alt="Seller apps customer journey map: Create Account and Sign In flows, emotions, JTBD, pain points and conversion funnels"
 									className={styles.phaseImage}
 								/>

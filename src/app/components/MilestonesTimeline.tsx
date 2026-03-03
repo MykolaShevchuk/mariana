@@ -368,15 +368,15 @@ export default function MilestonesTimeline({
 														onClick={() =>
 															setLightbox({
 																kind: 'image',
-																src: '/legacy-app.png',
-																alt: 'Legacy Gumtree app screens showing mattress and car listings',
+																src: '/legacy-app.png?v=2',
+																alt: 'App audit: Create Account and Post an Ad user flows with emotion charts',
 															})
 														}
 														aria-label="Enlarge image"
 													>
 														<img
-															src="/legacy-app.png"
-															alt="Legacy Gumtree app screens showing mattress and car listings"
+															src="/legacy-app.png?v=2"
+															alt="App audit: Create Account and Post an Ad user flows with emotion charts"
 															className={styles.foundationImage}
 														/>
 													</button>
@@ -694,13 +694,35 @@ export default function MilestonesTimeline({
 											<h3 className={styles.milestoneLabel}>{milestone.label}</h3>
 										</div>
 									</div>
-									<div
-										className={`${styles.colRight} ${!isRight || !hasContent ? styles.colEmpty : ''}`}
-									>
-										{isRight && hasContent && (
+								<div
+									className={`${styles.colRight} ${!isRight || !hasContent ? styles.colEmpty : ''}`}
+								>
+									{isRight && hasContent && (
+										<div className={milestone.id === 'webview-shift' ? styles.milestoneWithMedia : undefined}>
 											<ContentBlock milestone={milestone} align='left' />
-										)}
-									</div>
+											{milestone.id === 'webview-shift' && (
+												<button
+													type="button"
+													className={styles.timelineImageButton}
+													onClick={() =>
+														setLightbox({
+															kind: 'image',
+															src: '/promote-ad.png?v=3',
+															alt: 'Promote ad flow: My Gumtree, Promote ad selection, Checkout and Congratulations screens',
+														})
+													}
+													aria-label="Enlarge image"
+												>
+													<img
+														src="/promote-ad.png?v=3"
+														alt="Promote ad flow: My Gumtree, Promote ad selection, Checkout and Congratulations screens"
+														className={styles.timelineImage}
+													/>
+												</button>
+											)}
+										</div>
+									)}
+								</div>
 									{milestone.annotation && (
 										<div
 											className={styles.annotation}
