@@ -643,52 +643,37 @@
 		border-radius: 0 4px 4px 0;
 	}
 
-	/* Turn right: at bottom of top section, horizontal to center */
+	/* Turn right: hidden — stripe goes straight down */
 	.timelineSectionTop .stripeSegmentMobile[data-segment='turn-right'] {
-		left: 0;
-		bottom: 0;
-		width: 50%;
-		height: 10px;
-		top: auto;
-		border-radius: 0 4px 4px 0;
+		display: none;
 	}
 
-	/* Center line: start above middle section so it meets turn-right with no gap */
+	/* Middle section: single stripe covering full height on the left edge */
 	.timelineSectionMiddle .stripeSegmentMobile[data-segment='down-d1'] {
-		left: 50%;
-		top: -10px;
-		width: 10px;
-		height: calc(25% + 10px);
-		margin-left: -5px;
-		border-radius: 4px;
-	}
-
-	/* From center of second diamond down; extend to meet turn-left */
-	.timelineSectionMiddle .stripeSegmentMobile[data-segment='down-d2'] {
-		left: 50%;
-		top: 75%;
-		width: 10px;
-		height: calc(25% + 10px);
-		margin-left: -5px;
-		border-radius: 4px;
-	}
-
-	/* Turn left: extend down into bottom section so it meets main timeline with no gap */
-	.timelineSectionMiddle .stripeSegmentMobile[data-segment='turn-left'] {
 		left: 0;
-		bottom: -10px;
-		width: 50%;
-		height: 20px;
-		top: auto;
+		top: 0;
+		width: 10px;
+		height: 100%;
+		margin-left: 0;
 		border-radius: 0 4px 4px 0;
 	}
 
-	/* Bottom section: stripe overlaps up to meet turn-left */
+	/* down-d2 hidden — down-d1 now covers the full middle section */
+	.timelineSectionMiddle .stripeSegmentMobile[data-segment='down-d2'] {
+		display: none;
+	}
+
+	/* Turn left: hidden — stripe goes straight down */
+	.timelineSectionMiddle .stripeSegmentMobile[data-segment='turn-left'] {
+		display: none;
+	}
+
+	/* Bottom section: stripe continues flush from middle section */
 	.timelineSectionBottom .stripeSegmentMobile[data-segment='bottom'] {
 		left: 0;
-		top: -20px;
+		top: 0;
 		width: 10px;
-		height: calc(100% + 20px);
+		height: 100%;
 		border-radius: 0 4px 4px 0;
 	}
 
@@ -767,13 +752,38 @@
 		font-weight: 600;
 	}
 
-	/* Force left alignment for content blocks */
+	/* Force left alignment for all content blocks */
 	.cbLeft,
 	.cbRight {
 		text-align: left;
 	}
 	.cbRight .body {
 		margin-left: 0;
+	}
+
+	.foundationContentLeft {
+		align-items: flex-start;
+	}
+	.foundationContentLeft .body {
+		text-align: left;
+	}
+	.foundationContentLeft .foundationBlock {
+		align-items: flex-start;
+	}
+
+	.milestoneWithMedia {
+		align-items: flex-start;
+	}
+
+	.directionImages {
+		align-items: flex-start;
+	}
+	.directionImageButton {
+		text-align: left;
+	}
+
+	.impactCards {
+		align-self: flex-start;
 	}
 
 	.annotation {
