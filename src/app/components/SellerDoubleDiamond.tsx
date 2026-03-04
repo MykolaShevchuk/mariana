@@ -174,7 +174,7 @@ function DiscoverModal({
 				/>
 				<video
 					ref={videoRef}
-					src="/user-flows-placing.mov"
+					src="/https://res.cloudinary.com/dueeimpr6/video/upload/v1772666935/user-flows-placing_w9g1xt.mov"
 					className={styles.discoverModalVideo}
 					controls
 					playsInline
@@ -363,7 +363,7 @@ export default function SellerDoubleDiamond() {
 									/>
 								)}
 								{id === 'develop' && (
-									<PhoneMockup src="/post-ad-flow.mov" type="video" alt="Post ad flow walkthrough" />
+									<PhoneMockup src="https://res.cloudinary.com/dueeimpr6/video/upload/v1772666928/post-ad-flow_ck6f9r.mov" type="video" alt="Post ad flow walkthrough" />
 								)}
 								{id === 'deliver' && (
 									<div className={styles.validationImages}>
@@ -409,7 +409,7 @@ export default function SellerDoubleDiamond() {
 								/>
 							)}
 						{id === 'develop' && (
-							<PhoneMockup src="/post-ad-flow.mov" type="video" alt="Post ad flow walkthrough" />
+							<PhoneMockup src="https://res.cloudinary.com/dueeimpr6/video/upload/v1772666928/post-ad-flow_ck6f9r.mov" type="video" alt="Post ad flow walkthrough" />
 						)}
 						{id === 'deliver' && (
 							<div className={styles.validationImages}>

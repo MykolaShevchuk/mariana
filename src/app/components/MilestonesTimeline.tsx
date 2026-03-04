@@ -404,13 +404,13 @@ export default function MilestonesTimeline({
 														onClick={() =>
 															setLightbox({
 																kind: 'video',
-																src: '/foundations.mov',
+																src: 'https://res.cloudinary.com/dueeimpr6/video/upload/v1772667127/foundations_kpq8mj.mov',
 																alt: 'Foundations phase overview',
 															})
 														}
 														aria-label="Enlarge video"
 													>
-														<AutoplayInViewVideo src="/foundations.mov" />
+														<AutoplayInViewVideo src="https://res.cloudinary.com/dueeimpr6/video/upload/v1772667127/foundations_kpq8mj.mov" />
 													</button>
 												</div>
 											</div>
@@ -504,13 +504,13 @@ export default function MilestonesTimeline({
 															onClick={() =>
 																setLightbox({
 																	kind: 'video',
-																	src: '/design-tokens-research.mov',
+																	src: 'https://res.cloudinary.com/dueeimpr6/video/upload/v1772668156/design-tokens-research_x5wlng.mov',
 																	alt: 'Design tokens research',
 																})
 															}
 															aria-label="Enlarge video"
 														>
-															<AutoplayInViewVideo src="/design-tokens-research.mov" />
+															<AutoplayInViewVideo src="https://res.cloudinary.com/dueeimpr6/video/upload/v1772668156/design-tokens-research_x5wlng.mov" />
 														</button>
 													</div>
 												</div>
