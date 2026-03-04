@@ -145,6 +145,12 @@ const MILESTONES: MilestoneItem[] = [
 		eyebrow: 'Phase 09',
 		body: 'The result was a more consistent and scalable mobile experience built on stronger foundations and ready for future growth.',
 	},
+	{
+		id: 'impact',
+		label: 'Impact',
+		eyebrow: 'Phase 10',
+		body: 'The greenfield app launched on time with stable retention, increased replies, and improved revenue.',
+	},
 ];
 
 // ─── ContentBlock sub-component ───────────────────────────────────────────
@@ -635,9 +641,10 @@ export default function MilestonesTimeline({
 									milestone.note ||
 									milestone.isPlaceholder
 							);
-							const isGrowth = milestone.id === 'growth';
-							const isValidation = milestone.id === 'validation';
-							const hasMedia = isGrowth || isValidation;
+						const isGrowth = milestone.id === 'growth';
+						const isValidation = milestone.id === 'validation';
+						const isImpact = milestone.id === 'impact';
+						const hasMedia = isGrowth || isValidation || isImpact;
 							return (
 								<div key={milestone.id} className={styles.row}>
 									<div
@@ -666,26 +673,40 @@ export default function MilestonesTimeline({
 														/>
 													</button>
 												)}
-												{isValidation && (
-													<button
-														type="button"
-														className={styles.timelineImageButton}
-														onClick={() =>
-															setLightbox({
-																kind: 'image',
-																src: '/validation-usability-testing.png',
-																alt: 'Usability testing: Sell Your Item promote ad screen with participant video',
-															})
-														}
-														aria-label="Enlarge image"
-													>
-														<img
-															src="/validation-usability-testing.png"
-															alt="Usability testing: Sell Your Item promote ad screen with participant video"
-															className={styles.timelineImage}
-														/>
-													</button>
-												)}
+											{isValidation && (
+												<button
+													type="button"
+													className={styles.timelineImageButton}
+													onClick={() =>
+														setLightbox({
+															kind: 'image',
+															src: '/validation-usability-testing.png',
+															alt: 'Usability testing: Sell Your Item promote ad screen with participant video',
+														})
+													}
+													aria-label="Enlarge image"
+												>
+													<img
+														src="/validation-usability-testing.png"
+														alt="Usability testing: Sell Your Item promote ad screen with participant video"
+														className={styles.timelineImage}
+													/>
+												</button>
+											)}
+											{isImpact && (
+												<div className={styles.impactCards}>
+													{[
+														{ value: '↑ 8%', label: 'Replies' },
+														{ value: 'Stable', label: 'Retention' },
+														{ value: '↑ 15%', label: 'Revenue' },
+													].map((metric) => (
+														<div key={metric.label} className={styles.impactCard}>
+															<span className={styles.impactCardValue}>{metric.value}</span>
+															<span className={styles.impactCardLabel}>{metric.label}</span>
+														</div>
+													))}
+												</div>
+											)}
 											</div>
 										)}
 									</div>

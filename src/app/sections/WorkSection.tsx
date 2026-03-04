@@ -38,8 +38,7 @@ export default function WorkSection() {
 						subtitle='App redesign'
 						year='2024'
 						description="During the Gumtree iOS and Android app redesign, I owned the sellers' journeys, including Ad creation, management, and partner integrations. I introduced a design system with design tokens (pre-Figma variable times) and cross-platform guidelines to ensure consistency. I also worked with engineers to solve complex multi-category challenges and validated solutions through usability testing."
-						comingSoon={true}
-						// link='/case-studies/gumtree-app'
+					link='/case-studies/gumtree-apps'
 						skills={[
 							'UX Design',
 							'UI Design',

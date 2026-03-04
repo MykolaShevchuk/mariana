@@ -491,17 +491,47 @@
 	line-height: 1.5;
 }
 
-/* ── Floating annotation (handwritten-feel) ──────────────────────────────── */
+/* ── Floating annotation — clean pill label (hidden for now, restore after release) ── */
 .annotation {
-	position: absolute;
+	display: none;
+}
+
+/* ── Impact: metric cards in timeline ────────────────────────────────────── */
+.impactCards {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	margin-top: 12px;
+	width: 100%;
+	max-width: 280px;
+	align-self: flex-end;
+	background: #132431;
+	border-radius: 16px;
+	padding: 16px;
+}
+
+.impactCard {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	padding: 12px 16px;
+	border: 2px solid #6b7280;
+	border-radius: 12px;
+}
+
+.impactCardValue {
+	font-family: 'Lora', Georgia, serif;
+	font-size: 28px;
+	font-weight: 400;
+	color: #fff;
+	line-height: 1.1;
+}
+
+.impactCardLabel {
 	font-family: Inter, system-ui, sans-serif;
-	font-size: 11px;
-	font-style: italic;
-	color: #64748b;
+	font-size: 13px;
+	color: rgba(255, 255, 255, 0.6);
 	line-height: 1.4;
-	white-space: nowrap;
-	pointer-events: none;
-	z-index: 3;
 }
 
 /* ── Placeholder (double diamond coming soon) ────────────────────────────── */

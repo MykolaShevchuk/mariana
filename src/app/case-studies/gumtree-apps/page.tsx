@@ -6,6 +6,7 @@ import TextSection from '@/components/TextSection';
 import BentoGrid from '@/components/BentoGrid';
 import TokenWorkflowDiagram from '@/components/TokenWorkflowDiagram';
 import MilestonesTimeline from '@/components/MilestonesTimeline';
+import ImpactMetrics from '@/components/ImpactMetrics';
 import AnimateOnScroll from '@/components/AnimateOnScroll';
 
 export default function GumtreeAppsPage() {
@@ -34,7 +35,7 @@ export default function GumtreeAppsPage() {
 						<div className='flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-16 items-start'>
 							<div className='w-full lg:w-[20%]'>
 								<p className='text-[#474747] text-base sm:text-lg md:text-xl lg:text-2xl font-light mb-1 sm:mb-2'>
-									H1 2025
+									H1 2024
 								</p>
 								<p className='text-[#474747] text-base sm:text-lg md:text-xl lg:text-2xl font-light mb-1 sm:mb-2'>
 									Gumtree.com
@@ -43,10 +44,11 @@ export default function GumtreeAppsPage() {
 
 							<div className='flex-1 max-w-4xl'>
 								<p className="text-[#464040] text-[18px] sm:text-[20px] lg:text-[24px] leading-[28px] sm:leading-[32px] lg:leading-[36px] mb-6 sm:mb-8 font-['Inter'] text-pretty">
-									During the Gumtree iOS and Android app redesign, I led the redesign of seller journeys, including ad creation, management, and partner integrations. I established the foundations of a cross-platform design system using design tokens (prior to Figma Variables) to ensure consistency and scalability. Working closely with engineers, I tackled complex multi-category constraints and validated key decisions through usability testing.
+									During the Gumtree iOS and Android app redesign, I led the redesign of seller journeys, including ad creation, management, and partner integrations. I established the foundations of a cross-platform design system using design tokens (prior to Figma Variables) to ensure consistency and scalability. Working closely with engineers, I tackled complex multi-category constraints and validated key decisions through usability testing. The redesign delivered measurable improvements compared to the legacy app, increasing replies by 8%, driving a 15% uplift in revenue, and maintaining stable platform retention.
 								</p>
 
-								<dl className="grid gap-4 sm:gap-5 text-[#464040] font-['Inter']">
+								{/* Role, Team, Scope, Impact, Constraints — hidden for now */}
+								<dl className="hidden grid gap-4 sm:gap-5 text-[#464040] font-['Inter']">
 									<div>
 										<dt className='text-[14px] sm:text-[15px] font-semibold text-[#2d2d2d] mb-1'>Role</dt>
 										<dd className='text-[15px] sm:text-[16px] lg:text-[17px] leading-relaxed'>
@@ -110,6 +112,19 @@ export default function GumtreeAppsPage() {
 				</AnimateOnScroll>
 			</section>
 
+			{/* Impact Section */}
+			<ImpactMetrics
+				title=''
+				subtitle='Outcome'
+				description="Before we dive into the project details, here's a snapshot of the impact we delivered."
+				metrics={[
+					{ value: '↑ 8%', label: 'Replies' },
+					{ value: 'Stable', label: 'Retention' },
+					{ value: '↑ 15%', label: 'Revenue' },
+				]}
+				className='mt-8 sm:mt-16 mb-16 sm:mb-32'
+			/>
+
 			{/* Context & Constraints */}
 			<TextSection title="Context & Constraints">
 				<p className="mb-6 sm:mb-8">
@@ -157,6 +172,8 @@ export default function GumtreeAppsPage() {
 
 		<MilestonesTimeline />
 
+		{/* Content below timeline — hidden for now (do not publish to prod) */}
+		<div className="hidden">
 		<TextSection preTitle="Phase 1" title="Design System as an Enabler" noBottomPadding>
 				<p className="mb-6 sm:mb-8">
 					Creating a shared foundation to support a greenfield app rebuild and faster product delivery.
@@ -305,6 +322,7 @@ export default function GumtreeAppsPage() {
 		</TextSection>
 
 		<BentoGrid />
+		</div>
 	</div>
 	);
 }
