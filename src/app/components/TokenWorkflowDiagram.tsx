@@ -406,12 +406,12 @@ function DiagramNode({ node, isHovered, isDimmed, logoClipPathId, onMouseEnter, 
 					<text x={LOGO_SIZE / 2} y={LOGO_SIZE + 14} textAnchor="middle" className={styles.logoNodeLabel}>{node.label}</text>
 					{node.sublabel && (
 						<foreignObject x={LOGO_SIZE / 2 - LOGO_SIZE} y={LOGO_SIZE + 18} width={LOGO_SIZE * 2} height={28} className={styles.logoNodeSublabelForeign}>
-							<div className={styles.logoNodeSublabelWrap} xmlns="http://www.w3.org/1999/xhtml">{node.sublabel}</div>
+							<div className={styles.logoNodeSublabelWrap}>{node.sublabel}</div>
 						</foreignObject>
 					)}
 					{node.badge && (
 						<foreignObject x={LOGO_SIZE / 2 - LOGO_SIZE} y={LOGO_SIZE + BADGE_TOP_OFFSET} width={LOGO_SIZE * 2} height={22} className={styles.logoNodeSublabelForeign}>
-							<div className={styles.logoNodeBadge} xmlns="http://www.w3.org/1999/xhtml">{node.badge}</div>
+							<div className={styles.logoNodeBadge}>{node.badge}</div>
 						</foreignObject>
 					)}
 				</g>
